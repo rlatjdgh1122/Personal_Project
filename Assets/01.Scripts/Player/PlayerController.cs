@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,9 +8,13 @@ public class PlayerController : MonoBehaviour, IPlayerHandle
 {
     public PlayerStatData statData;
 
-    public UnityEvent<float> OnMovement;
+    public UnityEvent<Vector3> OnMovement;
+    public UnityEvent<Vector3> OnRotate;
+
+    private Vector3 movePos = Vector3.zero;
     private void Awake()
     {
+
     }
     void Start()
     {
@@ -20,7 +25,28 @@ public class PlayerController : MonoBehaviour, IPlayerHandle
     void Update()
     {
         Move();
+        Rotation();
     }
+
+    private void Rotation()
+    {
+        Ray cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        Plane GroupPlane = new Plane(Vector3.up, Vector3.zero);
+
+        float rayLength;
+
+        if (GroupPlane.Raycast(cameraRay, out rayLength))
+
+        {
+
+            Vector3 pointTolook = cameraRay.GetPoint(rayLength);
+
+            movePos = new Vector3(pointTolook.x, transform.position.y, pointTolook.z);
+        }
+        OnRotate?.Invoke(movePos);
+    }
+
     public void Attack()
     {
         throw new System.NotImplementedException();
@@ -28,7 +54,15 @@ public class PlayerController : MonoBehaviour, IPlayerHandle
 
     public void Move()
     {
-        OnMovement?.Invoke(statData.moveSpeed);
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        Vector3 movement = new Vector3(horizontal, 0f, vertical);
+
+        movement = transform.TransformDirection(movement);
+        movement *= statData.moveSpeed;
+
+        OnMovement?.Invoke(movement);
     }
 
     public void WaponSwap()
