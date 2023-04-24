@@ -12,9 +12,11 @@ public class PlayerController : MonoBehaviour, IPlayerHandle
     public UnityEvent<Vector3> OnRotate;
 
     private Vector3 movePos = Vector3.zero;
+
+    private Animator animator;
     private void Awake()
     {
-
+        animator = GetComponent<Animator>();
     }
     void Start()
     {
@@ -56,6 +58,11 @@ public class PlayerController : MonoBehaviour, IPlayerHandle
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
+
+        animator.SetFloat("MoveX", horizontal);
+        animator.SetFloat("MoveY", vertical);
+
+        Debug.Log("MoveX : " + horizontal + "MoveY : " + vertical);
 
         Vector3 movement = new Vector3(horizontal, 0f, vertical);
 
