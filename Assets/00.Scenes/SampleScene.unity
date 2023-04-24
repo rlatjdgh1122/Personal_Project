@@ -2879,7 +2879,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4535171380457864}
   m_Layer: 0
-  m_Name: Eyebrows 1
+  m_Name: Eyebrows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4972,7 +4972,7 @@ Animator:
   m_GameObject: {fileID: 1482964358383958}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 6aa8f6756ec685443847b09fc4fc149c, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fa12857c9eae2fd46970292b7724870d, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
