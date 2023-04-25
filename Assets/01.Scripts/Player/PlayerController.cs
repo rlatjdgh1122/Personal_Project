@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour, IPlayerHandle
     private Animator animator;
     private void Awake()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
     }
     void Start()
     {

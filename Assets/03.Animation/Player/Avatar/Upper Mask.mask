@@ -18,7 +18,7 @@ AvatarMask:
   - m_Path: Armature/Root/Hips
     m_Weight: 0
   - m_Path: Armature/Root/Hips/Spine_01
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Armature/Root/Hips/Spine_01/Spine_02
     m_Weight: 0
   - m_Path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03
@@ -204,9 +204,9 @@ AvatarMask:
   - m_Path: Female_Body/Torso_F/Torso_F_AA_002
     m_Weight: 0
   - m_Path: Male_Body
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Male_Body/Arm_M
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Male_Body/Arm_M/Arm_M_L_AA_001
     m_Weight: 0
   - m_Path: Male_Body/Arm_M/Arm_M_L_AA_002
@@ -258,7 +258,7 @@ AvatarMask:
   - m_Path: Male_Body/Hair_M/Hair_M_AA_002
     m_Weight: 0
   - m_Path: Male_Body/Hand_M
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Male_Body/Hand_M/Hand_M_L_AA_001
     m_Weight: 0
   - m_Path: Male_Body/Hand_M/Hand_M_L_AA_002
@@ -268,7 +268,7 @@ AvatarMask:
   - m_Path: Male_Body/Hand_M/Hand_M_R_AA_002
     m_Weight: 0
   - m_Path: Male_Body/Head_M
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Male_Body/Head_M/Head_M_AA_001
     m_Weight: 0
   - m_Path: Male_Body/Head_M/Head_M_AA_002
