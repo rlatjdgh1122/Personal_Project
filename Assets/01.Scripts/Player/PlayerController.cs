@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour, IPlayerHandle
     private Animator animator;
     private void Awake()
     {
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
     }
     void Start()
     {
@@ -39,9 +39,7 @@ public class PlayerController : MonoBehaviour, IPlayerHandle
         float rayLength;
 
         if (GroupPlane.Raycast(cameraRay, out rayLength))
-
         {
-
             Vector3 pointTolook = cameraRay.GetPoint(rayLength);
 
             movePos = new Vector3(pointTolook.x, transform.position.y, pointTolook.z);
