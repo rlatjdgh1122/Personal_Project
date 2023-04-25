@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Movement(Vector3 movement)
     {
-        Debug.Log(movement);
         transform.Translate(movement * Time.deltaTime, Space.World);
     }
 }
