@@ -14,12 +14,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Movement(Vector3 movement)
     {
-        moveDirection.y -= 20 * Time.deltaTime;
-
-        // 이동 실행
-        characterController.Move(moveDirection * Time.deltaTime);
-
-        // 캐릭터 이동
-        characterController.Move(movement * Time.deltaTime);
+        Debug.Log(movement);
+        transform.Translate(movement * Time.deltaTime, Space.World);
     }
 }

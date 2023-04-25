@@ -12,15 +12,8 @@ public class MapManager : MonoBehaviour
     {
         obstacles.ForEach(p =>
         {
-            Instantiate(Pedestal, transform.position, Quaternion.identity);
-            Instantiate(p, Pedestal.transform.parent);
+            GameObject per = Instantiate(Pedestal, transform.position, Quaternion.identity);
+            Instantiate(p, per.transform.parent);
         });
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

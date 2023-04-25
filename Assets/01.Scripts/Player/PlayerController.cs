@@ -62,13 +62,9 @@ public class PlayerController : MonoBehaviour, IPlayerHandle
         animator.SetFloat("MoveX", horizontal);
         animator.SetFloat("MoveY", vertical);
 
-        Debug.Log("MoveX : " + horizontal + "MoveY : " + vertical);
+        Vector3 movement = new Vector3(horizontal, 0, vertical);
 
-        Vector3 movement = new Vector3(horizontal, 0f, vertical);
-
-        movement = transform.TransformDirection(movement);
         movement *= statData.moveSpeed;
-
         OnMovement?.Invoke(movement);
     }
 
