@@ -1,15 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-[System.Serializable]
-public class WheatherTrees
-{
-    public List<GameObject> SpringTrees;
-    public List<GameObject> SummerTrees;
-    public List<GameObject> FallTrees;
-    public List<GameObject> WinterTrees;
-}
 public enum Season
 {
     Spring, Summer, Fall, winter
@@ -19,52 +11,54 @@ public class MapManager : MonoBehaviour
     public static MapManager instance;
 
     [SerializeField]
-    private WheatherTrees TreeList = new();
+    private List<GameObject> Trees = new();
 
     private Transform playerPos;
 
     public Season currentSeason;
+    public Dictionary<Season, Material> MatKey = new();
+    public Material[] mats;
+    /*    private readonly string SpringTxt = "Textures/Spring";
+        private readonly string SummerTxt = "Textures/Summer";
+        private readonly string FallTxt = "Textures/Fall";
+        private readonly string WinterTxt = "Textures/Winter";*/
     void Awake()
     {
         if (instance == null)
             instance = this;
         else Destroy(this);
 
-        playerPos = GameManager.Instance.playerPos;
+       // playerPos = GameManager.Instance.playerPos;
+
+        KeySetting();
     }
+
+    private void KeySetting()
+    {
+        MatKey.Add(Season.winter, mats[0]);
+        MatKey.Add(Season.Summer, mats[1]);
+        MatKey.Add(Season.Spring, mats[2]);
+        MatKey.Add(Season.Fall,   mats[3]);
+    }
+
     private void Start()
     {
         currentSeason = Season.Spring;
-        SeasonToTree(currentSeason);
+        SpawnTrees(Trees, currentSeason);
     }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            ChangedSeason(Season.Summer);
-            SeasonToTree(currentSeason);
+            ChangedSeason(Season.Fall);
+            SpawnTrees(Trees, currentSeason);
         }
     }
-    public void SeasonToTree(Season season)
+    public void SpawnTrees(List<GameObject> seasonTrees, Season season)
     {
-        switch (season)
-        {
-            case Season.Spring:
-                SpawnTrees(TreeList.SpringTrees);
-                break;
-            case Season.Summer:
-                SpawnTrees(TreeList.SummerTrees);
-                break;
-            case Season.Fall:
-                SpawnTrees(TreeList.FallTrees);
-                break;
-            case Season.winter:
-                SpawnTrees(TreeList.WinterTrees);
-                break;
-        }
-    }
-    public void SpawnTrees(List<GameObject> seasonTrees)
-    {
+        seasonTrees.Shuffle();
+
+        seasonTrees.ForEach(t => { t.GetComponent<Renderer>().material = MatKey[season]; });
         Map map = PoolManager.Instance.Pop("Map") as Map;
         map.SpawnTrees(seasonTrees);
     }

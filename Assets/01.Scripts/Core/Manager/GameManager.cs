@@ -7,10 +7,11 @@ public class GameManager : MonoBehaviour
     public PoolListData PoolListData;
     public static GameManager Instance;
 
+    [SerializeField]
     private Transform _playerPos;
     public Transform playerPos => _playerPos;
-
-   private void Awake()
+    
+    private void Awake()
     {
         if(Instance == null)
             Instance = this;

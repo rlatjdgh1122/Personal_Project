@@ -229,7 +229,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 307075966}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 7.571068, z: -7.0710683}
+  m_LocalPosition: {x: 0, y: 8.071068, z: -7.071068}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -515,52 +515,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee5360943eed3de43863b3870a527ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TreeList:
-    SpringTrees:
-    - {fileID: 152404, guid: 5037d6ea184d2f640bf78dcf9894a269, type: 3}
-    - {fileID: 184622, guid: c7bcf19bbfa57ed4ea9147dff66d5542, type: 3}
-    - {fileID: 115020, guid: a0c53a09e4a37b5409b1248ebce2c376, type: 3}
-    - {fileID: 111494, guid: 62724a8cd2495b14f930b7129c3bc47b, type: 3}
-    - {fileID: 115084, guid: 7c5aafe3fe2c6ef4a9150f7f44653760, type: 3}
-    - {fileID: 195476, guid: ec7286e0017272441a3dec9205cb8daf, type: 3}
-    - {fileID: 127928, guid: eed418c5a3c80d448b4cdbe594ebe3c5, type: 3}
-    - {fileID: 112728, guid: 069e1e44b643edc4fb4a9d4311a78fb7, type: 3}
-    - {fileID: 180214, guid: aec50823ac9be1b45b5778c3b6c0f51a, type: 3}
-    - {fileID: 188992, guid: 11d469914a0208343b39f04223416f9c, type: 3}
-    SummerTrees:
-    - {fileID: 147220, guid: 446fc4730aadcd04985c8dafaaf0c501, type: 3}
-    - {fileID: 112728, guid: 069e1e44b643edc4fb4a9d4311a78fb7, type: 3}
-    - {fileID: 151792, guid: 1e4e7284c1efd5f4eb702c799353072c, type: 3}
-    - {fileID: 195476, guid: ec7286e0017272441a3dec9205cb8daf, type: 3}
-    - {fileID: 176282, guid: ac00d368a6864c04791bc85c5567bd51, type: 3}
-    - {fileID: 114672, guid: 98653de49a7044442972e6997c40db16, type: 3}
-    - {fileID: 127928, guid: eed418c5a3c80d448b4cdbe594ebe3c5, type: 3}
-    - {fileID: 174854, guid: 3fd9507fb16d56044bcf520c1d14427c, type: 3}
-    - {fileID: 118422, guid: 107cc8771223daf48be99527559937ff, type: 3}
-    - {fileID: 136866, guid: 2327ed4809c34cf4c97a5316db3d4796, type: 3}
-    FallTrees:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    WinterTrees:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+  Trees:
+  - {fileID: 117604, guid: 9469bb1d3aa88ca40aa4079e96a27f8e, type: 3}
+  - {fileID: 149218, guid: fc05c8bfad7df5a4abe568aca7403b9e, type: 3}
+  - {fileID: 3280954832896495984, guid: 16f2984ddb0bcff428a8128d16546ed2, type: 3}
+  - {fileID: 6733081880708953150, guid: 0ab272ee5b7e7ed41b1858ea66d1564b, type: 3}
+  - {fileID: 151190, guid: a9cc5585b9634a9449920c03ec6bc243, type: 3}
+  - {fileID: 104588, guid: 702740a5e4ac1ee40a1888d3b62faa91, type: 3}
+  - {fileID: 198980, guid: 55ca4401075700d46a23ae8179a79579, type: 3}
+  - {fileID: 136866, guid: 2327ed4809c34cf4c97a5316db3d4796, type: 3}
+  - {fileID: 8220955961737777834, guid: b1bc190a5e5ec964c80958635508f85a, type: 3}
+  - {fileID: 2017674540172050127, guid: 6fc13be1bb5b33d44841bf76de771ea3, type: 3}
   currentSeason: 0
+  mats:
+  - {fileID: 2100000, guid: d945c681c4504df439962c1a6f33d8af, type: 2}
+  - {fileID: 2100000, guid: 894583d895d58b444b8e8b67169bd2a4, type: 2}
+  - {fileID: 2100000, guid: fe3e3b8ebc1a32647b48b7ea88f534a8, type: 2}
+  - {fileID: 2100000, guid: a62e8da5194101042a4d89028ef6f912, type: 2}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,7 +704,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 7.571068, z: -7.0710683}
+  m_LocalPosition: {x: 0, y: 8.071068, z: -7.071068}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -819,6 +790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PoolListData: {fileID: 11400000, guid: c18bc207ba1066e448ef2a19141b2231, type: 2}
+  _playerPos: {fileID: 4565319670806500}
 --- !u!1 &1003811506492322
 GameObject:
   m_ObjectHideFlags: 0
@@ -3963,7 +3935,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1482964358383958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

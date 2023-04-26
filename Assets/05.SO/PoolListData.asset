@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolData:
   - prefab: {fileID: 8636700265686008902, guid: fa7b14ca2a7d08440944fd9387c29977, type: 3}
-    count: 10
+    count: 50
