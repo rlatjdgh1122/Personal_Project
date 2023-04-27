@@ -50,31 +50,32 @@ public class MapManager : MonoBehaviour
     {
         playerPos = GameManager.Instance.playerPos;
         currentSeason = Season.Spring;
-        SpawnTrees(50);
+        SpawnMaps(0);
     }
-    public void SpawnTrees(int dis)
+    public List<Map> maps = new();
+    public void SpawnMaps(float dotValue)   
     {
         Trees.ForEach(t => { t.GetComponent<Renderer>().material = MatKey[currentSeason]; });
 
+        Map frontMap = PoolManager.Instance.Pop("Map") as Map;
+        frontMap.SetTransform(new Vector3(0, 0, CurrentDistance + 50));
+        frontMap.SpawnTrees(Trees);
+
         Map map = PoolManager.Instance.Pop("Map") as Map;
-        map.SetTransform(new Vector3(0, 0, CurrentDistance + dis));
+        map.SetTransform(new Vector3(0, 0, CurrentDistance));
         map.SpawnTrees(Trees);
 
-        Map map1 = PoolManager.Instance.Pop("Map") as Map;
-        map1.SetTransform(new Vector3(0, 0, CurrentDistance));
-        map1.SpawnTrees(Trees);
+        Map backMap = PoolManager.Instance.Pop("Map") as Map;
+        backMap.SetTransform(new Vector3(0, 0, CurrentDistance - 50));
+        backMap.SpawnTrees(Trees);
 
-        Map map2 = PoolManager.Instance.Pop("Map") as Map;
-        map2.SetTransform(new Vector3(0, 0, CurrentDistance - dis));
-        map2.SpawnTrees(Trees);
-
-        if(dis > 0)
+        if(dotValue > 0) //앞으로 갔을때
         {
-            PoolManager.Instance.Push(map2);
+            PoolManager.Instance.Push(backMap);
         }
-        else if(dis < 0)
+        else if(dotValue < 0) //뒤로 갔을때
         {
-            PoolManager.Instance.Push(map);
+            PoolManager.Instance.Push(frontMap);
         }
     }
     public void ChangedSeason(Season nextSeaon)
