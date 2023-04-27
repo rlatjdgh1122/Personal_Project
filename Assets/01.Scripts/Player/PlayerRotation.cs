@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerRotation : MonoBehaviour
 {
-   public void Rotation(Vector3 target)
+    public void Rotation(Vector3 target)
     {
-        transform.LookAt(target);
+        //transform.LookAt(target);
+        target.y = 0;
+        Debug.Log(target);
+        transform.rotation = Quaternion.LookRotation(target);
     }
 }

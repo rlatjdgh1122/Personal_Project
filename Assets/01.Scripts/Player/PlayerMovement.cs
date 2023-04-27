@@ -12,8 +12,10 @@ public class PlayerMovement : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
     }
-    public void Movement(Vector3 movement)
+    public void Movement(Vector3 movement, float speed)
     {
-        transform.Translate(movement * Time.deltaTime, Space.World);
+        movement.y += -9.8f * Time.deltaTime;
+
+        characterController.Move(movement * speed * Time.deltaTime);
     }
 }

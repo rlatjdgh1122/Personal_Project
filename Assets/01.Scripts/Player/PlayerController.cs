@@ -8,8 +8,9 @@ public class PlayerController : MonoBehaviour, IPlayerHandle
 {
     public PlayerStatData statData;
 
-    public UnityEvent<Vector3> OnMovement;
+    public UnityEvent<Vector3,float> OnMovement;
     public UnityEvent<Vector3> OnRotate;
+    public UnityEvent OnAttack;
 
     private Vector3 movePos = Vector3.zero;
 
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour, IPlayerHandle
     {
         Move();
         Rotation();
+        Attack();
     }
 
     private void Rotation()
@@ -44,12 +46,16 @@ public class PlayerController : MonoBehaviour, IPlayerHandle
 
             movePos = new Vector3(pointTolook.x, transform.position.y, pointTolook.z);
         }
+        Debug.Log(movePos);
         OnRotate?.Invoke(movePos);
     }
 
     public void Attack()
     {
-        throw new System.NotImplementedException();
+        if (Input.GetMouseButton(0))
+        {
+            OnAttack?.Invoke();
+        }
     }
 
     public void Move()
@@ -61,9 +67,8 @@ public class PlayerController : MonoBehaviour, IPlayerHandle
         animator.SetFloat("MoveY", vertical);
 
         Vector3 movement = new Vector3(horizontal, 0, vertical);
-
-        movement *= statData.moveSpeed;
-        OnMovement?.Invoke(movement);
+       
+        OnMovement?.Invoke(movement, statData.moveSpeed);
     }
 
     public void WaponSwap()

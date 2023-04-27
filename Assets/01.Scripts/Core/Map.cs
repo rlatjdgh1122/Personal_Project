@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,6 +10,9 @@ public class Map : PoolableMono
 {
     private List<Transform> Points = new();
     private Vector3 centerPos;
+
+
+    //private GameObject[] trees = new GameObject[10];
     private void Awake()
     {
         Transform SpawnPoints = transform.Find("Pedestal")?.transform;
@@ -31,24 +35,25 @@ public class Map : PoolableMono
     {
         transform.position = new Vector3(0, 0, setPos.z);
     }
+    public List<GameObject> trees = new();
     public void SpawnTrees(List<GameObject> seasonTrees)
     {
-        seasonTrees.Shuffle();
         for (int i = 0; i < seasonTrees.Count; i++)
         {
-            GameObject obj = Instantiate(seasonTrees[i], Points[i]);
+            /*trees[i] = Instantiate(seasonTrees[i], Points[i]);
+            trees[i].GetComponent<MeshRenderer>().material = MapManager.Instance.MatKey[MapManager.Instance.currentSeason];*/
+
+           trees.Add(Instantiate(seasonTrees[i], Points[i]));
+            trees[i].GetComponent<MeshRenderer>().material = MapManager.Instance.MatKey[MapManager.Instance.currentSeason];
+
         }
     }
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("맵밖으로 나감");
-
             Vector3 objectToTarget = collision.transform.position - centerPos; // 게임 오브젝트에서 특정 위치까지의 벡터를 계산합니다.
-            Debug.Log(centerPos);
             float dot = Vector3.Dot(Vector3.forward.normalized, objectToTarget.normalized);
-            Debug.Log("내적 값 : " + dot);
             if (dot > 0)
             {
                 MapManager.Instance.CurrentDistance += 50;
@@ -62,6 +67,7 @@ public class Map : PoolableMono
     }
     public override void Init()
     {
-        Debug.Log("초기화~");
+        trees.ForEach( p => Destroy(p));
+        trees.Clear();
     }
 }
