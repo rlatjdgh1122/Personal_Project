@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour, IPlayerHandle
     private Vector3 movePos = Vector3.zero;
 
     private Animator animator;
+    [SerializeField]
+    private Camera cam;
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
@@ -28,25 +30,17 @@ public class PlayerController : MonoBehaviour, IPlayerHandle
     void Update()
     {
         Move();
-        Rotation();
+        LookRotateMouseCursor();
         Attack();
     }
 
-    private void Rotation()
+    private void LookRotateMouseCursor()
     {
-        Ray cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        Plane GroupPlane = new Plane(Vector3.up, Vector3.zero);
-
-        float rayLength;
-
-        if (GroupPlane.Raycast(cameraRay, out rayLength))
-        {
-            Vector3 pointTolook = cameraRay.GetPoint(rayLength);
-
-            movePos = new Vector3(pointTolook.x, transform.position.y, pointTolook.z);
-        }
-        Debug.Log(movePos);
+        Ray cameraRay = cam.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(cameraRay, out hit))
+            movePos = new Vector3(hit.point.x, transform.position.y, hit.point.z) -
+                transform.position;
         OnRotate?.Invoke(movePos);
     }
 

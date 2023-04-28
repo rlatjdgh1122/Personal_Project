@@ -15,6 +15,7 @@ public class Map : PoolableMono
     //private GameObject[] trees = new GameObject[10];
     private void Awake()
     {
+        Debug.Log(transform.name);
         Transform SpawnPoints = transform.Find("Pedestal")?.transform;
 
         foreach (Transform trm in SpawnPoints)
@@ -23,8 +24,9 @@ public class Map : PoolableMono
         }
     }
 
-    private void OnCollisionEnter()
+    private void OnCollisionEnter(Collision other)
     {
+        Debug.Log("wqerhk");
         Vector3 topRight = transform.position + new Vector3(transform.localScale.x / 2, transform.localScale.y / 2, 0);
         Vector3 bottomLeft = transform.position + new Vector3(-transform.localScale.x / 2, -transform.localScale.y / 2, 0);
 
@@ -52,7 +54,8 @@ public class Map : PoolableMono
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Vector3 objectToTarget = collision.transform.position - centerPos; // 게임 오브젝트에서 특정 위치까지의 벡터를 계산합니다.
+            Debug.Log("QWEr");
+            Vector3 objectToTarget = collision.transform.position - centerPos;
             float dot = Vector3.Dot(Vector3.forward.normalized, objectToTarget.normalized);
             if (dot > 0)
             {

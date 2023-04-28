@@ -6,9 +6,8 @@ public class PlayerRotation : MonoBehaviour
 {
     public void Rotation(Vector3 target)
     {
-        //transform.LookAt(target);
+        if(target == Vector3.zero) return;
         target.y = 0;
-        Debug.Log(target);
         transform.rotation = Quaternion.LookRotation(target);
     }
 }
