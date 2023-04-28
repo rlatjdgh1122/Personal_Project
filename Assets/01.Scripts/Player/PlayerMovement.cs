@@ -7,15 +7,16 @@ public class PlayerMovement : MonoBehaviour
 {
     //private CharacterController characterController;
     private Vector3 moveDirection = Vector3.zero;
-    private Rigidbody rigid;
+    private float acceleration = 1f;
+    float currentSpeed = 0;
     private void Awake()
     {
-        rigid = GetComponent<Rigidbody>();
+
     }
     public void Movement(Vector3 movement, float speed)
     {
-       // movement.y += -9.8f * Time.deltaTime;
+        currentSpeed = Mathf.Lerp(currentSpeed, speed, acceleration * Time.deltaTime);
 
-       //rigid.MovePosition(movement * speed * Time.deltaTime);
+        transform.Translate(movement.normalized * currentSpeed * Time.deltaTime, Space.World);
     }
 }
