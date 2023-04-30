@@ -165,12 +165,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnAttack:
+  <OnFireButtonPress>k__BackingField:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 95507706191340402}
         m_TargetAssemblyTypeName: PlayerAttacking, Assembly-CSharp
-        m_MethodName: Attack
+        m_MethodName: Shooting
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -180,7 +180,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  cam: {fileID: 963194227}
+  <OnFireButtonRelease>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 95507706191340402}
+        m_TargetAssemblyTypeName: PlayerAttacking, Assembly-CSharp
+        m_MethodName: StopShooting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &19061238
 GameObject:
   m_ObjectHideFlags: 0
@@ -9304,6 +9318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13c429b16c12c994da2673161b497f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  q: {fileID: 944671302549808923, guid: 7fd5920ff723b9d42a68a9c035cf1abc, type: 3}
 --- !u!114 &95507706191340403
 MonoBehaviour:
   m_ObjectHideFlags: 0

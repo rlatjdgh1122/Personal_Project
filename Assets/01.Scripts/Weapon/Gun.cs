@@ -13,10 +13,10 @@ public class Gun : MonoBehaviour
 
     public UnityEvent OnShoot;
     public UnityEvent OnShootNoAmmo;
-    public UnityEvent OnStopShooting;
-    public UnityEvent<int> OnChangeAmmo;
-    protected bool isShooting;
-    protected bool delayCoroutine = false;
+    public UnityEvent OnStopShooting; //feedback추가
+
+    public bool isShooting = false;
+    public bool delayCoroutine = false;
 
     #region AMMO 관련 코드들
     protected int ammo;
@@ -41,18 +41,21 @@ public class Gun : MonoBehaviour
     }
     private void UseWeapon()
     {
+
         //딜레이가 없다면 발사
         if (isShooting && delayCoroutine == false)
         {
+            Debug.Log("QWEr");
             //총알의 잔량 체크
             if (Ammo >= gundata.bulletCount)
             {
+                Debug.Log("qwert21331");
                 OnShoot?.Invoke();
                 for (int i = 0; i < gundata.bulletCount; i++)
                 {
+                    Debug.Log("qwertㄷㅂㅈㄳㄱㅎ");
                     ShootBullet();
                     Ammo--;
-                    OnChangeAmmo?.Invoke(ammo);
                 }
             }
             else
@@ -68,6 +71,7 @@ public class Gun : MonoBehaviour
 
     private void FinishOneShooting()
     {
+        Debug.Log("WEr");
         StartCoroutine(DelayNextShootCoroutine());
         if (gundata.autoFire == false)
         {
@@ -83,6 +87,7 @@ public class Gun : MonoBehaviour
 
     private void ShootBullet()
     {
+        Debug.Log("피유우우우웅");
         SpawnBullet(firePos.position, CalculateAngle());
     }
 
@@ -101,13 +106,17 @@ public class Gun : MonoBehaviour
         b.SetPositionAndRotation(position, rot);
     }
 
-    public void TryShooting()
+    public void Shooting()
     {
+        Debug.Log("총에서 발싸");
         isShooting = true;
+
+
     }
     public void StopShooting()
     {
         isShooting = false;
+        Debug.Log("3 isShooting : " + isShooting);
         OnStopShooting?.Invoke();
 
     }

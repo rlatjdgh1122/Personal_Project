@@ -8,12 +8,16 @@ public class PlayerController : PlayerData, IPlayerHandle
 {
     public UnityEvent<Vector3> OnMovement;
     public UnityEvent<Vector3> OnRotate;
-    public UnityEvent OnAttack;
+    [field: SerializeField] public UnityEvent OnFireButtonPress { get; set; }
+    [field: SerializeField] public UnityEvent OnFireButtonRelease { get; set; }
 
     private Vector3 movePos = Vector3.zero;
-    [SerializeField]
     private Camera cam;
 
+    private void Start()
+    {
+        cam = Camera.main;
+    }
     void Update()
     {
         Move();
@@ -31,8 +35,7 @@ public class PlayerController : PlayerData, IPlayerHandle
 
         OnRotate?.Invoke(movePos);
     }
-    [field: SerializeField] public UnityEvent OnFireButtonPress { get; set; }
-    [field: SerializeField] public UnityEvent OnFireButtonRelease { get; set; }
+
 
     private bool fireButtonDown = false;
     public void Attack()
@@ -59,16 +62,9 @@ public class PlayerController : PlayerData, IPlayerHandle
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-
-
         Vector3 movement = new Vector3(horizontal, 0, vertical);
 
         OnMovement?.Invoke(movement);
-    }
-
-    public void WaponSwap()
-    {
-        throw new System.NotImplementedException();
     }
 
 }
