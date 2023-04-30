@@ -9317,7 +9317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initStatData: {fileID: 11400000, guid: 47bf9ea480c72c643993898506f5c6dd, type: 2}
-  weapon: {fileID: 11400000, guid: 613f12534e7c2b54390e6805c12505e1, type: 2}
+  weapon: {fileID: 11400000, guid: 3131292916173b54aa43210edfbb1ea3, type: 2}
 --- !u!137 &137078674662040240
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0

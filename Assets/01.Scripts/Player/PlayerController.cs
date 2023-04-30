@@ -19,21 +19,6 @@ public class PlayerController : PlayerData, IPlayerHandle
         Move();
         LookRotateMouseCursor();
         Attack();
-        AttackCoolTime();
-    }
-    private bool isAttack = true;
-    private float time = 0;
-    private void AttackCoolTime()
-    {
-        if (isAttack == false)
-        {
-            time += Time.deltaTime;
-            if (time >= currentWeaponData?.attackSpeed)
-            {
-                isAttack = true;
-                time = 0;
-            }
-        }
     }
 
     private void LookRotateMouseCursor()
@@ -46,23 +31,35 @@ public class PlayerController : PlayerData, IPlayerHandle
 
         OnRotate?.Invoke(movePos);
     }
+    [field: SerializeField] public UnityEvent OnFireButtonPress { get; set; }
+    [field: SerializeField] public UnityEvent OnFireButtonRelease { get; set; }
 
+    private bool fireButtonDown = false;
     public void Attack()
     {
-        if (Input.GetMouseButton(0) && isAttack &&
-            currentWeaponData != null)
+        if (Input.GetAxisRaw("Fire1") > 0 && currentWeaponData != null)
         {
-            isAttack = false;
-            OnAttack?.Invoke();
+            if (fireButtonDown == false)
+            {
+                fireButtonDown = true;
+                OnFireButtonPress?.Invoke();
+            }
+        }
+        else
+        {
+            if (fireButtonDown == true)
+            {
+                fireButtonDown = false;
+                OnFireButtonRelease?.Invoke();
+            }
         }
     }
-    
     public void Move()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        
+
 
         Vector3 movement = new Vector3(horizontal, 0, vertical);
 
