@@ -41,19 +41,17 @@ public class Gun : MonoBehaviour
     }
     private void UseWeapon()
     {
-
+        Debug.Log(isShooting);
         //µô·¹ÀÌ°¡ ¾ø´Ù¸é ¹ß»ç
         if (isShooting && delayCoroutine == false)
         {
-            Debug.Log("QWEr");
+            Debug.Log("½ÇÇàµÊ");
             //ÃÑ¾ËÀÇ ÀÜ·® Ã¼Å©
             if (Ammo >= gundata.bulletCount)
             {
-                Debug.Log("qwert21331");
                 OnShoot?.Invoke();
                 for (int i = 0; i < gundata.bulletCount; i++)
                 {
-                    Debug.Log("qwert¤§¤²¤¸¤£¤¡¤¾");
                     ShootBullet();
                     Ammo--;
                 }
@@ -66,12 +64,9 @@ public class Gun : MonoBehaviour
             }
             FinishOneShooting(); //ÇÑ¹ß ½î°í ³­ ´ÙÀ½¿¡´Â µô·¹ÀÌ ÄÚ·çÆ¾À» µ¹·ÁÁà¾ß ÇÏ±âÀ§ÇÑ ÇÔ¼ö
         }
-
     }
-
     private void FinishOneShooting()
     {
-        Debug.Log("WEr");
         StartCoroutine(DelayNextShootCoroutine());
         if (gundata.autoFire == false)
         {
@@ -108,15 +103,13 @@ public class Gun : MonoBehaviour
 
     public void Shooting()
     {
-        Debug.Log("ÃÑ¿¡¼­ ¹ß½Î");
         isShooting = true;
-
-
+        // Debug.Log("isShooting : " + isShooting);
+        Debug.Log("ÃÑ¿¡¼­ ¹ß½Î");
     }
     public void StopShooting()
     {
         isShooting = false;
-        Debug.Log("3 isShooting : " + isShooting);
         OnStopShooting?.Invoke();
 
     }

@@ -5,21 +5,25 @@ using UnityEngine;
 
 public class PlayerAttacking : PlayerData
 {
-    public GameObject q;
+    public GameObject weapon;
+    protected override void Awake()
+    {
+        currentWeapon = weapon;
+    }
     private void Start()
     {
-        Instantiate(q, Vector3.zero, Quaternion.identity);
+        Instantiate(currentWeapon.gameObject, Vector3.zero, Quaternion.identity);
     }
     public void Shooting()
     {
-        if (q.TryGetComponent<Gun>(out Gun gun))
+        if (currentWeapon.TryGetComponent<Gun>(out Gun gun))
         {
             gun.Shooting();
         }
     }
     public void StopShooting()
     {
-        if (q.TryGetComponent<Gun>(out Gun gun))
+        if (currentWeapon.TryGetComponent<Gun>(out Gun gun))
         {
             gun.StopShooting();
         }
