@@ -15,7 +15,18 @@ public class Gun : MonoBehaviour
     public UnityEvent OnShootNoAmmo;
     public UnityEvent OnStopShooting; //feedback추가
 
-    public bool isShooting = false;
+    [SerializeField]
+    private bool _isShooting = false;
+
+    public bool isShooting
+    {
+        get => _isShooting;
+        set
+        {
+            _isShooting = value;
+            Debug.Log($"셋팅이 일어남 {value}");
+        }
+    } 
     public bool delayCoroutine = false;
 
     #region AMMO 관련 코드들
@@ -56,12 +67,12 @@ public class Gun : MonoBehaviour
                     Ammo--;
                 }
             }
-            else
+            /*else
             {
                 isShooting = false;
                 OnShootNoAmmo?.Invoke();
                 return;
-            }
+            }*/
             FinishOneShooting(); //한발 쏘고 난 다음에는 딜레이 코루틴을 돌려줘야 하기위한 함수
         }
     }
@@ -105,7 +116,7 @@ public class Gun : MonoBehaviour
     {
         isShooting = true;
         // Debug.Log("isShooting : " + isShooting);
-        Debug.Log("총에서 발싸");
+        Debug.Log($"총에서 발싸{isShooting}");
     }
     public void StopShooting()
     {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class PlayerData : MonoBehaviour //¸ðµç ¼öÄ¡µéÀ» Á¶Á¤ÇÔ ¼öÄ¡°¡ ÇÊ¿äÇÑ ½ºÅ©¸³Æ®¿¡ ¸ðµÎ »ó¼Ó
@@ -10,7 +11,7 @@ public abstract class PlayerData : MonoBehaviour //¸ðµç ¼öÄ¡µéÀ» Á¶Á¤ÇÔ ¼öÄ¡°¡ Ç
     protected static WeaponData currentWeaponData;
 
     protected static float MoveSpeed;
-  
+
     protected static float Hp;
 
     protected static float Stamina;
