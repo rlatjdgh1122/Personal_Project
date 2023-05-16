@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class Gun : MonoBehaviour
 {
     public GunData gundata;
+    public GameObject bullet;
     [SerializeField]
     protected Transform firePos;
 
@@ -15,7 +16,6 @@ public class Gun : MonoBehaviour
     public UnityEvent OnShootNoAmmo;
     public UnityEvent OnStopShooting; //feedback추가
 
-    [SerializeField]
     private bool _isShooting = false;
 
     public bool isShooting
@@ -26,7 +26,7 @@ public class Gun : MonoBehaviour
             _isShooting = value;
             Debug.Log($"셋팅이 일어남 {value}");
         }
-    } 
+    }
     public bool delayCoroutine = false;
 
     #region AMMO 관련 코드들
@@ -81,6 +81,7 @@ public class Gun : MonoBehaviour
         StartCoroutine(DelayNextShootCoroutine());
         if (gundata.autoFire == false)
         {
+            Debug.Log("autoFire : " + isShooting);
             isShooting = false;
         }
     }
@@ -108,15 +109,14 @@ public class Gun : MonoBehaviour
 
     private void SpawnBullet(Vector3 position, Quaternion rot)
     {
-        RegularBullet b = PoolManager.Instance.Pop("Bullet") as RegularBullet;
+        RegularBullet b = PoolManager.Instance.Pop(bullet.name) as RegularBullet;
+        Debug.Log(b.name);
         b.SetPositionAndRotation(position, rot);
     }
 
     public void Shooting()
     {
         isShooting = true;
-        // Debug.Log("isShooting : " + isShooting);
-        Debug.Log($"총에서 발싸{isShooting}");
     }
     public void StopShooting()
     {

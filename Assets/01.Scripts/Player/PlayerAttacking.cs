@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
-public class PlayerAttacking : PlayerData
+using static Core.Core;
+public class PlayerAttacking : MonoBehaviour
 {
     public GameObject weapon;
-    protected override void Awake()
-    {
-        currentWeapon = weapon;
-    }
+    public Transform gunPivot;
+    private Gun gun;
     private void Start()
     {
-        Instantiate(currentWeapon.gameObject, Vector3.zero, Quaternion.identity);
+        Instantiate(currentWeapon.gameObject, gunPivot);
+        gun = currentWeapon.GetComponent<Gun>();
     }
     public void Shooting()
     {

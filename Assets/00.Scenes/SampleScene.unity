@@ -2740,7 +2740,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1057245009
 Transform:
   m_ObjectHideFlags: 0
@@ -4170,6 +4170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PoolListData: {fileID: 11400000, guid: c18bc207ba1066e448ef2a19141b2231, type: 2}
+  PlayerInitStatData: {fileID: 11400000, guid: 47bf9ea480c72c643993898506f5c6dd, type: 2}
   _playerPos: {fileID: 4565319670806500}
 --- !u!1 &1697844371
 GameObject:
@@ -4601,7 +4602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1840787906
 Transform:
   m_ObjectHideFlags: 0
@@ -9334,6 +9335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 944671302549808923, guid: 7fd5920ff723b9d42a68a9c035cf1abc, type: 3}
+  gunPivot: {fileID: 4892585598427654}
 --- !u!114 &95507706191340403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9346,7 +9348,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af6cf37ae17f8f24f96184e68ba570b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initStatData: {fileID: 11400000, guid: 47bf9ea480c72c643993898506f5c6dd, type: 2}
   weapon: {fileID: 11400000, guid: 3131292916173b54aa43210edfbb1ea3, type: 2}
 --- !u!137 &137078674662040240
 SkinnedMeshRenderer:

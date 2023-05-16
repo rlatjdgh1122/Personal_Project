@@ -54,5 +54,6 @@ public class RegularBullet : PoolableMono
     {
         isDead = false;
         timeToLive = 0;
+
     }
 }
