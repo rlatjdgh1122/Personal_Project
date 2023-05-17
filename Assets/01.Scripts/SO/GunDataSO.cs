@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "SO/Weapon/GunData")]
-public class GunData : WeaponData
+public class GunDataSO : WeaponDataSO
 {
     [Range(3, 20f)]
     public int ammo;

@@ -26,9 +26,16 @@ public class PlayerController : MonoBehaviour, IPlayerHandle
         LookRotateMouseCursor();
         Attack();
         Rolling();
+        ChangedWeapon();
     }
 
-
+    private void ChangedWeapon()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) GameManager.Instance.SelectWeapon(1);
+        else if (Input.GetKeyDown(KeyCode.Alpha2)) GameManager.Instance.SelectWeapon(2);
+        else if (Input.GetKeyDown(KeyCode.Alpha3)) GameManager.Instance.SelectWeapon(3);
+        else if (Input.GetKeyDown(KeyCode.Alpha4)) GameManager.Instance.SelectWeapon(4);
+    }
 
     private void LookRotateMouseCursor()
     {

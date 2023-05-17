@@ -5,9 +5,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
-public class Gun : MonoBehaviour
+public class Gun : Weaponable
 {
-    public GunData gundata;
+    public GunDataSO gundata;
     public GameObject bullet;
     [SerializeField]
     protected Transform firePos;
@@ -114,14 +114,15 @@ public class Gun : MonoBehaviour
         b.SetPositionAndRotation(position, rot);
     }
 
-    public void Shooting()
+    public override void Shooting()
     {
         isShooting = true;
     }
-    public void StopShooting()
+    public override void StopShooting()
     {
         isShooting = false;
         OnStopShooting?.Invoke();
 
     }
+
 }

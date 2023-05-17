@@ -19,7 +19,6 @@ public class PoolManager
     {
         Pool<PoolableMono> pool = new Pool<PoolableMono>(prefab, trmParent, count);
         pools.Add(prefab.gameObject.name, pool);
-
     }
     public PoolableMono Pop(string prefabName)
     {
