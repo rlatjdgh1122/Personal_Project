@@ -1,89 +1,49 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
-using UnityEngine.Events;
-
-public class PlayerController : MonoBehaviour, IPlayerHandle
+using Core;
+public class PlayerController : MonoBehaviour   
 {
-    public UnityEvent<Vector3> OnMovement;
-    public UnityEvent<Vector3> OnRolling;
-    public UnityEvent<Vector3> OnRotate;
-    [field: SerializeField] public UnityEvent OnFireButtonPress { get; set; }
-    [field: SerializeField] public UnityEvent OnFireButtonRelease { get; set; }
 
-    private Vector3 movement = Vector3.zero;
-    private Vector3 movePos = Vector3.zero;
-    private Camera cam;
+    private Dictionary<StateType, IState> _stateDictionary = null;
+    private IState _currentState;
+    public bool IsDead { get; set; }
+    private void Awake()
+    {
+        _stateDictionary = new Dictionary<StateType, IState>();
 
+        Transform stateTrm = transform.Find("States");
+
+        foreach (StateType state in Enum.GetValues(typeof(StateType)))
+        {
+            IState stateScript = stateTrm.GetComponent($"{state}State") as IState;
+
+            if (stateScript == null)
+            {
+                Debug.LogError($"There is no script : {state}");
+                return;
+            }
+            stateScript.SetUp(transform);
+            _stateDictionary.Add(state, stateScript);
+        }
+        //_agentHealth = GetComponent<AgentHealth>();
+    }
     private void Start()
     {
-        cam = Camera.main;
+        //다음시간에 여기 다시한번 설명
+        ChangeState(StateType.Normal); //이부분만 스타트로 이동이 맞다.
     }
-    void Update()
+
+    public void ChangeState(StateType state)
     {
-        Move();
-        LookRotateMouseCursor();
-        Attack();
-        Rolling();
-        ChangedWeapon();
+        _currentState?.OnExitState();
+        _currentState = _stateDictionary[state];
+        _currentState.OnEnterState();
     }
-
-    private void ChangedWeapon()
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) GameManager.Instance.SelectWeapon(1);
-        else if (Input.GetKeyDown(KeyCode.Alpha2)) GameManager.Instance.SelectWeapon(2);
-        else if (Input.GetKeyDown(KeyCode.Alpha3)) GameManager.Instance.SelectWeapon(3);
-        else if (Input.GetKeyDown(KeyCode.Alpha4)) GameManager.Instance.SelectWeapon(4);
+        if (IsDead) return;
+
+        _currentState.UpdateState();
     }
-
-    private void LookRotateMouseCursor()
-    {
-        Ray cameraRay = cam.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(cameraRay, out hit))
-        {
-            movePos = new Vector3(hit.point.x, transform.position.y, hit.point.z) - transform.position;
-        }
-        OnRotate?.Invoke(movePos);
-    }
-
-
-    private bool fireButtonDown = false;
-    public void Attack()
-    {
-        if (Input.GetAxisRaw("Fire1") > 0)
-        {
-            if (fireButtonDown == false)
-            {
-                fireButtonDown = true;
-                OnFireButtonPress?.Invoke();
-            }
-        }
-        else
-        {
-            if (fireButtonDown == true)
-            {
-                fireButtonDown = false;
-                OnFireButtonRelease?.Invoke();
-            }
-        }
-    }
-    public void Move()
-    {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-
-        movement = new Vector3(horizontal, 0, vertical);
-
-        OnMovement?.Invoke(movement);
-    }
-    private void Rolling()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            OnRolling?.Invoke(movePos);
-        }
-    }
-
 }

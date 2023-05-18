@@ -4,8 +4,43 @@ using Unity.VisualScripting;
 using UnityEngine;
 namespace Core
 {
-    public static class Core
+    public enum StateType
     {
+        Normal = 0,
+        Attack = 1,
+        OnHit = 2,
+        Rolling = 3,
+    }
+    public class Core
+    {
+        private static Camera _mainCam = null;
+        public static Camera Cam
+        {
+            get
+            {
+                if (_mainCam == null)
+                    _mainCam = Camera.main;
+                return _mainCam;
+            }
+        }
+        private static Transform playerPos;
+        public static Transform PlayerPos
+        {
+            get
+            {
+                if (playerPos == null)
+                    playerPos = GameObject.Find("Player").transform;
+                return playerPos;
+            }
+        }
+        private static Vector3 dirMouse;
+        public static Vector3 DirMouse
+        {
+            get
+            {
+                return (Cam.transform.position - playerPos.position).normalized;
+            }
+        }
         public static Animator Anim
         {
             get
@@ -55,47 +90,47 @@ namespace Core
             }
         }
 
-/*
-        private static Weaponable currentWeapon;
-        public static Weaponable CurrentWeapon => currentWeapon; //현재 내가 가지고 있는 무기의 타입
+        /*
+                private static Weaponable currentWeapon;
+                public static Weaponable CurrentWeapon => currentWeapon; //현재 내가 가지고 있는 무기의 타입
 
-        public class WeaponManager //
-        {
-            private Dictionary<string, Weapon<WeaponDataSO>> weapons = new();
+                public class WeaponManager //
+                {
+                    private Dictionary<string, Weapon<WeaponDataSO>> weapons = new();
 
 
-            private Transform trmParent;
-            public WeaponManager(Transform trmParent)
-            {
-                this.trmParent = trmParent;
-            }
-            public void CreateWeapon(Weaponable prefab, WeaponDataSO weaponData)
-            {
-                Weapon<Weaponable> weapon = new Weapon<Weaponable>(prefab, weaponData);
-                weapons.Add(prefab.gameObject.name, weaponData);
-            }
-        }
+                    private Transform trmParent;
+                    public WeaponManager(Transform trmParent)
+                    {
+                        this.trmParent = trmParent;
+                    }
+                    public void CreateWeapon(Weaponable prefab, WeaponDataSO weaponData)
+                    {
+                        Weapon<Weaponable> weapon = new Weapon<Weaponable>(prefab, weaponData);
+                        weapons.Add(prefab.gameObject.name, weaponData);
+                    }
+                }
 
-        public class Weapon<T> where T : Weaponable
-        {
-            public Weapon(T prefab, WeaponDataSO weapon)
-            {
+                public class Weapon<T> where T : Weaponable
+                {
+                    public Weapon(T prefab, WeaponDataSO weapon)
+                    {
 
-            }
-            public void InitWeaponSetting(T InitWeapon)
-            {
-                currentWeapon = InitWeapon;
-                weaponDatas.Add(InitWeapon);
-            }
-            public static void ChangedWeapon(T nextWeapon)
-            {
-                currentWeapon = nextWeapon;
-            }
-            public static void CreateWeapon(T weapon)
-            {
-                weaponDatas.Add(weapon);
-            }
-        }*/
+                    }
+                    public void InitWeaponSetting(T InitWeapon)
+                    {
+                        currentWeapon = InitWeapon;
+                        weaponDatas.Add(InitWeapon);
+                    }
+                    public static void ChangedWeapon(T nextWeapon)
+                    {
+                        currentWeapon = nextWeapon;
+                    }
+                    public static void CreateWeapon(T weapon)
+                    {
+                        weaponDatas.Add(weapon);
+                    }
+                }*/
         #endregion
     }
 }
