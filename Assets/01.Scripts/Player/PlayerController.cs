@@ -4,7 +4,7 @@ using UnityEngine;
 using Core;
 public class PlayerController : MonoBehaviour   
 {
-
+    public PlayerDataSO playerData;
     private Dictionary<StateType, IState> _stateDictionary = null;
     private IState _currentState;
     public bool IsDead { get; set; }
@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
+        Debug.Log(_currentState);
         if (IsDead) return;
 
         _currentState.UpdateState();

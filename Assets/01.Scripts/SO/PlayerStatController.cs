@@ -10,7 +10,6 @@ public class PlayerStatController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            MoveSpeed -= 5;
             Debug.Log("wwer");
         }
     }

@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviour
     }
     public void InitSetting()
     {
-        PlayerData.InitPlayerStatSetting(PlayerInitStatData);
         weaponDatas.Add(weaponInitStatData);
         OnInitSetting?.Invoke();
     }

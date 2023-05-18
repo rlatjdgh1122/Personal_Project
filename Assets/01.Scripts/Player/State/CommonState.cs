@@ -11,13 +11,14 @@ public abstract class CommonState : MonoBehaviour, IState
     protected PlayerAnimator _playerAnimator;
     protected PlayerInput _playerInput;
     protected PlayerController _playerController;
-   // protected AgentMovement _agentMovement;
+    protected PlayerMovement _playerMovement;
 
     public virtual void SetUp(Transform agentRoot)
     {
         _playerAnimator = agentRoot.Find("Model").GetComponent<PlayerAnimator>();
         _playerInput = agentRoot.GetComponent<PlayerInput>();
         _playerController = agentRoot.GetComponent<PlayerController>();
+        _playerMovement = agentRoot.GetComponent<PlayerMovement>();
         //_agentMovement = agentRoot.GetComponent<AgentMovement>();
     }
-}   
+}

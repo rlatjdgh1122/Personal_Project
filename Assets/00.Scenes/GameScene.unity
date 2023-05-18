@@ -135,81 +135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5205798740ee79f44bad9b9d260b923e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnMovement:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 95507706191340398}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: Movement
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnRolling:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 95507706191340398}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: Roll
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnRotate:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 382872522}
-        m_TargetAssemblyTypeName: PlayerRotation, Assembly-CSharp
-        m_MethodName: Rotation
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  <OnFireButtonPress>k__BackingField:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 95507706191340402}
-        m_TargetAssemblyTypeName: PlayerAttacking, Assembly-CSharp
-        m_MethodName: Shooting
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  <OnFireButtonRelease>k__BackingField:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 95507706191340402}
-        m_TargetAssemblyTypeName: PlayerAttacking, Assembly-CSharp
-        m_MethodName: StopShooting
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &19061238
 GameObject:
   m_ObjectHideFlags: 0
@@ -8289,13 +8214,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4565319670806500}
-  - component: {fileID: 95507706191340400}
-  - component: {fileID: 95507706191340401}
   - component: {fileID: 6699506}
   - component: {fileID: 95507706191340398}
-  - component: {fileID: 95507706191340402}
-  - component: {fileID: 95507706191340403}
   - component: {fileID: 95507706191340404}
+  - component: {fileID: 95507706191340405}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -11306,60 +11228,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8780b61ca3c6424c87c915e4e857781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &95507706191340400
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1482964358383958}
-  m_Material: {fileID: 13400000, guid: 95cead83ab4db7340bb23f3e71dc17c9, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 1.8
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.8, z: 0}
---- !u!54 &95507706191340401
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1482964358383958}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &95507706191340402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1482964358383958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13c429b16c12c994da2673161b497f4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &95507706191340403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1482964358383958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af6cf37ae17f8f24f96184e68ba570b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &95507706191340404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11372,6 +11240,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76743b2913124f647b24fb4325c998e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 47bf9ea480c72c643993898506f5c6dd, type: 2}
+--- !u!143 &95507706191340405
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482964358383958}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!137 &137078674662040240
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0

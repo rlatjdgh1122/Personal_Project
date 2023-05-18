@@ -97,7 +97,6 @@ public class Gun : Weaponable
         Debug.Log("피유우우우웅");
         SpawnBullet(firePos.position, CalculateAngle());
     }
-
     private Quaternion CalculateAngle()
     {
         Vector3 randomPosition = Random.insideUnitSphere; //이부분 수정필요

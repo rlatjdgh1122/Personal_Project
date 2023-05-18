@@ -7,11 +7,12 @@ using static Core.Core;
 
 public class PlayerInput : MonoBehaviour, IPlayerHandle
 {
-    public UnityEvent<Vector3> OnMovement;
-    public UnityEvent<Vector3> OnRolling;
-    public UnityEvent<Vector3> OnRotate;
-    [field: SerializeField] public UnityEvent OnFireButtonPress { get; set; }
-    [field: SerializeField] public UnityEvent OnFireButtonRelease { get; set; }
+   // public UnityEvent<Vector3> OnRotate;
+
+    public event Action<Vector3> OnMovementKeyPress = null;
+    public event Action<Vector3> OnRollingKeyPress = null;
+    public event Action OnFireButtonPress = null; //공격키가 눌렸을때
+    public event Action OnFireButtonRelease = null; //공격키를 땠을때
 
     private Vector3 movement = Vector3.zero;
     private Vector3 movePos = Vector3.zero;
@@ -41,7 +42,7 @@ public class PlayerInput : MonoBehaviour, IPlayerHandle
             movePos = new Vector3(
                 hit.point.x, transform.position.y, hit.point.z) - transform.position;
         }
-        OnRotate?.Invoke(movePos);
+        //OnRotate?.Invoke(DirMouse);
     }
     private bool fireButtonDown = false;
     public void Attack()
@@ -67,17 +68,16 @@ public class PlayerInput : MonoBehaviour, IPlayerHandle
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        Debug.Log(horizontal);
 
         movement = new Vector3(horizontal, 0, vertical);
 
-        OnMovement?.Invoke(movement);
+        OnMovementKeyPress?.Invoke(movement);
     }
     private void Rolling()
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            OnRolling?.Invoke(movePos);
+            OnRollingKeyPress?.Invoke(movePos);
         }
     }
 

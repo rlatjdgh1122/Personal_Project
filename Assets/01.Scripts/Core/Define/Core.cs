@@ -33,15 +33,14 @@ namespace Core
                 return playerPos;
             }
         }
-        private static Vector3 dirMouse;
-        public static Vector3 DirMouse
+        public static Vector3 MousePos
         {
             get
             {
-                return (Cam.transform.position - playerPos.position).normalized;
+                return Cam.ScreenToWorldPoint(Input.mousePosition);
             }
         }
-        public static Animator Anim
+       /* public static Animator Anim
         {
             get
             {
@@ -88,7 +87,7 @@ namespace Core
                 Hp = data.hp;
                 Stamina = data.stamina;
             }
-        }
+        }*/
 
         /*
                 private static Weaponable currentWeapon;
@@ -131,6 +130,5 @@ namespace Core
                         weaponDatas.Add(weapon);
                     }
                 }*/
-        #endregion
     }
 }
