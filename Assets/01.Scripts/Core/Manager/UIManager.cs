@@ -12,7 +12,7 @@ public class InterfaceWeaponUI
 }
 public class UIManager : MonoBehaviour
 {
-    public List<InterfaceWeaponUI> WeaponImages = new();
+    /*public List<InterfaceWeaponUI> WeaponImages = new();
     public void InitUISetting()
     {
         WeaponImages[0].WeaponImage.sprite = GameManager.Instance.weaponInitStatData.image;
@@ -35,5 +35,5 @@ public class UIManager : MonoBehaviour
     public void ChangedUISetting(int index)
     {
         SeletedUISetting(index);
-    }
+    }*/
 }

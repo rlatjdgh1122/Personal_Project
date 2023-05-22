@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e64607907bf9040a1344a77ce9e8ed, type: 3}
   m_Name: Player Init Stat Data
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 10
   hp: 100
   stamina: 100
   defaultWeapon: {fileID: 11400000, guid: 3131292916173b54aa43210edfbb1ea3, type: 2}

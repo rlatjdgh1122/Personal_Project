@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sword : Weaponable
+public class Sword : Weapon
 {
     public SwordData swordData;
 

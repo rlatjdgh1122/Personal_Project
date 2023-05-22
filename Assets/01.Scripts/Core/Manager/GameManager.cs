@@ -1,16 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
-using static Core.Core;
 public class GameManager : MonoBehaviour
 {
     public PoolListData PoolListData;
-    public PlayerDataSO PlayerInitStatData;
     public static GameManager Instance;
-    public WeaponDataSO weaponInitStatData => PlayerInitStatData.defaultWeapon;
 
     public List<WeaponDataSO> weaponDatas = new();
+    public GunDataSO gunDataSO;
 
     [SerializeField]
     private Transform _playerPos;
@@ -32,9 +31,9 @@ public class GameManager : MonoBehaviour
         PoolManager.Instance = new PoolManager(transform);
         PoolListData.poolData.ForEach(p => PoolManager.Instance.CreatePool(p.prefab, p.count));
 
-        InitSetting();
+        GunDataSO gunStat = WeaponStatManager.Instance.GetWeaponData<GunDataSO>(gunDataSO.name);
     }
-    public void InitSetting()
+    /*public void InitSetting()
     {
         weaponDatas.Add(weaponInitStatData);
         OnInitSetting?.Invoke();
@@ -59,5 +58,5 @@ public class GameManager : MonoBehaviour
         if (weaponDatas[index] == null) return false;
 
         return true;
-    }
+    }*/
 }

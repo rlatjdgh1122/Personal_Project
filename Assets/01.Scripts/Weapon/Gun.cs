@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
-public class Gun : Weaponable
+public class Gun : Weapon
 {
     public GunDataSO gundata;
     public GameObject bullet;

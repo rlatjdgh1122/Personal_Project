@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
         _playerAnimator?.SetMoveState(_movementVelocity); //이동속도 반영
 
-        _movementVelocity *= _playerController.playerData.moveSpeed * Time.fixedDeltaTime;
+        _movementVelocity *= _playerController.playerData.Speed * Time.fixedDeltaTime;
         if (_movementVelocity.sqrMagnitude > 0)
         {
             transform.rotation = Quaternion.LookRotation(_movementVelocity);
@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void SetRotation(Vector3 target)
     {
+        Debug.Log(target);
         Vector3 dir = target - transform.position;
         dir.y = 0;
         transform.rotation = Quaternion.LookRotation(dir);
@@ -60,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsActiveMove)
         {
+            //Debug.Log(MousePos);
             CalculatePlayerMovement();
             SetRotation(MousePos);
         }
