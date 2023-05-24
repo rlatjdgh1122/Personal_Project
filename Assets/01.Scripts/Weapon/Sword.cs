@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class Sword : Weapon
 {
-    public SwordData swordData;
+    public SwordDataSO swordData;
 
     public override void Shooting()
+    {
+        
+    }
+
+    public override void StopShooting()
     {
         
     }

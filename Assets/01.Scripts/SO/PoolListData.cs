@@ -9,7 +9,7 @@ public class PoolData
     public int count;
 }
 
-[CreateAssetMenu(menuName = "SO/PoolList")]
+[CreateAssetMenu(menuName = "SO/List/PoolList")]
 public class PoolListData : ScriptableObject
 {
     public List<PoolData> poolData;

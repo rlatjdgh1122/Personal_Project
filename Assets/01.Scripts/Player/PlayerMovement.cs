@@ -8,75 +8,51 @@ public class PlayerMovement : MonoBehaviour
 {
     private PlayerAnimator _playerAnimator;
     private PlayerController _playerController;
-    private CharacterController _charController;
+    //private CharacterController _charController;
 
-    private Vector3 _movementVelocity;
-    public Vector3 MovementVelocity => _movementVelocity;
-    private float _verticalVelocity;
-    private Vector3 _inputVelocity;
-    private float _gravity = -9.8f;
+    private Vector3 _movementDir;
+    public Vector3 MovementVelocity => _movementDir;
+    private Transform modelPos;
 
     public bool IsActiveMove { get; set; }
     private void Awake()
     {
-        _playerAnimator = GetComponent<PlayerAnimator>();
+        _playerAnimator = GetComponentInChildren<PlayerAnimator>();
         _playerController = GetComponent<PlayerController>();
 
-        _charController = GetComponent<CharacterController>();
+        //_charController = GetComponent<CharacterController>();
+
+        modelPos = transform.Find("Model").transform;
     }
-    public void SetMovementVelocity(Vector3 value)
+    public void SetMovementDirection(Vector3 dir)
     {
-        _inputVelocity = value;
-        _movementVelocity = value;
+        _movementDir = dir;
     }
 
     private void CalculatePlayerMovement()
     {
-        //여기는 나중에
-        _inputVelocity.Normalize();
-
-        _playerAnimator?.SetMoveState(_movementVelocity); //이동속도 반영
-
-        _movementVelocity *= _playerController.playerData.Speed * Time.fixedDeltaTime;
-        if (_movementVelocity.sqrMagnitude > 0)
-        {
-            transform.rotation = Quaternion.LookRotation(_movementVelocity);
-        }
+        _playerAnimator?.SetMoveState(_movementDir); //이동속도 반영
+        transform.Translate(_movementDir * _playerController.playerData.Speed * Time.deltaTime);
     }
 
     public void SetRotation(Vector3 target)
     {
-        Debug.Log(target);
-        Vector3 dir = target - transform.position;
+        Vector3 dir = target - modelPos.position;
         dir.y = 0;
-        transform.rotation = Quaternion.LookRotation(dir);
+        modelPos.rotation = Quaternion.LookRotation(dir);
     }
 
     public void StopImmediately()
     {
-        _movementVelocity = Vector3.zero;
+        _movementDir = Vector3.zero;
         _playerAnimator?.SetMoveState(Vector3.zero); //이동속도 반영
     }
-    private void FixedUpdate()
+    private void Update()
     {
         if (IsActiveMove)
         {
-            //Debug.Log(MousePos);
             CalculatePlayerMovement();
-            SetRotation(MousePos);
+            SetRotation(MousePos.normalized);
         }
-
-        if (_charController.isGrounded == false)
-        {
-            _verticalVelocity = _gravity * Time.fixedDeltaTime;
-        }
-        else
-        {
-            _verticalVelocity = _gravity * 0.3f * Time.fixedDeltaTime;
-        }
-
-        Vector3 move = _movementVelocity + _verticalVelocity * Vector3.up;
-        _charController.Move(move);
-        //_playerController?.SetAirbone(!_charController.isGrounded); //에어본
     }
 }

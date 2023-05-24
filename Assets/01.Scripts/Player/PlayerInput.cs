@@ -7,19 +7,16 @@ using static Core.Core;
 
 public class PlayerInput : MonoBehaviour, IPlayerHandle
 {
-   // public UnityEvent<Vector3> OnRotate;
+    // public UnityEvent<Vector3> OnRotate;
 
     public event Action<Vector3> OnMovementKeyPress = null;
     public event Action<Vector3> OnRollingKeyPress = null;
     public event Action OnFireButtonPress = null; //공격키가 눌렸을때
     public event Action OnFireButtonRelease = null; //공격키를 땠을때
 
-    private Vector3 movement = Vector3.zero;
-    private Vector3 movePos = Vector3.zero;
     void Update()
     {
         Move();
-        LookRotateMouseCursor();
         Attack();
         Rolling();
         ChangedWeapon();
@@ -33,17 +30,6 @@ public class PlayerInput : MonoBehaviour, IPlayerHandle
         else if (Input.GetKeyDown(KeyCode.Alpha4)) GameManager.Instance.SelectWeapon(4);*/
     }
 
-    private void LookRotateMouseCursor()
-    {
-        Ray cameraRay = Cam.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(cameraRay, out hit))
-        {
-            movePos = new Vector3(
-                hit.point.x, transform.position.y, hit.point.z) - transform.position;
-        }
-        //OnRotate?.Invoke(DirMouse);
-    }
     private bool fireButtonDown = false;
     public void Attack()
     {
@@ -69,16 +55,15 @@ public class PlayerInput : MonoBehaviour, IPlayerHandle
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        movement = new Vector3(horizontal, 0, vertical);
+       Vector3 movement = new Vector3(horizontal, 0, vertical);
 
         OnMovementKeyPress?.Invoke(movement);
     }
     private void Rolling()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            OnRollingKeyPress?.Invoke(movePos);
+            OnRollingKeyPress?.Invoke(MousePos.normalized);
         }
     }
-
 }

@@ -29,7 +29,9 @@ namespace Core
             get
             {
                 if (playerPos == null)
+                {
                     playerPos = GameObject.Find("Player").transform;
+                }
                 return playerPos;
             }
         }
@@ -37,7 +39,16 @@ namespace Core
         {
             get
             {
-                return Cam.ScreenToWorldPoint(Input.mousePosition);
+                Vector3 mousePos;
+                Ray cameraRay = Cam.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                if (Physics.Raycast(cameraRay, out hit))
+                {
+                    mousePos = new Vector3(hit.point.x, PlayerPos.position.y, hit.point.z) - PlayerPos.position;
+                    return mousePos;
+                }
+                else
+                    return Vector3.zero;
             }
         }
 

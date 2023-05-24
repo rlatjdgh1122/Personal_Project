@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,5 +20,23 @@ public class PlayerAnimator : PlayerAnimatorable
     public void SetRollingState(bool value)
     {
         _animator.SetBool(_isRollingHash, value);
+    }
+    public event Action OnAnimationEndTrigger = null; //애니메이션이 종료될때마다 트리거 되는 이벤트임.
+    public event Action OnAnimationEventTrigger = null; //애니메이션 내의 이벤트 트리거
+    public event Action OnPreAnimationEventTrigger = null; //전조 애니메이션 트리거
+
+    public void OnAnimationEnd() //애니메이션이 종료되면 이게 실행된다.
+    {
+        OnAnimationEndTrigger?.Invoke();
+    }
+
+    public void OnAnimationEvent()
+    {
+        OnAnimationEventTrigger?.Invoke();
+    }
+
+    public void OnPreAnimationEvent()
+    {
+        OnPreAnimationEventTrigger?.Invoke();
     }
 }

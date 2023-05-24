@@ -123,5 +123,4 @@ public class Gun : Weapon
         OnStopShooting?.Invoke();
 
     }
-
 }
