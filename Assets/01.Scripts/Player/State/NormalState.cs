@@ -15,8 +15,6 @@ public class NormalState : CommonState
         _playerInput.OnRollingKeyPress += OnRollingHandle;
     }
 
-    
-
     public override void OnExitState() //³ª°¥¶§
     {
         _playerMovement.StopImmediately();

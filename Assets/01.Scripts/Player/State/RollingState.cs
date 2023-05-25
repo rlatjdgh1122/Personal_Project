@@ -17,8 +17,6 @@ public class RollingState : CommonState
         _playerInput.OnMovementKeyPress += OnRollingHandle;
         _playerMovement.IsActiveMove = true;
 
-        _playerAnimator.Animator.applyRootMotion = true;
-
         _playerAnimator.OnAnimationEndTrigger += OnRollingEndHandle;
         _playerAnimator.SetRollingState(true);
 
@@ -32,15 +30,14 @@ public class RollingState : CommonState
         _playerInput.OnMovementKeyPress -= OnRollingHandle;
         _playerMovement.IsActiveMove = false;
 
-        _playerAnimator.Animator.applyRootMotion = false;
-
         _playerAnimator.OnAnimationEndTrigger -= OnRollingEndHandle;
         _playerAnimator.SetRollingState(false);
     }
     private void OnRollingHandle(Vector3 dir)
     {
+        _playerMovement.IsActiveMove = false;
         _playerMovement?.SetMovementDirection(dir);
-        transform.rotation = Quaternion.LookRotation(dir);
+        //transform.rotation = Quaternion.LookRotation(dir);
     }
 
     private void OnRollingEndHandle()

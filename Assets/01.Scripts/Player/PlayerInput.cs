@@ -1,14 +1,9 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using static Core.Core;
 
 public class PlayerInput : MonoBehaviour, IPlayerHandle
 {
-    // public UnityEvent<Vector3> OnRotate;
-
     public event Action<Vector3> OnMovementKeyPress = null;
     public event Action<Vector3> OnRollingKeyPress = null;
     public event Action OnFireButtonPress = null; //공격키가 눌렸을때
@@ -63,7 +58,7 @@ public class PlayerInput : MonoBehaviour, IPlayerHandle
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            OnRollingKeyPress?.Invoke(MousePos.normalized);
+            OnRollingKeyPress?.Invoke(MousePos);
         }
     }
 }
