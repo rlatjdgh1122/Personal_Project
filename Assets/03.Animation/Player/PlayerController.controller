@@ -87,7 +87,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Rolling
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 3195366098180787259}
@@ -242,7 +242,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: -9121621101649706817, guid: f382bfc37d3539b4b8907b4a38e0f23d, type: 3}
+    m_Motion: {fileID: 7400000, guid: f4249fb0a7d921e4990902eb9fe79fd9, type: 2}
     m_Threshold: -1
     m_Position: {x: 0, y: -1}
     m_TimeScale: -1
@@ -306,7 +306,7 @@ BlendTree:
     m_DirectBlendParameter: MoveX
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -9121621101649706817, guid: f382bfc37d3539b4b8907b4a38e0f23d, type: 3}
+    m_Motion: {fileID: 7400000, guid: f4249fb0a7d921e4990902eb9fe79fd9, type: 2}
     m_Threshold: 3
     m_Position: {x: 0, y: 1}
     m_TimeScale: 1

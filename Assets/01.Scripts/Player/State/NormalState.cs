@@ -8,7 +8,7 @@ public class NormalState : CommonState
     public override void OnEnterState() //기본상태로 돌아왔을때
     {
         _playerMovement.StopImmediately();
-        _playerMovement.IsActiveMove = true;    
+        _playerMovement.IsActiveMove = true;
 
         _playerInput.OnMovementKeyPress += OnMoveHandle;
         _playerInput.OnFireButtonPress += OnFireButtonPressHandle;

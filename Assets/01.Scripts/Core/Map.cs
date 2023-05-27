@@ -21,12 +21,15 @@ public class Map : PoolableMono
         }
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter(Collision collision)
     {
-        Vector3 topRight = transform.position + new Vector3(transform.localScale.x / 2, transform.localScale.y / 2, 0);
-        Vector3 bottomLeft = transform.position + new Vector3(-transform.localScale.x / 2, -transform.localScale.y / 2, 0);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Vector3 topRight = transform.position + new Vector3(transform.localScale.x / 2, transform.localScale.y / 2, 0);
+            Vector3 bottomLeft = transform.position + new Vector3(-transform.localScale.x / 2, -transform.localScale.y / 2, 0);
 
-        centerPos = (topRight + bottomLeft) / 2;
+            centerPos = (topRight + bottomLeft) / 2;
+        }
 
     }
     public void SetTransform(Vector3 setPos)
@@ -38,7 +41,7 @@ public class Map : PoolableMono
     {
         for (int i = 0; i < seasonTrees.Count; i++)
         {
-           trees.Add(Instantiate(seasonTrees[i], Points[i]));
+            trees.Add(Instantiate(seasonTrees[i], Points[i]));
             trees[i].GetComponent<MeshRenderer>().material = MapManager.Instance.MatKey[MapManager.Instance.currentSeason];
 
         }
@@ -62,7 +65,7 @@ public class Map : PoolableMono
     }
     public override void Init()
     {
-        trees.ForEach( p => Destroy(p));
+        trees.ForEach(p => Destroy(p));
         trees.Clear();
     }
 }

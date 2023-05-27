@@ -26,6 +26,8 @@ public class PlayerInput : MonoBehaviour, IPlayerHandle
     }
 
     private bool fireButtonDown = false;
+    private Vector3 movement;
+
     public void Attack()
     {
         if (Input.GetAxisRaw("Fire1") > 0)
@@ -47,10 +49,10 @@ public class PlayerInput : MonoBehaviour, IPlayerHandle
     }
     public void Move()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
 
-       Vector3 movement = new Vector3(horizontal, 0, vertical);
+       movement = new Vector3(horizontal, 0, vertical);
 
         OnMovementKeyPress?.Invoke(movement);
     }
@@ -58,7 +60,7 @@ public class PlayerInput : MonoBehaviour, IPlayerHandle
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            OnRollingKeyPress?.Invoke(MousePos);
+            OnRollingKeyPress?.Invoke(movement);
         }
     }
 }

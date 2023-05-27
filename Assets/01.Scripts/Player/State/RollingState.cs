@@ -14,12 +14,10 @@ public class RollingState : CommonState
     public override void OnEnterState()
     {
         _playerMovement.StopImmediately();
-        _playerInput.OnMovementKeyPress += OnRollingHandle;
-        _playerMovement.IsActiveMove = true;
-
+        _playerInput.OnRollingKeyPress += OnRollingHandle;
+        //_playerMovement.IsActiveMove = false;
         _playerAnimator.OnAnimationEndTrigger += OnRollingEndHandle;
         _playerAnimator.SetRollingState(true);
-
         _timer = 0;
     }
 
@@ -27,17 +25,16 @@ public class RollingState : CommonState
     public override void OnExitState()
     {
         _playerMovement.StopImmediately();
-        _playerInput.OnMovementKeyPress -= OnRollingHandle;
-        _playerMovement.IsActiveMove = false;
-
+        _playerInput.OnRollingKeyPress -= OnRollingHandle;
+        //_playerMovement.IsActiveMove = false;
         _playerAnimator.OnAnimationEndTrigger -= OnRollingEndHandle;
         _playerAnimator.SetRollingState(false);
     }
     private void OnRollingHandle(Vector3 dir)
     {
-        _playerMovement.IsActiveMove = false;
+        Debug.Log("0qer");
         _playerMovement?.SetMovementDirection(dir);
-        //transform.rotation = Quaternion.LookRotation(dir);
+        _playerMovement?.PlayerToRoll();
     }
 
     private void OnRollingEndHandle()
@@ -46,8 +43,6 @@ public class RollingState : CommonState
         _playerMovement.StopImmediately();
         _playerController.ChangeState(StateType.Normal);
     }
-
-
     public override bool UpdateState()
     {
         _timer += Time.deltaTime;
