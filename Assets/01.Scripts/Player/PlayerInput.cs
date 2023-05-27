@@ -5,7 +5,7 @@ using static Core.Core;
 public class PlayerInput : MonoBehaviour, IPlayerHandle
 {
     public event Action<Vector3> OnMovementKeyPress = null;
-    public event Action<Vector3> OnRollingKeyPress = null;
+    public event Action OnRollingKeyPress = null;
     public event Action OnFireButtonPress = null; //공격키가 눌렸을때
     public event Action OnFireButtonRelease = null; //공격키를 땠을때
 
@@ -60,7 +60,7 @@ public class PlayerInput : MonoBehaviour, IPlayerHandle
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            OnRollingKeyPress?.Invoke(movement);
+            OnRollingKeyPress?.Invoke();
         }
     }
 }

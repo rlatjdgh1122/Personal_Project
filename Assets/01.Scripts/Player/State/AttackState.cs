@@ -7,7 +7,7 @@ public class AttackState : CommonState
 {
     public override void OnEnterState()
     {
-        _playerInput.OnFireButtonPress += _playerController.currentWeapon.Shooting;
+        _playerController.currentWeapon.Shooting();
 
         _playerInput.OnFireButtonRelease += _playerController.currentWeapon.StopShooting;
         _playerInput.OnFireButtonRelease += ChangeState;
@@ -15,8 +15,6 @@ public class AttackState : CommonState
 
     public override void OnExitState()
     {
-        _playerInput.OnFireButtonPress -= _playerController.currentWeapon.Shooting;
-
         _playerInput.OnFireButtonRelease -= _playerController.currentWeapon.StopShooting;
         _playerInput.OnFireButtonRelease -= ChangeState;
     }

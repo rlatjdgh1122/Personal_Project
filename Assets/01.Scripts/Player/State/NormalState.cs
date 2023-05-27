@@ -17,10 +17,9 @@ public class NormalState : CommonState
 
     public override void OnExitState() //³ª°¥¶§
     {
-        _playerMovement.StopImmediately();
         _playerMovement.IsActiveMove = false;
 
-        _playerInput.OnMovementKeyPress -= OnMoveHandle;    
+        _playerInput.OnMovementKeyPress -= OnMoveHandle;
         _playerInput.OnFireButtonPress -= OnFireButtonPressHandle;
         _playerInput.OnRollingKeyPress -= OnRollingHandle;
     }
@@ -28,7 +27,7 @@ public class NormalState : CommonState
     {
         _playerController?.ChangeState(StateType.Attack);
     }
-    private void OnRollingHandle(Vector3 obj)
+    private void OnRollingHandle()
     {
         _playerController?.ChangeState(StateType.Rolling);
     }

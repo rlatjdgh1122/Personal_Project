@@ -7498,6 +7498,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8780b61ca3c6424c87c915e4e857781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rollDistance: 7
+  rollSpeed: 7
 --- !u!114 &95507706191340404
 MonoBehaviour:
   m_ObjectHideFlags: 0

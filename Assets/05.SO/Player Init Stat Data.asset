@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e64607907bf9040a1344a77ce9e8ed, type: 3}
   m_Name: Player Init Stat Data
   m_EditorClassIdentifier: 
-  Speed: 10
-  Hp: 0
-  Stamina: 0
-  Damage: 0
-  CriticalProbability: 0
-  EvasionProbability: 0
+  Speed: 6
+  Hp: 100
+  Stamina: 100
+  Damage: 20
+  CriticalProbability: 25
+  EvasionProbability: 20
   DefaultWeapon: {fileID: 0}
