@@ -24,7 +24,9 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
         else Destroy(this);
+
         PoolManager.Instance = new PoolManager(transform);
+
         PoolListData.poolData.ForEach(p => PoolManager.Instance.CreatePool(p.prefab, p.count));
 
         WeaponStatManager.Instance = gameObject.AddComponent<WeaponStatManager>();

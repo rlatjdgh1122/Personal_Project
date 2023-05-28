@@ -13,7 +13,7 @@ public class Map : PoolableMono
 
     private void Awake()
     {
-        Transform SpawnPoints = transform.Find("Pedestal")?.transform;
+        Transform SpawnPoints = transform.Find("Pedestals")?.transform;
 
         foreach (Transform trm in SpawnPoints)
         {
@@ -54,11 +54,11 @@ public class Map : PoolableMono
             float dot = Vector3.Dot(Vector3.forward.normalized, objectToTarget.normalized);
             if (dot > 0)
             {
-                MapManager.Instance.CurrentDistance += 50;
+                MapManager.Instance.CurrentDistance += MapManager.Instance.mapSize;
             }
             else if (dot < 0)
             {
-                MapManager.Instance.CurrentDistance -= 50;
+                MapManager.Instance.CurrentDistance -= MapManager.Instance.mapSize;
             }
             MapManager.Instance.SpawnMaps(dot);
         }

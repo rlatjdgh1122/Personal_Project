@@ -13,6 +13,7 @@ public class MapManager : MonoBehaviour
 {
     public static MapManager Instance;
 
+    public int mapSize = 100;
     public int seasonalCycle;
     public Season currentSeason;
     public Material[] mats;
@@ -56,7 +57,7 @@ public class MapManager : MonoBehaviour
     {
         Trees.Shuffle();
         Map frontMap = PoolManager.Instance.Pop("Map") as Map;
-        frontMap.SetTransform(new Vector3(0, 0, CurrentDistance - 50));
+        frontMap.SetTransform(new Vector3(0, 0, CurrentDistance - mapSize));
         frontMap.SpawnTrees(Trees);
         maps.Add(frontMap);
 
@@ -68,7 +69,7 @@ public class MapManager : MonoBehaviour
 
         Trees.Shuffle();
         Map BackMap = PoolManager.Instance.Pop("Map") as Map;
-        BackMap.SetTransform(new Vector3(0, 0, CurrentDistance + 50));
+        BackMap.SetTransform(new Vector3(0, 0, CurrentDistance + mapSize));
         BackMap.SpawnTrees(Trees);
         maps.Add(BackMap);
     }
@@ -82,7 +83,7 @@ public class MapManager : MonoBehaviour
             maps.Remove(maps[0]);
 
             Map frontMap = PoolManager.Instance.Pop("Map") as Map;
-            frontMap.SetTransform(new Vector3(0, 0, CurrentDistance + 50));
+            frontMap.SetTransform(new Vector3(0, 0, CurrentDistance + mapSize));
             frontMap.SpawnTrees(Trees);
             maps.Add(frontMap);
 
@@ -93,15 +94,18 @@ public class MapManager : MonoBehaviour
             maps.Remove(maps[maps.Count - 1]);
 
             Map backMap = PoolManager.Instance.Pop("Map") as Map;
-            backMap.SetTransform(new Vector3(0, 0, CurrentDistance - 50));
+            backMap.SetTransform(new Vector3(0, 0, CurrentDistance - mapSize));
             backMap.SpawnTrees(Trees);
             maps.Insert(0, backMap);
         }
     }
 
+    private int num = 0;
     private void CheckWeater()
     {
-        switch (Distance / (seasonalCycle * 50))
+        num = Mathf.Abs(CurrentDistance % seasonalCycle);
+        Debug.Log(num);
+        switch (num)
         {
             case 1: ChangedSeason(Season.winter); break;
             case 2: ChangedSeason(Season.Summer); break;
