@@ -13,9 +13,15 @@ MonoBehaviour:
   m_Name: Weapon List Data
   m_EditorClassIdentifier: 
   WeaponList:
-  - WeaponName: 
-    Weapon: {fileID: 0}
-  - WeaponName: 
-    Weapon: {fileID: 0}
-  - WeaponName: 
-    Weapon: {fileID: 0}
+  - WeaponName: "\uC720\uD0C4\uBC1C\uC0AC\uAE30"
+    Weapon: {fileID: 4937175228878242195, guid: 6e3791f0f297b9d4891550003fd6089b, type: 3}
+  - WeaponName: "\uBD88\uB3C5"
+    Weapon: {fileID: 2832296156669057392, guid: 5258055bcc589d446b1766c2a7d7064f, type: 3}
+  - WeaponName: AK47
+    Weapon: {fileID: 1896099241820312562, guid: ca2d3fea809658f4f80dc103203ee66d, type: 3}
+  - WeaponName: "\uC0F7\uAC74"
+    Weapon: {fileID: 1696878687390075493, guid: 7fd5920ff723b9d42a68a9c035cf1abc, type: 3}
+  - WeaponName: "\uC624\uD37C\uB808\uC774\uD130"
+    Weapon: {fileID: 1051301273801242254, guid: f2f94624939c9b94d9f2f2b0600d6b84, type: 3}
+  - WeaponName: "\uC2A4\uD305\uC5B4"
+    Weapon: {fileID: 3134475964884083932, guid: 4cc884e74ef787c469072d7c481baf32, type: 3}

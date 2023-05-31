@@ -1,12 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using static Core.Core;
-using static UnityEngine.Rendering.DebugUI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [HideInInspector]
+    public bool isWall = false;
+
     private PlayerAnimator _playerAnimator;
     private PlayerController _playerController;
     private Rigidbody _rigid;
@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private IEnumerator CO_Roll()
     {
+
         float targetRollDuration = rollDistance / rollSpeed;
         float elapsedTime = 0f;
         Vector3 startPosition = transform.position;
@@ -50,13 +51,14 @@ public class PlayerMovement : MonoBehaviour
 
         while (elapsedTime < targetRollDuration)
         {
+            if (isWall) {; break; }
+
             float t = elapsedTime / targetRollDuration;
             transform.position = Vector3.Lerp(startPosition, targetPosition, t);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-
-        transform.position = targetPosition;
+        //transform.position = targetPosition;
         yield return new WaitForSeconds(0.5f);
     }
     public void PlayerOnHit(Vector3 normal, float power)
