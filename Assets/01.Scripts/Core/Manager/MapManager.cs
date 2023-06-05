@@ -104,7 +104,6 @@ public class MapManager : MonoBehaviour
     private void CheckWeater()
     {
         num = Mathf.Abs(CurrentDistance % seasonalCycle);
-        Debug.Log(num);
         switch (num)
         {
             case 1: ChangedSeason(Season.winter); break;

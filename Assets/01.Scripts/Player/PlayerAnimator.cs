@@ -38,7 +38,6 @@ public class PlayerAnimator : PlayerAnimatorable
 
     public void OnAnimationEnd() //애니메이션이 종료되면 이게 실행된다.
     {
-        Debug.Log("qwre");
         OnAnimationEndTrigger?.Invoke();
     }
 

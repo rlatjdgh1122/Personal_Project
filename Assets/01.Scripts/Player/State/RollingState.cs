@@ -6,8 +6,7 @@ using UnityEngine;
 
 public class RollingState : CommonState
 {
-    [SerializeField]
-    private float _animationThreshold = .1f; //애니메이션 시간
+    private float _animationThreshold = .5f; //애니메이션 시간
     private float _timer = 0;
 
     public override void OnEnterState()
@@ -29,7 +28,6 @@ public class RollingState : CommonState
     }
     private void OnRollingEndHandle()
     {
-        Debug.Log("QWEr");
         if (_timer < _animationThreshold) return;
         _playerMovement.StopImmediately();
         _playerController.ChangeState(StateType.Normal);

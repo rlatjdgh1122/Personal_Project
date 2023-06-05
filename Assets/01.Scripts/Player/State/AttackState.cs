@@ -17,6 +17,8 @@ public class AttackState : CommonState
 
     public override void OnExitState()
     {
+        _playerMovement.StopImmediately();
+
         _playerInput.OnMovementKeyPress -= OnMoveHandle;
 
         _playerInput.OnFireButtonRelease -= _playerController.currentWeapon.StopShooting;

@@ -16,17 +16,8 @@ public class Gun : Weapon
     public UnityEvent OnShootNoAmmo;
     public UnityEvent OnStopShooting; //feedback추가
 
-    private bool _isShooting = false;
+    private bool isShooting = false;
 
-    public bool isShooting
-    {
-        get => _isShooting;
-        set
-        {
-            _isShooting = value;
-            Debug.Log($"셋팅이 일어남 {value}");
-        }
-    }
     public bool delayCoroutine = false;
 
     #region AMMO 관련 코드들
@@ -58,17 +49,18 @@ public class Gun : Weapon
         {
             Debug.Log("실행됨");
             //총알의 잔량 체크
-            if (Ammo >= gundata.bulletCount)
+            if (Ammo >= 0)
             {
                 OnShoot?.Invoke();
                 for (int i = 0; i < gundata.bulletCount; i++)
                 {
                     ShootBullet();
-                    Ammo--;
                 }
+                Ammo--;
             }
             else
             {
+                Debug.Log("실행중");
                 isShooting = false;
                 OnShootNoAmmo?.Invoke();
                 return;
@@ -109,16 +101,17 @@ public class Gun : Weapon
     private void SpawnBullet(Vector3 position, Quaternion rot)
     {
         RegularBullet b = PoolManager.Instance.Pop(bullet.name) as RegularBullet;
-        Debug.Log(b.name);
         b.SetPositionAndRotation(position, rot);
     }
 
     public override void Shooting()
     {
         isShooting = true;
+        Debug.Log("isShooting" + isShooting);
     }
     public override void StopShooting()
     {
+        Debug.Log("1");
         isShooting = false;
         OnStopShooting?.Invoke();
 

@@ -15,10 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 _movementDir;
 
-    [SerializeField]
-    private int rollDistance = 5;
-    [SerializeField]
-    private int rollSpeed = 10;
+    private int rollDistance = 7;
+    private int rollSpeed = 7;
 
     public Vector3 MovementDir => _movementDir;
     public bool IsActiveMove { get; set; }

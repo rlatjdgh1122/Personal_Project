@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class ReloadingState : CommonState
 {
+    private float _animationThreshold = .5f; //애니메이션 시간
+    private float _timer = 0;
     public override void OnEnterState()
     {
         _playerAnimator.SetReloadingState(true);
@@ -19,8 +21,7 @@ public class ReloadingState : CommonState
     }
     private void OnReloadingEndHandle()
     {
-        Debug.Log("애니메이션 끝");
-
+        if (_timer < _animationThreshold) return;
         _playerController.currentWeapon.Reloading();
         _playerController.ChangeState(StateType.Normal);
     }
@@ -33,6 +34,7 @@ public class ReloadingState : CommonState
 
     public override bool UpdateState()
     {
+        _timer += Time.deltaTime;
         return false;
     }
 }
