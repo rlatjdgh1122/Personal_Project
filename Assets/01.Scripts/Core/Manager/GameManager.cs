@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Transform _playerPos;
     public Transform playerPos => _playerPos;
-    private Transform WeaponPos => GameObject.Find("WeaponPivot").transform;
+    public Transform WeaponPos;
 
     private PlayerController _playerController;
 

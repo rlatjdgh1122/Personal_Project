@@ -179,6 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc5644ea7ffce07419ed85d5b24dee8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WeaponPivot: {fileID: 4892585598427654}
 --- !u!1 &50619275
 GameObject:
   m_ObjectHideFlags: 0
@@ -2640,6 +2641,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _playerPos: {fileID: 4565319670806500}
+  WeaponPos: {fileID: 4629391844430202}
 --- !u!1 &2077643409
 GameObject:
   m_ObjectHideFlags: 0
@@ -2944,7 +2946,7 @@ GameObject:
   - component: {fileID: 4643481872506280}
   - component: {fileID: 137453271855709512}
   m_Layer: 0
-  m_Name: WeaponPivot
+  m_Name: '-'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4855,7 +4857,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4629391844430202}
   m_Layer: 0
-  m_Name: Hand_L
+  m_Name: Hand_L(WeaponPivot)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -14,7 +14,7 @@ public class WeaponManager : MonoBehaviour //ªı∑ŒπŸ≤Ô Ω∫≈»µÈ¿ª ∏Æ≈œ
         if (Instance == null) Instance = this;
         else Destroy(Instance);
     }
-    public T GetWeaponData<T>(string weaponName) where T : WeaponDataSO
+/*    public T GetWeaponData<T>(string weaponName) where T : WeaponDataSO
     {
         if (_stats.ContainsKey(weaponName) == false)
         {
@@ -22,7 +22,7 @@ public class WeaponManager : MonoBehaviour //ªı∑ŒπŸ≤Ô Ω∫≈»µÈ¿ª ∏Æ≈œ
             return null;
         }
         return _stats[weaponName] as T;
-    }
+    }*/
     public void CreateWeapon(string weaponName, Weapon weapon)
     {
         _weapons.Add(weaponName, weapon);
