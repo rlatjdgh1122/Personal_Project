@@ -13,12 +13,16 @@ public class NormalState : CommonState
         _playerInput.OnMovementKeyPress += OnMoveHandle;
         _playerInput.OnFireButtonPress += OnFireButtonPressHandle;
         _playerInput.OnRollingKeyPress += OnRollingHandle;
+        _playerInput.OnReloadButtonPress += OnReloadingHandle;
+    }
+
+    private void OnReloadingHandle()
+    {
+        _playerController?.ChangeState(StateType.Reloading);
     }
 
     public override void OnExitState() //³ª°¥¶§
     {
-        _playerMovement.IsActiveMove = false;
-
         _playerInput.OnMovementKeyPress -= OnMoveHandle;
         _playerInput.OnFireButtonPress -= OnFireButtonPressHandle;
         _playerInput.OnRollingKeyPress -= OnRollingHandle;

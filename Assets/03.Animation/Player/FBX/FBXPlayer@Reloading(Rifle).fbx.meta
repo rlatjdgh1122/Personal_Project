@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: ee075db0072fb224d9e484086668dd51
+guid: 20508293fb92a744686784add6894e09
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Gunplay
+    second: Reloading(Rifle)
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -36,359 +36,33 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Gunplay
+      name: Reloading(Rifle)
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 166
+      lastFrame: 99
       wrapMode: 0
-      orientationOffsetY: -35
+      orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 1
-      loopBlendOrientation: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
       loopBlendPositionY: 1
       loopBlendPositionXZ: 1
-      keepOriginalOrientation: 1
+      keepOriginalOrientation: 0
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
-      bodyMask: 00000000010000000100000000000000000000000100000001000000010000000100000000000000000000000100000001000000
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Armature
-        weight: 1
-      - path: Armature/Root
-        weight: 1
-      - path: Armature/Root/Hips
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L/Schoulder_L
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L/Schoulder_L/Elbow_L
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L/Schoulder_L/Elbow_L/Hand_L
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L/Schoulder_L/Elbow_L/Hand_L/Finger_01
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L/Schoulder_L/Elbow_L/Hand_L/Finger_01/Finger_02
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L/Schoulder_L/Elbow_L/Hand_L/Finger_01/Finger_02/Finger_03
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L/Schoulder_L/Elbow_L/Hand_L/Finger_01/Finger_02/Finger_03/Finger_03_end
-        weight: 0
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L/Schoulder_L/Elbow_L/Hand_L/IndexFinger_01
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L/Schoulder_L/Elbow_L/Hand_L/IndexFinger_01/IndexFinger_02
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L/Schoulder_L/Elbow_L/Hand_L/IndexFinger_01/IndexFinger_02/IndexFinger_03
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L/Schoulder_L/Elbow_L/Hand_L/IndexFinger_01/IndexFinger_02/IndexFinger_03/IndexFinger_03_end
-        weight: 0
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L/Schoulder_L/Elbow_L/Hand_L/Thumb_01
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L/Schoulder_L/Elbow_L/Hand_L/Thumb_01/Thumb_02
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L/Schoulder_L/Elbow_L/Hand_L/Thumb_01/Thumb_02/Thumb_02_end
-        weight: 0
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/Schoulder_R
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/Schoulder_R/Elbow_R
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/Schoulder_R/Elbow_R/Hand_R
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/Schoulder_R/Elbow_R/Hand_R/Finger_01.001
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/Schoulder_R/Elbow_R/Hand_R/Finger_01.001/Finger_02.001
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/Schoulder_R/Elbow_R/Hand_R/Finger_01.001/Finger_02.001/Finger_03.001
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/Schoulder_R/Elbow_R/Hand_R/Finger_01.001/Finger_02.001/Finger_03.001/Finger_03.001_end
-        weight: 0
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/Schoulder_R/Elbow_R/Hand_R/IndexFinger_01.001
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/Schoulder_R/Elbow_R/Hand_R/IndexFinger_01.001/IndexFinger_02.001
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/Schoulder_R/Elbow_R/Hand_R/IndexFinger_01.001/IndexFinger_02.001/IndexFinger_03.001
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/Schoulder_R/Elbow_R/Hand_R/IndexFinger_01.001/IndexFinger_02.001/IndexFinger_03.001/IndexFinger_03.001_end
-        weight: 0
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/Schoulder_R/Elbow_R/Hand_R/Thumb_01.001
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/Schoulder_R/Elbow_R/Hand_R/Thumb_01.001/Thumb_02.001
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/Schoulder_R/Elbow_R/Hand_R/Thumb_01.001/Thumb_02.001/Thumb_02.001_end
-        weight: 0
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Neck
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Neck/Head
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Neck/Head/Eyebrows 1
-        weight: 0
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Neck/Head/Eyebrows 1/Eyebrows_end
-        weight: 0
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Neck/Head/Eyes
-        weight: 1
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03/Neck/Head/Eyes/Eyes_end
-        weight: 0
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03.001
-        weight: 0
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03.001/Spine_03.002
-        weight: 0
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03.001/Spine_03.002/Spine_03.003
-        weight: 0
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03.001/Spine_03.002/Spine_03.003/Spine_03.004
-        weight: 0
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03.001/Spine_03.002/Spine_03.003/Spine_03.004/Spine_03.005
-        weight: 0
-      - path: Armature/Root/Hips/Spine_01/Spine_02/Spine_03.001/Spine_03.002/Spine_03.003/Spine_03.004/Spine_03.005/Spine_03.005_end
-        weight: 0
-      - path: Armature/Root/Hips/UpperLeg_L
-        weight: 1
-      - path: Armature/Root/Hips/UpperLeg_L/LowerLeg_L
-        weight: 1
-      - path: Armature/Root/Hips/UpperLeg_L/LowerLeg_L/Ankle_L
-        weight: 1
-      - path: Armature/Root/Hips/UpperLeg_L/LowerLeg_L/Ankle_L/Ball_L
-        weight: 1
-      - path: Armature/Root/Hips/UpperLeg_L/LowerLeg_L/Ankle_L/Ball_L/Ball_L_end
-        weight: 0
-      - path: Armature/Root/Hips/UpperLeg_R
-        weight: 1
-      - path: Armature/Root/Hips/UpperLeg_R/LowerLeg_R
-        weight: 1
-      - path: Armature/Root/Hips/UpperLeg_R/LowerLeg_R/Ankle_R
-        weight: 1
-      - path: Armature/Root/Hips/UpperLeg_R/LowerLeg_R/Ankle_R/Ball_R
-        weight: 1
-      - path: Armature/Root/Hips/UpperLeg_R/LowerLeg_R/Ankle_R/Ball_R/Ball_R_end
-        weight: 0
-      - path: Female_Body
-        weight: 0
-      - path: Female_Body/Arm_F
-        weight: 0
-      - path: Female_Body/Arm_F/Arm_F_L_AA_001
-        weight: 0
-      - path: Female_Body/Arm_F/Arm_F_L_AA_002
-        weight: 0
-      - path: Female_Body/Arm_F/Arm_F_R_AA_001
-        weight: 0
-      - path: Female_Body/Arm_F/Arm_F_R_AA_002
-        weight: 0
-      - path: Female_Body/Calf_F
-        weight: 0
-      - path: Female_Body/Calf_F/Calf_F_L_AA_001
-        weight: 0
-      - path: Female_Body/Calf_F/Calf_F_L_AA_002
-        weight: 0
-      - path: Female_Body/Calf_F/Calf_F_R_AA_001
-        weight: 0
-      - path: Female_Body/Calf_F/Calf_F_R_AA_002
-        weight: 0
-      - path: Female_Body/Feet_F
-        weight: 0
-      - path: Female_Body/Feet_F/Foot_F_L_AA_001
-        weight: 0
-      - path: Female_Body/Feet_F/Foot_F_L_AA_002
-        weight: 0
-      - path: Female_Body/Feet_F/Foot_F_R_AA_001
-        weight: 0
-      - path: Female_Body/Feet_F/Foot_F_R_AA_002
-        weight: 0
-      - path: Female_Body/Forearm_F
-        weight: 0
-      - path: Female_Body/Forearm_F/Forearm_F_L_AA_001
-        weight: 0
-      - path: Female_Body/Forearm_F/Forearm_F_L_AA_002
-        weight: 0
-      - path: Female_Body/Forearm_F/Forearm_F_R_AA_001
-        weight: 0
-      - path: Female_Body/Forearm_F/Forearm_F_R_AA_002
-        weight: 0
-      - path: Female_Body/Hair_F
-        weight: 0
-      - path: Female_Body/Hair_F/Hair_F_AA_001
-        weight: 0
-      - path: Female_Body/Hair_F/Hair_F_AA_002
-        weight: 0
-      - path: Female_Body/Hand_F
-        weight: 0
-      - path: Female_Body/Hand_F/Hand_F_L_AA_001
-        weight: 0
-      - path: Female_Body/Hand_F/Hand_F_L_AA_002
-        weight: 0
-      - path: Female_Body/Hand_F/Hand_F_R_AA_001
-        weight: 0
-      - path: Female_Body/Hand_F/Hand_F_R_AA_002
-        weight: 0
-      - path: Female_Body/Head_F
-        weight: 0
-      - path: Female_Body/Head_F/Head_F_AA_001
-        weight: 0
-      - path: Female_Body/Head_F/Head_F_AA_002
-        weight: 0
-      - path: Female_Body/Legs_F
-        weight: 0
-      - path: Female_Body/Legs_F/Legs_F_AA_001
-        weight: 0
-      - path: Female_Body/Legs_F/Legs_F_AA_002
-        weight: 0
-      - path: Female_Body/Torso_F
-        weight: 0
-      - path: Female_Body/Torso_F/Torso_F_AA_001
-        weight: 0
-      - path: Female_Body/Torso_F/Torso_F_AA_002
-        weight: 0
-      - path: Male_Body
-        weight: 0
-      - path: Male_Body/Arm_M
-        weight: 0
-      - path: Male_Body/Arm_M/Arm_M_L_AA_001
-        weight: 0
-      - path: Male_Body/Arm_M/Arm_M_L_AA_002
-        weight: 0
-      - path: Male_Body/Arm_M/Arm_M_R_AA_001
-        weight: 0
-      - path: Male_Body/Arm_M/Arm_M_R_AA_002
-        weight: 0
-      - path: Male_Body/Calf_M
-        weight: 0
-      - path: Male_Body/Calf_M/Calf_M_L_AA_001
-        weight: 0
-      - path: Male_Body/Calf_M/Calf_M_L_AA_002
-        weight: 0
-      - path: Male_Body/Calf_M/Calf_M_R_AA_001
-        weight: 0
-      - path: Male_Body/Calf_M/Calf_M_R_AA_002
-        weight: 0
-      - path: Male_Body/FacialHair_M
-        weight: 0
-      - path: Male_Body/FacialHair_M/Facial_Hair_AA_001
-        weight: 0
-      - path: Male_Body/FacialHair_M/Facial_Hair_AA_002
-        weight: 0
-      - path: Male_Body/Feet_M
-        weight: 0
-      - path: Male_Body/Feet_M/Foot_M_L_AA_001
-        weight: 0
-      - path: Male_Body/Feet_M/Foot_M_L_AA_002
-        weight: 0
-      - path: Male_Body/Feet_M/Foot_M_R_AA_001
-        weight: 0
-      - path: Male_Body/Feet_M/Foot_M_R_AA_002
-        weight: 0
-      - path: Male_Body/Forearm_M
-        weight: 0
-      - path: Male_Body/Forearm_M/Forearm_M_L_AA_001
-        weight: 0
-      - path: Male_Body/Forearm_M/Forearm_M_L_AA_002
-        weight: 0
-      - path: Male_Body/Forearm_M/Forearm_M_R_AA_001
-        weight: 0
-      - path: Male_Body/Forearm_M/Forearm_M_R_AA_002
-        weight: 0
-      - path: Male_Body/Hair_M
-        weight: 0
-      - path: Male_Body/Hair_M/Hair_M_AA_001
-        weight: 0
-      - path: Male_Body/Hair_M/Hair_M_AA_002
-        weight: 0
-      - path: Male_Body/Hand_M
-        weight: 0
-      - path: Male_Body/Hand_M/Hand_M_L_AA_001
-        weight: 0
-      - path: Male_Body/Hand_M/Hand_M_L_AA_002
-        weight: 0
-      - path: Male_Body/Hand_M/Hand_M_R_AA_001
-        weight: 0
-      - path: Male_Body/Hand_M/Hand_M_R_AA_002
-        weight: 0
-      - path: Male_Body/Head_M
-        weight: 0
-      - path: Male_Body/Head_M/Head_M_AA_001
-        weight: 0
-      - path: Male_Body/Head_M/Head_M_AA_002
-        weight: 0
-      - path: Male_Body/Legs_M
-        weight: 0
-      - path: Male_Body/Legs_M/Legs_M_AA_001
-        weight: 0
-      - path: Male_Body/Legs_M/Legs_M_AA_002
-        weight: 0
-      - path: Male_Body/Torso_M
-        weight: 0
-      - path: Male_Body/Torso_M/Torso_M_AA_001
-        weight: 0
-      - path: Male_Body/Torso_M/Torso_M_AA_002
-        weight: 0
-      - path: Unisex
-        weight: 0
-      - path: Unisex/Belt
-        weight: 0
-      - path: Unisex/Belt/Belt_AA_001
-        weight: 0
-      - path: Unisex/Belt/Belt_AA_002
-        weight: 0
-      - path: Unisex/Cape
-        weight: 0
-      - path: Unisex/Cape/Cape_AA_001
-        weight: 0
-      - path: Unisex/Cape/Cape_AA_002
-        weight: 0
-      - path: Unisex/Elbows
-        weight: 0
-      - path: Unisex/Elbows/Elbow_L_AA_001
-        weight: 0
-      - path: Unisex/Elbows/Elbow_L_AA_002
-        weight: 0
-      - path: Unisex/Elbows/Elbow_R_AA_001
-        weight: 0
-      - path: Unisex/Elbows/Elbow_R_AA_002
-        weight: 0
-      - path: Unisex/Eyebrows
-        weight: 0
-      - path: Unisex/Eyebrows/Eyebrows_AA_001
-        weight: 0
-      - path: Unisex/Eyebrows/Eyebrows_AA_002
-        weight: 0
-      - path: Unisex/Knee
-        weight: 0
-      - path: Unisex/Knee/Knee_L_AA_001
-        weight: 0
-      - path: Unisex/Knee/Knee_L_AA_002
-        weight: 0
-      - path: Unisex/Knee/Knee_R_AA_001
-        weight: 0
-      - path: Unisex/Knee/Knee_R_AA_002
-        weight: 0
-      - path: Unisex/Pauldron
-        weight: 0
-      - path: Unisex/Pauldron/Pauldron_L_AA_001
-        weight: 0
-      - path: Unisex/Pauldron/Pauldron_L_AA_002
-        weight: 0
-      - path: Unisex/Pauldron/Pauldron_R_AA_001
-        weight: 0
-      - path: Unisex/Pauldron/Pauldron_R_AA_002
-        weight: 0
-      maskType: 1
-      maskSource: {fileID: 31900000, guid: 2f092d2ea2fa33f47aa166856a8fa97c, type: 2}
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:

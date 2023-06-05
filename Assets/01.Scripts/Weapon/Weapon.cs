@@ -4,7 +4,9 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour, IWeaponable
 {
-   public abstract void Shooting();
+    public abstract void Shooting();
 
     public abstract void StopShooting();
+
+    public virtual void Reloading() { }
 }

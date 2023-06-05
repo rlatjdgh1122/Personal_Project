@@ -67,12 +67,12 @@ public class Gun : Weapon
                     Ammo--;
                 }
             }
-            /*else
+            else
             {
                 isShooting = false;
                 OnShootNoAmmo?.Invoke();
                 return;
-            }*/
+            }
             FinishOneShooting(); //한발 쏘고 난 다음에는 딜레이 코루틴을 돌려줘야 하기위한 함수
         }
     }
@@ -122,5 +122,9 @@ public class Gun : Weapon
         isShooting = false;
         OnStopShooting?.Invoke();
 
+    }
+    public override void Reloading()
+    {
+        ammo = gundata.ammo;
     }
 }

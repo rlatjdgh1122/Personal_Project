@@ -12,6 +12,8 @@ public class RollingState : CommonState
 
     public override void OnEnterState()
     {
+        _playerMovement.IsActiveMove = false;
+
         _playerAnimator.SetRollingState(true);
         _playerAnimator.OnAnimationEndTrigger += OnRollingEndHandle;
         _playerMovement?.PlayerToRoll();
@@ -27,6 +29,7 @@ public class RollingState : CommonState
     }
     private void OnRollingEndHandle()
     {
+        Debug.Log("QWEr");
         if (_timer < _animationThreshold) return;
         _playerMovement.StopImmediately();
         _playerController.ChangeState(StateType.Normal);

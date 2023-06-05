@@ -10,6 +10,7 @@ namespace Core
         Attack = 1,
         OnHit = 2,
         Rolling = 3,
+        Reloading = 4,
     }
     public class Core
     {

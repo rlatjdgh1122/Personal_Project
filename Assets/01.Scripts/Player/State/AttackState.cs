@@ -9,15 +9,26 @@ public class AttackState : CommonState
     {
         _playerController.currentWeapon.Shooting();
 
+        _playerInput.OnMovementKeyPress += OnMoveHandle;
+
         _playerInput.OnFireButtonRelease += _playerController.currentWeapon.StopShooting;
         _playerInput.OnFireButtonRelease += ChangeState;
     }
 
     public override void OnExitState()
     {
+        _playerInput.OnMovementKeyPress -= OnMoveHandle;
+
         _playerInput.OnFireButtonRelease -= _playerController.currentWeapon.StopShooting;
         _playerInput.OnFireButtonRelease -= ChangeState;
     }
+
+    private void OnMoveHandle(Vector3 dir)
+    {
+        _playerMovement?.SetMovementDirection(dir);
+
+    }
+
     private void ChangeState()
     {
         _playerController.ChangeState(StateType.Normal);
