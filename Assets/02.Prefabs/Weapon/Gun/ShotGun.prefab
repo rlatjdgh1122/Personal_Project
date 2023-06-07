@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e52e4d00037524daaa90ecd8ac2f71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gundata: {fileID: 11400000, guid: 3131292916173b54aa43210edfbb1ea3, type: 2}
+  gunData: {fileID: 11400000, guid: 3131292916173b54aa43210edfbb1ea3, type: 2}
   bullet: {fileID: 5310735519251359380, guid: b75f7f34a87f72b4da47a0dbf1cadb60, type: 3}
   firePos: {fileID: 1696878687394777193}
   OnShoot:

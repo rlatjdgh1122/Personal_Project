@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class Gun : Weapon
 {
-    public GunDataSO gundata;
+    public GunDataSO gunData;
     public GameObject bullet;
     [SerializeField]
     protected Transform firePos;
@@ -16,7 +16,17 @@ public class Gun : Weapon
     public UnityEvent OnShootNoAmmo;
     public UnityEvent OnStopShooting; //feedback추가
 
-    private bool isShooting = false;
+    private bool _isShooting = false;
+
+    public bool isShooting
+    {
+        get { return _isShooting; }
+        set
+        {
+            _isShooting = value;
+            Debug.Log("셋팅이 일어남 : " + _isShooting);
+        }
+    }
 
     public bool delayCoroutine = false;
 
@@ -27,15 +37,15 @@ public class Gun : Weapon
         get { return ammo; }
         set
         {
-            ammo = Math.Clamp(value, 0, gundata.ammo);
+            ammo = Math.Clamp(value, 0, gunData.ammocapacity);
         }
     }
-    public bool AmmoFull => Ammo == gundata.ammo;
-    public int EmptyBullet => gundata.ammo - ammo; //현재 부족한 탄약 수
+    public bool AmmoFull => Ammo == gunData.ammocapacity;
+    public int EmptyBullet => gunData.ammocapacity - ammo; //현재 부족한 탄약 수
     #endregion
     private void Awake()
     {
-        ammo = gundata.ammo;
+        Ammo = gunData.ammocapacity;
     }
     private void Update()
     {
@@ -43,16 +53,16 @@ public class Gun : Weapon
     }
     private void UseWeapon()
     {
-        Debug.Log(isShooting);
+        Debug.Log("update : " + isShooting); //여기찍히는 계속 디버그가 false다.
         //딜레이가 없다면 발사
-        if (isShooting && delayCoroutine == false)
+        if (isShooting == true && delayCoroutine == false)
         {
-            Debug.Log("실행됨");
+            Debug.Log("asdf");
             //총알의 잔량 체크
-            if (Ammo >= 0)
+            if (Ammo > 0)
             {
                 OnShoot?.Invoke();
-                for (int i = 0; i < gundata.bulletCount; i++)
+                for (int i = 0; i < gunData.bulletCount; i++)
                 {
                     ShootBullet();
                 }
@@ -60,7 +70,6 @@ public class Gun : Weapon
             }
             else
             {
-                Debug.Log("실행중");
                 isShooting = false;
                 OnShootNoAmmo?.Invoke();
                 return;
@@ -68,31 +77,35 @@ public class Gun : Weapon
             FinishOneShooting(); //한발 쏘고 난 다음에는 딜레이 코루틴을 돌려줘야 하기위한 함수
         }
     }
+
     private void FinishOneShooting()
     {
+        Debug.Log("FinishOneShooting");
         StartCoroutine(DelayNextShootCoroutine());
-        if (gundata.autoFire == false)
+        if (gunData.autoFire == false)
         {
-            Debug.Log("autoFire : " + isShooting);
             isShooting = false;
         }
     }
     private IEnumerator DelayNextShootCoroutine()
     {
+        Debug.Log("DelayNextShootCoroutine");
         delayCoroutine = true;
-        yield return new WaitForSeconds(gundata.attackDelay);
+        yield return new WaitForSeconds(gunData.attackDelay);
         delayCoroutine = false;
     }
 
     private void ShootBullet()
     {
-        Debug.Log("피유우우우웅");
+        Debug.Log("ShootBullet");
         SpawnBullet(firePos.position, CalculateAngle());
     }
+
     private Quaternion CalculateAngle()
     {
+        Debug.Log("CalculateAngle");
         Vector3 randomPosition = Random.insideUnitSphere; //이부분 수정필요
-        Vector3 resultPos = randomPosition * gundata.spreadAngle + transform.forward;
+        Vector3 resultPos = randomPosition * gunData.spreadAngle + transform.forward;
 
         Quaternion rot = Quaternion.LookRotation(resultPos);
         return rot;
@@ -100,6 +113,7 @@ public class Gun : Weapon
 
     private void SpawnBullet(Vector3 position, Quaternion rot)
     {
+        Debug.Log("SpawnBullet");
         RegularBullet b = PoolManager.Instance.Pop(bullet.name) as RegularBullet;
         b.SetPositionAndRotation(position, rot);
     }
@@ -107,17 +121,19 @@ public class Gun : Weapon
     public override void Shooting()
     {
         isShooting = true;
-        Debug.Log("isShooting" + isShooting);
+        Debug.Log("Shooting : " + isShooting);
     }
     public override void StopShooting()
     {
-        Debug.Log("1");
+
         isShooting = false;
         OnStopShooting?.Invoke();
+        Debug.Log("StopShooting : " + isShooting);
 
     }
     public override void Reloading()
     {
-        ammo = gundata.ammo;
+        Debug.Log("총알 충전");
+        Ammo = gunData.ammocapacity;
     }
 }

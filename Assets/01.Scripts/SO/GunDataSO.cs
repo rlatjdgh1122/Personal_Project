@@ -6,7 +6,7 @@ using UnityEngine;
 public class GunDataSO : WeaponDataSO
 {
     [Range(3, 20f)]
-    public int ammo;
+    public int ammocapacity;
     public bool autoFire;
     public int bulletCount;
     public int piercingCount; //관통 개 수

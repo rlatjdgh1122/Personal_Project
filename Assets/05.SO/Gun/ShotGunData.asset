@@ -19,11 +19,11 @@ MonoBehaviour:
   stunDuration: 0
   knockBack: 0
   weight: 1
-  UseStamina: 0
+  UseStamina: 7
   shootSound: {fileID: 0}
   reloadSound: {fileID: 0}
   animController: {fileID: 0}
-  ammo: 20
+  ammocapacity: 20
   autoFire: 1
   bulletCount: 5
   piercingCount: 0
