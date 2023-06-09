@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class WeaponDataSO : ScriptableObject
 {
     public string WeaponName; // 무기 네임
-    public Sprite image; //무기 이미지
     [Range(15f, 70f)]
     public float damage; //데미지
     [Range(.1f, 1f)]

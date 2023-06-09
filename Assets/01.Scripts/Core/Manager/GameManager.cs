@@ -8,8 +8,9 @@ using UnityEngine;
 using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
+    public WeaponUI weaponUI;
     public PoolListData PoolListData;
-    public WeaponListData WeaponListData;
+    public WeaponInfoListData WeaponListData;
 
     public static GameManager Instance;
 
@@ -60,6 +61,8 @@ public class GameManager : MonoBehaviour
         {
             _playerController.currentWeapon = weapons[1];
         }
+
+        if (Input.GetKeyDown(KeyCode.P)) weaponUI.Open_Panel();
     }
     public void ChangeWeapon(int idx)
     {
@@ -77,5 +80,9 @@ public class GameManager : MonoBehaviour
             }
         }
         return;
+    }
+    public void WeaponShuffle()
+    {
+        weapons.Shuffle();
     }
 }

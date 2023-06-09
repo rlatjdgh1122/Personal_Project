@@ -18,5 +18,6 @@ public static class ExtensionMethod
             list[n] = value;
         }
     }
+
     #endregion
 }

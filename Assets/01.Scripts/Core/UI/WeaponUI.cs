@@ -1,0 +1,134 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Net.NetworkInformation;
+using UnityEngine;
+using UnityEngine.UIElements;
+
+public class WeaponUI : MonoBehaviour
+{
+    private VisualElement _background;
+
+    private Button _select_first;
+    private VisualElement _first_image;
+    private Label _first_name;
+    private Label _first_explain;
+
+    private Button _select_second;
+    private VisualElement _second_image;
+    private Label _second_name;
+    private Label _second_explain;
+
+    private Button _select_third;
+    private VisualElement _third_image;
+    private Label _third_name;
+    private Label _third_explain;
+
+    private Button _refresh;
+
+    public static WeaponUI Instance;
+
+    private void Awake()
+    {
+        if (Instance == null) { Instance = this; } else Destroy(this);
+    }
+    private void Start()
+    {
+
+        var root = GetComponent<UIDocument>().rootVisualElement;
+
+        _background = root.Q<VisualElement>("background");
+
+        _select_first = root.Q<Button>("select-first");
+        _select_second = root.Q<Button>("select-second");
+        _select_third = root.Q<Button>("select-third");
+
+        _first_image = root.Q<VisualElement>("first-image");
+        _second_image = root.Q<VisualElement>("second-image");
+        _third_image = root.Q<VisualElement>("third-image");
+
+        _first_name = root.Q<Label>("first-weaponName");
+        _second_name = root.Q<Label>("second-weaponName");
+        _third_name = root.Q<Label>("third-weaponName");
+
+        _first_explain = root.Q<Label>("first-explain");
+        _second_explain = root.Q<Label>("second-explain");
+        _third_explain = root.Q<Label>("third-explain");
+
+        _refresh = root.Q<Button>("refresh");
+
+        _select_first.RegisterCallback<ClickEvent>(OnClick_Selet_first);
+        _select_second.RegisterCallback<ClickEvent>(OnClick_Selet_second);
+        _select_third.RegisterCallback<ClickEvent>(OnClick_Selet_third);
+
+        _refresh.RegisterCallback<ClickEvent>(OnClick_refresh);
+    }
+
+    private void OnClick_refresh(ClickEvent evt)
+    {
+        UI_Appry(true);
+        _refresh.AddToClassList("refresh-disabled");
+    }
+
+    private void OnClick_Selet_third(ClickEvent evt)
+    {
+        Off_Panel();
+    }
+
+    private void OnClick_Selet_second(ClickEvent evt)
+    {
+        Off_Panel();
+    }
+
+    private void OnClick_Selet_first(ClickEvent evt)
+    {
+        Off_Panel();
+    }
+
+    private void Off_Panel()
+    {
+        _background.style.display = DisplayStyle.None;
+    }
+
+    private void UI_Appry(bool value = false)
+    {
+        int idx0 = 0;
+        int idx1 = 1;
+        int idx2 = 2;
+        if (value)
+        {
+            idx0 = 3;
+            idx1 = 4;
+            idx2 = 5;
+        }
+        WeaponDataList first = GameManager.Instance.WeaponListData.WeaponList[idx0];
+        WeaponDataList second = GameManager.Instance.WeaponListData.WeaponList[idx1];
+        WeaponDataList third = GameManager.Instance.WeaponListData.WeaponList[idx2];
+
+        _first_name.text = first.WeaponName;
+        _first_image.style.backgroundImage = new StyleBackground(first.WeaponImage);
+        _first_explain.text = first.Explain;
+
+        _second_name.text = second.WeaponName;
+        _second_image.style.backgroundImage = new StyleBackground(second.WeaponImage);
+        _second_explain.text = second.Explain;
+
+        _third_name.text = third.WeaponName;
+        _third_image.style.backgroundImage = new StyleBackground(third.WeaponImage);
+        _third_explain.text = third.Explain;
+    }
+    public void Open_Panel()
+    {
+        _background.style.display = DisplayStyle.Flex;
+        _refresh.RemoveFromClassList("refresh-disabled");
+        GameManager.Instance.WeaponShuffle();
+        UI_Appry();
+    }
+
+    public void CreateWeapon(string weaponName)
+    {
+        GameManager.Instance.CreateWeapon(weaponName);
+    }
+
+
+}

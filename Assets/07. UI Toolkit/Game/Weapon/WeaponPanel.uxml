@@ -1,0 +1,26 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/07.%20UI%20Toolkit/Game/Weapon/WeaponPanel.uss?fileID=7433441132597879392&amp;guid=750bb036cde7b8444b3147668fdef19e&amp;type=3#WeaponPanel" />
+    <ui:VisualElement name="background" style="width: 100%; height: 100%; background-color: rgba(67, 67, 67, 0.78); display: flex; opacity: 1;">
+        <ui:VisualElement class="cardContainer" style="align-items: center; top: 25%;">
+            <ui:VisualElement style="flex-direction: row; width: 100%; justify-content: space-around; height: 100%;">
+                <ui:Button display-tooltip-when-elided="true" name="select-first" class="card">
+                    <ui:VisualElement name="first-image" style="width: 80%; height: 65%; left: 10%; top: 20%;" />
+                    <ui:Label text="샷건" display-tooltip-when-elided="true" name="first-weaponName" style="-unity-font-definition: url(&apos;project://database/Assets/09.%20Ponts/MaplestoryFont_TTF%20(1)/Maplestory%20Bold%20SDF%201.asset?fileID=11400000&amp;guid=fc4056be0db5c7e4a9f5d7b0ae4a16a4&amp;type=2#Maplestory Bold SDF 1&apos;); font-size: 50px; top: -65%; color: rgb(255, 255, 255);" />
+                    <ui:Label text="근접에서 강함" display-tooltip-when-elided="true" name="first-explain" style="top: 5%; font-size: 30px; color: rgb(255, 255, 255); -unity-font-definition: url(&apos;project://database/Assets/09.%20Ponts/MaplestoryFont_TTF%20(1)/Maplestory%20Bold%20SDF%201.asset?fileID=11400000&amp;guid=fc4056be0db5c7e4a9f5d7b0ae4a16a4&amp;type=2#Maplestory Bold SDF 1&apos;);" />
+                </ui:Button>
+                <ui:Button display-tooltip-when-elided="true" name="select-second" class="card">
+                    <ui:VisualElement name="second-image" style="width: 80%; height: 65%; left: 10%; top: 20%;" />
+                    <ui:Label text="샷건" display-tooltip-when-elided="true" name="second-weaponName" style="-unity-font-definition: url(&apos;project://database/Assets/09.%20Ponts/MaplestoryFont_TTF%20(1)/Maplestory%20Bold%20SDF%201.asset?fileID=11400000&amp;guid=fc4056be0db5c7e4a9f5d7b0ae4a16a4&amp;type=2#Maplestory Bold SDF 1&apos;); font-size: 50px; top: -65%; color: rgb(255, 255, 255);" />
+                    <ui:Label text="근접에서 강함" display-tooltip-when-elided="true" name="second-explain" style="top: 5%; font-size: 30px; color: rgb(255, 255, 255); -unity-font-definition: url(&apos;project://database/Assets/09.%20Ponts/MaplestoryFont_TTF%20(1)/Maplestory%20Bold%20SDF%201.asset?fileID=11400000&amp;guid=fc4056be0db5c7e4a9f5d7b0ae4a16a4&amp;type=2#Maplestory Bold SDF 1&apos;);" />
+                </ui:Button>
+                <ui:Button display-tooltip-when-elided="true" name="select-third" class="card">
+                    <ui:VisualElement name="third-image" style="width: 80%; height: 65%; left: 10%; top: 20%;" />
+                    <ui:Label text="샷건" display-tooltip-when-elided="true" name="third-weaponName" style="-unity-font-definition: url(&apos;project://database/Assets/09.%20Ponts/MaplestoryFont_TTF%20(1)/Maplestory%20Bold%20SDF%201.asset?fileID=11400000&amp;guid=fc4056be0db5c7e4a9f5d7b0ae4a16a4&amp;type=2#Maplestory Bold SDF 1&apos;); font-size: 50px; top: -65%; color: rgb(255, 255, 255);" />
+                    <ui:Label text="근접에서 강함" display-tooltip-when-elided="true" name="third-explain" style="top: 5%; font-size: 30px; color: rgb(255, 255, 255); -unity-font-definition: url(&apos;project://database/Assets/09.%20Ponts/MaplestoryFont_TTF%20(1)/Maplestory%20Bold%20SDF%201.asset?fileID=11400000&amp;guid=fc4056be0db5c7e4a9f5d7b0ae4a16a4&amp;type=2#Maplestory Bold SDF 1&apos;);" />
+                </ui:Button>
+            </ui:VisualElement>
+            <ui:Button text="새로고침" display-tooltip-when-elided="true" name="refresh" class="refresh" />
+        </ui:VisualElement>
+        <ui:Label text="무기 선택" display-tooltip-when-elided="true" name="title" style="flex-direction: row; justify-content: space-around; -unity-text-align: middle-center; white-space: normal; left: 40%; top: 10px; right: 50%; bottom: 25px; width: 20%; height: 20%; position: absolute; -unity-font-definition: url(&apos;project://database/Assets/09.%20Ponts/MaplestoryFont_TTF%20(1)/Maplestory%20Bold%20SDF%201.asset?fileID=11400000&amp;guid=fc4056be0db5c7e4a9f5d7b0ae4a16a4&amp;type=2#Maplestory Bold SDF 1&apos;); font-size: 70px; color: rgb(255, 255, 255);" />
+    </ui:VisualElement>
+</ui:UXML>
