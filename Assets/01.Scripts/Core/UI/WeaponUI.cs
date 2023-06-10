@@ -28,6 +28,10 @@ public class WeaponUI : MonoBehaviour
 
     public static WeaponUI Instance;
 
+
+    private int idx0 = 0;
+    private int idx1 = 1;
+    private int idx2 = 2;
     private void Awake()
     {
         if (Instance == null) { Instance = this; } else Destroy(this);
@@ -62,6 +66,7 @@ public class WeaponUI : MonoBehaviour
         _select_third.RegisterCallback<ClickEvent>(OnClick_Selet_third);
 
         _refresh.RegisterCallback<ClickEvent>(OnClick_refresh);
+        Off_Panel();
     }
 
     private void OnClick_refresh(ClickEvent evt)
@@ -73,16 +78,22 @@ public class WeaponUI : MonoBehaviour
     private void OnClick_Selet_third(ClickEvent evt)
     {
         Off_Panel();
+        CreateWeapon(_first_name.text);
+        GameManager.Instance.WeaponRemove(idx2);
     }
 
     private void OnClick_Selet_second(ClickEvent evt)
     {
         Off_Panel();
+        CreateWeapon(_second_name.text);
+        GameManager.Instance.WeaponRemove(idx1);
     }
 
     private void OnClick_Selet_first(ClickEvent evt)
     {
         Off_Panel();
+        CreateWeapon(_third_name.text);
+        GameManager.Instance.WeaponRemove(idx0);
     }
 
     private void Off_Panel()
@@ -90,20 +101,20 @@ public class WeaponUI : MonoBehaviour
         _background.style.display = DisplayStyle.None;
     }
 
-    private void UI_Appry(bool value = false)
+    private void UI_Appry(bool value = false) //UI에 이름 이미지 설명 적용
     {
-        int idx0 = 0;
-        int idx1 = 1;
-        int idx2 = 2;
+        idx0 = 0;
+        idx1 = 1;
+        idx2 = 2;
         if (value)
         {
             idx0 = 3;
             idx1 = 4;
             idx2 = 5;
         }
-        WeaponDataList first = GameManager.Instance.WeaponListData.WeaponList[idx0];
-        WeaponDataList second = GameManager.Instance.WeaponListData.WeaponList[idx1];
-        WeaponDataList third = GameManager.Instance.WeaponListData.WeaponList[idx2];
+        WeaponDataList first = GameManager.Instance.UI_weaponDatas[idx0];
+        WeaponDataList second = GameManager.Instance.UI_weaponDatas[idx1];
+        WeaponDataList third = GameManager.Instance.UI_weaponDatas[idx2];
 
         _first_name.text = first.WeaponName;
         _first_image.style.backgroundImage = new StyleBackground(first.WeaponImage);
@@ -125,10 +136,8 @@ public class WeaponUI : MonoBehaviour
         UI_Appry();
     }
 
-    public void CreateWeapon(string weaponName)
+    private void CreateWeapon(string weaponName)
     {
         GameManager.Instance.CreateWeapon(weaponName);
     }
-
-
 }

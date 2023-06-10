@@ -1,0 +1,31 @@
+.weapon {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0);
+    border-left-color: rgba(72, 72, 72, 0.78);
+    border-right-color: rgba(72, 72, 72, 0.78);
+    border-top-color: rgba(72, 72, 72, 0.78);
+    border-bottom-color: rgba(72, 72, 72, 0.78);
+    border-left-width: 15px;
+    border-right-width: 15px;
+    border-top-width: 15px;
+    border-bottom-width: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.39);
+    background-image: none;
+}
+
+.weapon-select {
+    border-left-color: rgb(159, 159, 159);
+    border-right-color: rgb(159, 159, 159);
+    border-top-color: rgb(159, 159, 159);
+    border-bottom-color: rgb(159, 159, 159);
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.weapon_image {
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.59);
+}

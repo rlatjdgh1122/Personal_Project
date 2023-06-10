@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "SO/PlayerStatData")]
 public class PlayerDataSO : ScriptableObject
 {
-    public string DefaultWeaponName; //기본 무기
     [Range(5,8)]
     public float Speed; //움직임
     [Range(80,150)]

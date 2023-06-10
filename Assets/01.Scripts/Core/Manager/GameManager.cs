@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
 
     private PlayerController _playerController;
 
+    [HideInInspector]
+    public List<WeaponDataList> UI_weaponDatas = new();
+
     private void Awake()
     {
         if (Instance == null)
@@ -35,10 +38,20 @@ public class GameManager : MonoBehaviour
         PoolManager.Instance = new PoolManager(transform);
         WeaponManager.Instance = gameObject.AddComponent<WeaponManager>();
 
-        PoolListData.poolData.ForEach(p => PoolManager.Instance.CreatePool(p.prefab, p.count));
-        WeaponListData.WeaponList.ForEach(p => WeaponManager.Instance.CreateWeapon(p.WeaponName, p.Weapon));
+        PoolListData.poolData.ForEach(p =>
+        {
+            PoolManager.Instance.CreatePool(p.prefab, p.count);
+
+        });
+        WeaponListData.WeaponList.ForEach(p =>
+        {
+            WeaponManager.Instance.CreateWeapon(p.WeaponName, p.Weapon);
+            UI_weaponDatas.Add(p);
+        });
+
 
         _playerController = _playerPos.GetComponent<PlayerController>();
+
     }
     private void Start()
     {
@@ -47,7 +60,7 @@ public class GameManager : MonoBehaviour
 
     private void Setting()
     {
-        CreateWeapon(_playerController.playerData.DefaultWeaponName);
+        weaponUI.Open_Panel();
         _playerController.currentWeapon = weapons[0];
     }
 
@@ -75,7 +88,8 @@ public class GameManager : MonoBehaviour
             if (weapons[i] == null)
             {
                 weapons[i] = WeaponManager.Instance.GetWeapon(weaponName);
-                Instantiate(weapons[i].gameObject, WeaponPos);
+                GameObject weapon = Instantiate(weapons[i].gameObject, WeaponPos);
+                weapon.SetActive(false);
                 break;
             }
         }
@@ -83,6 +97,10 @@ public class GameManager : MonoBehaviour
     }
     public void WeaponShuffle()
     {
-        weapons.Shuffle();
+        UI_weaponDatas.Shuffle();
+    }
+    public void WeaponRemove(int idx)
+    {
+        UI_weaponDatas.RemoveAt(idx);
     }
 }

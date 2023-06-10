@@ -7,7 +7,6 @@ using UnityEngine.UI;
 [CreateAssetMenu(menuName = "SO/weaponData")]
 public class WeaponDataSO : ScriptableObject
 {
-    public string WeaponName; // 무기 네임
     [Range(15f, 70f)]
     public float damage; //데미지
     [Range(.1f, 1f)]
