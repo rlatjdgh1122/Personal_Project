@@ -7,13 +7,12 @@ public class AttackState : CommonState
 {
     public override void OnEnterState()
     {
-        Debug.Log(_playerController.currentWeapon);
-        _playerController.currentWeapon.Shooting();
+       /* _playerController.currentWeapon?.Shooting();
 
         _playerInput.OnMovementKeyPress += OnMoveHandle;
 
         _playerInput.OnFireButtonRelease += _playerController.currentWeapon.StopShooting;
-        _playerInput.OnFireButtonRelease += ChangeState;
+        _playerInput.OnFireButtonRelease += ChangeState;*/
     }
 
     public override void OnExitState()

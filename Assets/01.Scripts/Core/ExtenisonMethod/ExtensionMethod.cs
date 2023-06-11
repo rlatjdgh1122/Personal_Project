@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using System.Diagnostics;
 
 public static class ExtensionMethod
 {
@@ -16,6 +17,17 @@ public static class ExtensionMethod
             T value = list[k];
             list[k] = list[n];
             list[n] = value;
+        }
+    }
+
+    public static void Select<T>(this List<T> list, int idx, Action<T> action)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (i != idx)
+            {
+                action(list[i]);
+            }
         }
     }
 

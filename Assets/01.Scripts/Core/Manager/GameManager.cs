@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
-    public WeaponUI weaponUI;
+    public UIController ui_Controller;
     public PoolListData PoolListData;
     public WeaponInfoListData WeaponListData;
 
@@ -49,7 +49,6 @@ public class GameManager : MonoBehaviour
             UI_weaponDatas.Add(p);
         });
 
-
         _playerController = _playerPos.GetComponent<PlayerController>();
 
     }
@@ -60,8 +59,8 @@ public class GameManager : MonoBehaviour
 
     private void Setting()
     {
-        weaponUI.Open_Panel();
-        _playerController.currentWeapon = weapons[0];
+        ui_Controller.weaponUI.Open_Panel();
+        //_playerController.currentWeapon = weapons[0];
     }
 
     private void Update()
@@ -69,17 +68,30 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             _playerController.currentWeapon = weapons[0];
+            ui_Controller.interfaceUI.Select(0);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             _playerController.currentWeapon = weapons[1];
+            ui_Controller.interfaceUI.Select(1);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            _playerController.currentWeapon = weapons[2];
+            ui_Controller.interfaceUI.Select(2);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            _playerController.currentWeapon = weapons[3];
+            ui_Controller.interfaceUI.Select(3);
         }
 
-        if (Input.GetKeyDown(KeyCode.P)) weaponUI.Open_Panel();
+        if (Input.GetKeyDown(KeyCode.P)) ui_Controller.weaponUI.Open_Panel();
     }
-    public void ChangeWeapon(int idx)
-    {
 
+    public void Start_WeaponSetting()
+    {
+        _playerController.currentWeapon = weapons[0];
     }
     public void CreateWeapon(string weaponName) //ui에서 총을 선택할때 사용
     {
