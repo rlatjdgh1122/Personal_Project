@@ -38,6 +38,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6002746895077808535, guid: 41b1038c4481a854092ac3410e44f57d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2336555170174120158, guid: 41b1038c4481a854092ac3410e44f57d, type: 3}
       propertyPath: m_Name
       value: Bulldog

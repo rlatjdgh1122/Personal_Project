@@ -36,7 +36,9 @@ public class GameManager : MonoBehaviour
         else Destroy(this);
 
         PoolManager.Instance = new PoolManager(transform);
+
         WeaponManager.Instance = gameObject.AddComponent<WeaponManager>();
+        TimeController.Instance = gameObject.AddComponent<TimeController>();
 
         PoolListData.poolData.ForEach(p =>
         {
@@ -56,44 +58,58 @@ public class GameManager : MonoBehaviour
     {
         Setting();
     }
-
     private void Setting()
     {
         ui_Controller.weaponUI.Open_Panel();
-        //_playerController.currentWeapon = weapons[0];
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (weapons[0] != null && Input.GetKeyDown(KeyCode.Alpha1))
         {
+            ui_Controller.interfaceUI.Select_Weapon(0);
+
+            Select(0);
             _playerController.currentWeapon = weapons[0];
-            ui_Controller.interfaceUI.Select(0);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (weapons[1] != null && Input.GetKeyDown(KeyCode.Alpha2))
         {
+            ui_Controller.interfaceUI.Select_Weapon(1);
+
+            Select(1);
             _playerController.currentWeapon = weapons[1];
-            ui_Controller.interfaceUI.Select(1);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (weapons[2] != null && Input.GetKeyDown(KeyCode.Alpha3))
         {
+            ui_Controller.interfaceUI.Select_Weapon(2);
+
+            Select(2);
             _playerController.currentWeapon = weapons[2];
-            ui_Controller.interfaceUI.Select(2);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        else if (weapons[3] != null && Input.GetKeyDown(KeyCode.Alpha4))
         {
+            ui_Controller.interfaceUI.Select_Weapon(3);
+            Select(3);
+
             _playerController.currentWeapon = weapons[3];
-            ui_Controller.interfaceUI.Select(3);
         }
 
         if (Input.GetKeyDown(KeyCode.P)) ui_Controller.weaponUI.Open_Panel();
     }
-
     public void Start_WeaponSetting()
     {
+        ui_Controller.interfaceUI.Select_Weapon(0);
+
+        Select(0);
         _playerController.currentWeapon = weapons[0];
     }
-    public void CreateWeapon(string weaponName) //ui에서 총을 선택할때 사용
+    private void Select(int idx)
+    {
+        weapons[idx].gameObject.SetActive(true);
+        weapons.Select(idx, p => p?.gameObject.SetActive(false));
+    }
+  
+    public void CreateWeapon(string weaponName)
     {
         for (int i = 0; i < 4; i++)
         {
@@ -101,7 +117,7 @@ public class GameManager : MonoBehaviour
             {
                 weapons[i] = WeaponManager.Instance.GetWeapon(weaponName);
                 GameObject weapon = Instantiate(weapons[i].gameObject, WeaponPos);
-                weapon.SetActive(false);
+                //weapon.SetActive(false);
                 break;
             }
         }

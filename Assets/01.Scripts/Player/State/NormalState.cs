@@ -29,7 +29,8 @@ public class NormalState : CommonState
     }
     private void OnFireButtonPressHandle()
     {
-        _playerController?.ChangeState(StateType.Attack);
+        if (_playerController.currentWeapon != null)
+            _playerController?.ChangeState(StateType.Attack);
     }
     private void OnRollingHandle()
     {
@@ -38,7 +39,7 @@ public class NormalState : CommonState
     public void OnMoveHandle(Vector3 dir)
     {
         _playerMovement?.SetMovementDirection(dir);
-        
+
     }
     public override bool UpdateState()
     {

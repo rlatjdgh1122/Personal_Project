@@ -13,22 +13,20 @@ public class InterfaceUI : MonoBehaviour
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
 
-        weapon_Backgrounds.Add(root.Q<VisualElement>("weapon_Background"));
+        weapon_Backgrounds.Add(root.Q<VisualElement>("first_weapon"));
         images.Add(weapon_Backgrounds[0].Q<VisualElement>("image"));
 
-        weapon_Backgrounds.Add(root.Q<VisualElement>("weapon_Background"));
+        weapon_Backgrounds.Add(root.Q<VisualElement>("second_weapon"));
         images.Add(weapon_Backgrounds[1].Q<VisualElement>("image"));
 
-        weapon_Backgrounds.Add(root.Q<VisualElement>("weapon_Background"));
+        weapon_Backgrounds.Add(root.Q<VisualElement>("third_weapon"));
         images.Add(weapon_Backgrounds[2].Q<VisualElement>("image"));
 
-        weapon_Backgrounds.Add(root.Q<VisualElement>("weapon_Background"));
+        weapon_Backgrounds.Add(root.Q<VisualElement>("fourth_weapon"));
         images.Add(weapon_Backgrounds[3].Q<VisualElement>("image"));
-
-        Select(0);
     }
 
-    public void Select(int idx)
+    public void Select_Weapon(int idx)
     {
         DeSelect();
         images.Select(idx, i => i.AddToClassList("weapon_image"));

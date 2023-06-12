@@ -8,7 +8,6 @@ public class WeaponManager : MonoBehaviour //ªı∑ŒπŸ≤Ô Ω∫≈»µÈ¿ª ∏Æ≈œ
     private Dictionary<string, WeaponDataSO> _stats = new();
     private Dictionary<string, Weapon> _weapons = new();
     public static WeaponManager Instance;
-    public Transform WeaponPivot;
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -28,6 +27,4 @@ public class WeaponManager : MonoBehaviour //ªı∑ŒπŸ≤Ô Ω∫≈»µÈ¿ª ∏Æ≈œ
         else
             return _weapons[weaponName];
     }
-
-
 }

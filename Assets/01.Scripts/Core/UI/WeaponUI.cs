@@ -73,6 +73,7 @@ public class WeaponUI : MonoBehaviour
 
         _refresh.RegisterCallback<ClickEvent>(OnClick_refresh);
         Off_Panel();
+        Open_Panel();
     }
 
     private void OnClick_refresh(ClickEvent evt)
@@ -105,7 +106,6 @@ public class WeaponUI : MonoBehaviour
     {
         Off_Panel();
         CreateWeapon(_third_name.text);
-        Debug.Log(idx);
         GameManager.Instance.WeaponRemove(idx0); ui_Controller.interfaceUI.Insert_weaponImage(idx++, _third_image.style.backgroundImage.value.sprite);
 
         Check();
@@ -114,6 +114,7 @@ public class WeaponUI : MonoBehaviour
     private void Off_Panel()
     {
         _background.style.display = DisplayStyle.None;
+
     }
 
     private void UI_Appry(bool value = false) //UI에 이름 이미지 설명 적용
@@ -145,10 +146,13 @@ public class WeaponUI : MonoBehaviour
     }
     public void Check()
     {
-        //if (idx == 1) GameManager.Instance.Start_WeaponSetting();
+        if (idx == 1) GameManager.Instance.Start_WeaponSetting();
+        TimeController.Instance.ResetTimeScale();
     }
     public void Open_Panel()
     {
+        TimeController.Instance.StopTimeScale();
+
         _background.style.display = DisplayStyle.Flex;
         _refresh.RemoveFromClassList("refresh-disabled");
         GameManager.Instance.WeaponShuffle();
