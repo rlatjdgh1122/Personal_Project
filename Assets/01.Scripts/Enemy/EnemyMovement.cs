@@ -1,9 +1,11 @@
 using Core;
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 public class EnemyMovement : EnemyAnimationController
 {
     private EnemyController _enemyController;
+    private Rigidbody _rigid;
     private NavMeshAgent _agent;
 
     private bool _isActive = true;
@@ -17,34 +19,40 @@ public class EnemyMovement : EnemyAnimationController
         base.Awake();
         _agent = GetComponent<NavMeshAgent>();
         _enemyController = GetComponent<EnemyController>();
+        _rigid = GetComponent<Rigidbody>();
     }
     private void Update()
     {
         State();
+    }
+    private void FixedUpdate()
+    {
+        FreezeVelosity();
+    }
+
+    private void FreezeVelosity()
+    {
+        _rigid.velocity = Vector3.zero;
+        _rigid.angularVelocity = Vector3.zero;
     }
 
     public void SetSpeed(float speed)
     {
         _agent.speed = speed;
     }
-    public bool CheckIsArrived()
-    {
-        return (_agent.pathPending == false && _agent.remainingDistance <= _agent.stoppingDistance);
-    }
-
     public void State()
     {
         if (_isActive)
         {
             if (IsRotate)
             {
-                Quaternion rot = Quaternion.LookRotation(GameManager.Instance.playerPos.position, Vector3.up);
-                transform.rotation = rot;
+                transform.rotation = Quaternion.LookRotation(GameManager.Instance.playerPos.position);
             }
             if (IsMove)
             {
                 _agent.SetDestination(GameManager.Instance.playerPos.position);
             }
+            else _agent.SetDestination(transform.position);
         }
        
     }

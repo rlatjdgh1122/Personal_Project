@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsReverse: 1
-  _distance: 5
+  _distance: 7
 --- !u!1 &186276563
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,6 +450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7be58ccd6b01034dad4c0a7f101a3a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  motionDelay: 1
 --- !u!1 &217040902
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,7 +618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsReverse: 0
-  _distance: 5
+  _distance: 2
 --- !u!1 &382872518
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,8 +944,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1182611529}
   - {fileID: 1397517692}
+  - {fileID: 1182611529}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1533,7 +1534,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 507647102}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1192447874
 GameObject:
@@ -1591,6 +1592,66 @@ MonoBehaviour:
   IsArrived: 0
   IsAttacking: 0
   <IsHit>k__BackingField: 0
+--- !u!1 &1208613023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1208613024}
+  - component: {fileID: 1208613026}
+  - component: {fileID: 1208613025}
+  m_Layer: 0
+  m_Name: TransitionIdle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1208613024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208613023}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1930180592}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1208613025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208613023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee60c2f4b029da84bbcadcf21a5d8ad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsReverse: 0
+  _distance: 2
+--- !u!114 &1208613026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208613023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cfac667cfa571349868ec24de4e9f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nextState: {fileID: 1757465656}
 --- !u!1 &1252835320
 GameObject:
   m_ObjectHideFlags: 0
@@ -1655,7 +1716,7 @@ RectTransform:
   - {fileID: 217040903}
   - {fileID: 1505376336}
   m_Father: {fileID: 507647102}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1701,7 +1762,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 2140903288}
   m_HandleRect: {fileID: 0}
@@ -1723,6 +1784,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1400513205}
   - component: {fileID: 1400513206}
+  - component: {fileID: 1400513207}
   m_Layer: 0
   m_Name: TransitionWalk
   m_TagString: Untagged
@@ -1758,6 +1820,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextState: {fileID: 1930180593}
+--- !u!114 &1400513207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400513204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee60c2f4b029da84bbcadcf21a5d8ad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsReverse: 1
+  _distance: 5
 --- !u!1 &1505376335
 GameObject:
   m_ObjectHideFlags: 0
@@ -2067,6 +2143,7 @@ GameObject:
   - component: {fileID: 1829073835}
   - component: {fileID: 1829073836}
   - component: {fileID: 1829073837}
+  - component: {fileID: 1829073838}
   m_Layer: 0
   m_Name: TransitionIdle
   m_TagString: Untagged
@@ -2114,8 +2191,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee60c2f4b029da84bbcadcf21a5d8ad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsReverse: 1
+  _distance: 2
+--- !u!114 &1829073838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829073834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16645b9a19fe7d94582817696b379633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   IsReverse: 0
-  _distance: 5
 --- !u!1 &1875795216
 GameObject:
   m_ObjectHideFlags: 0
@@ -2304,6 +2394,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 181210186}
+  - {fileID: 1208613024}
   m_Father: {fileID: 1192447875}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10266,7 +10357,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: b60dc9aa529b314489f628aa3b57c470, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 

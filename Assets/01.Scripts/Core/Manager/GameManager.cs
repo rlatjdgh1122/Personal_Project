@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
         });
 
         _playerController = _playerPos.GetComponent<PlayerController>();
+        _navMeshSurface = GetComponent<NavMeshSurface>();
 
     }
     private void Start()
@@ -65,6 +66,7 @@ public class GameManager : MonoBehaviour
     private void Setting()
     {
         ui_Controller.weaponUI.Open_Panel();
+        ReBulidMesh();
     }
 
     private void Update()

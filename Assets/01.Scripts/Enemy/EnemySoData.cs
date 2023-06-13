@@ -6,4 +6,5 @@ using UnityEngine;
 public class EnemySoData : ScriptableObject
 {
     public float speed;
+    public float attackDelay;
 }

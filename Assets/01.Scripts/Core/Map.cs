@@ -25,7 +25,7 @@ public class Map : PoolableMono
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-
+            Debug.Log("¸Ê µé¾î¿È");
             GameManager.Instance.ReBulidMesh();
 
             Vector3 topRight = transform.position + new Vector3(transform.localScale.x / 2, transform.localScale.y / 2, 0);
@@ -53,6 +53,7 @@ public class Map : PoolableMono
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log("¸Ê ³ª°¨");
             GameManager.Instance.ReBulidMesh();
 
             Vector3 objectToTarget = collision.transform.position - centerPos;

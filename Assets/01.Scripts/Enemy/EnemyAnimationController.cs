@@ -30,18 +30,13 @@ public class EnemyAnimationController : AnimatorHash
     public void SetAttack(bool value)
     {
         if (value)
-        {
+        {   
             anim.SetTrigger(SHOOTING_HASH);
         }
         else
         {
             anim.ResetTrigger(SHOOTING_HASH);
         }
-    }
-
-    public void SetReloading(bool value)
-    {
-        anim.SetBool(RELOAD_HASH, value);
     }
     public void SetShooting(bool value)
     {
