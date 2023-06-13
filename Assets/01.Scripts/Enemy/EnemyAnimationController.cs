@@ -6,8 +6,8 @@ using UnityEngine;
 public enum MOVE_STATE
 {
     Idle,
-    Move,
-    Move_Back,
+    Walk,
+    Run,
 }
 public class EnemyAnimationController : AnimatorHash
 {
@@ -16,13 +16,14 @@ public class EnemyAnimationController : AnimatorHash
     public event Action OnPreEventTrigger = null;
     public void SetMove(MOVE_STATE value)
     {
-        if (value == MOVE_STATE.Move_Back)
-            anim.SetFloat(MOVE_HASH, -1);
 
         if (value == MOVE_STATE.Idle)
             anim.SetFloat(MOVE_HASH, 0);
 
-        if (value == MOVE_STATE.Move)
+        if (value == MOVE_STATE.Walk)
+            anim.SetFloat(MOVE_HASH, .5f);
+
+        if (value == MOVE_STATE.Run)
             anim.SetFloat(MOVE_HASH, 1);
 
     }

@@ -2,19 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IdleAIState : CommonAIState //사실상 스턴상태  그냥 가만히 있기 
+public class RunAIState : CommonAIState
 {
-    private float _waitTime;
-
     public override void OnEnterState()
     {
-        _enemyMovement.IsActive = false;
-        _enemyAnimationController.SetMove(MOVE_STATE.Idle);
+        _enemyAnimationController.SetMove(MOVE_STATE.Run);
+        _enemyMovement.SetSpeed(_enemyController.EnemySoData.speed);
     }
-
     public override void OnExitState()
     {
-        _enemyMovement.IsActive = true;
+
     }
     public override bool UpdateState()
     {

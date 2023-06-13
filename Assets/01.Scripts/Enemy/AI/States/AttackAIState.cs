@@ -16,7 +16,8 @@ public class AttackAIState : CommonAIState
     }
     public override void OnEnterState()
     {
-        _enemyMovement.StopImmediately();
+        _enemyMovement.IsActive = false;
+
         _enemyAnimationController.OnEndEventTrigger += AttackAnimationEndHandle;
         _enemyAnimationController.OnPreEventTrigger += AttackAnimationPreHandle;
         _isActive = true;
@@ -43,6 +44,8 @@ public class AttackAIState : CommonAIState
 
         _enemyAnimationController.OnEndEventTrigger -= AttackAnimationEndHandle;
         _enemyAnimationController.OnPreEventTrigger -= AttackAnimationPreHandle;
+
+        _enemyMovement.IsActive = true;
 
         _aiActionData.IsAttacking = false;
         _isActive = false;

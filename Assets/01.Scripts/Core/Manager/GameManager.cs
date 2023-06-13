@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
     public Transform WeaponPos;
 
     private PlayerController _playerController;
+    private NavMeshSurface _navMeshSurface;
 
     private List<GameObject> weaponObjs = new();
 
@@ -98,6 +100,7 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P)) ui_Controller.weaponUI.Open_Panel();
     }
+    #region ÃÑ°ü·Ã
     public void Start_WeaponSetting()
     {
         ui_Controller.interfaceUI.Select_Weapon(0);
@@ -135,5 +138,10 @@ public class GameManager : MonoBehaviour
     public void WeaponRemove(int idx)
     {
         UI_weaponDatas.RemoveAt(idx);
+    }
+#endregion
+    public void ReBulidMesh()
+    {
+        _navMeshSurface.BuildNavMesh();
     }
 }

@@ -9,12 +9,9 @@ public class EnemyController : MonoBehaviour
     private List<AITransition> _anyTransitions = new List<AITransition>();
     public List<AITransition> AnyTransitions => _anyTransitions;
 
-    private string cooltimeName = "EnemyAttackCoolTime";
+    [HideInInspector]
+    public Transform _targetTrm;
 
-    private Transform _targetTrm;
-    public Transform TargetTrm => _targetTrm;
-
-    private CommonAIState _initState;
     private AIActionData _actionData;
     private void Awake()
     {
@@ -24,12 +21,11 @@ public class EnemyController : MonoBehaviour
         states.ForEach(s => s.SetUp(transform));
 
         _actionData = transform.Find("AI").GetComponent<AIActionData>();
-        _initState = _currentState;
     }
     private void Start()
     {
-        _targetTrm = GameManager.Instance.PlayerTrm;
-        ChangeState(_currentState); 
+        _targetTrm = GameManager.Instance.playerPos;
+        ChangeState(_currentState);
     }
 
     public void ChangeState(CommonAIState nextState)
