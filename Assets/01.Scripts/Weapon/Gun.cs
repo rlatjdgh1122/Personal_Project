@@ -18,16 +18,6 @@ public class Gun : Weapon
 
     private bool _isShooting = false;
 
-    public bool isShooting
-    {
-        get { return _isShooting; }
-        set
-        {
-            _isShooting = value;
-            Debug.Log("셋팅이 일어남 : " + _isShooting);
-        }
-    }
-
     public bool delayCoroutine = false;
 
     #region AMMO 관련 코드들
@@ -53,9 +43,10 @@ public class Gun : Weapon
     }
     private void UseWeapon()
     {
-        Debug.Log("update : " + isShooting); //여기찍히는 계속 디버그가 false다.
+        Debug.Log("update : " + _isShooting); //여기찍히는 계속 디버그가 false다.
+        Debug.Log(transform.name);
         //딜레이가 없다면 발사
-        if (isShooting == true && delayCoroutine == false)
+        if (_isShooting == true && delayCoroutine == false)
         {
             Debug.Log("asdf");
             //총알의 잔량 체크
@@ -70,21 +61,20 @@ public class Gun : Weapon
             }
             else
             {
-                isShooting = false;
+                _isShooting = false;
                 OnShootNoAmmo?.Invoke();
                 return;
             }
             FinishOneShooting(); //한발 쏘고 난 다음에는 딜레이 코루틴을 돌려줘야 하기위한 함수
         }
     }
-
     private void FinishOneShooting()
     {
         Debug.Log("FinishOneShooting");
         StartCoroutine(DelayNextShootCoroutine());
         if (gunData.autoFire == false)
         {
-            isShooting = false;
+            _isShooting = false;
         }
     }
     private IEnumerator DelayNextShootCoroutine()
@@ -120,15 +110,16 @@ public class Gun : Weapon
 
     public override void Shooting()
     {
-        isShooting = true;
-        Debug.Log("Shooting : " + isShooting);
+        _isShooting = true;
+        Debug.Log("Shooting : " + _isShooting);
+        Debug.Log(transform.name);
     }
     public override void StopShooting()
     {
 
-        isShooting = false;
+        _isShooting = false;
         OnStopShooting?.Invoke();
-        Debug.Log("StopShooting : " + isShooting);
+        Debug.Log("StopShooting : " + _isShooting);
 
     }
     public override void Reloading()

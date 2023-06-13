@@ -101,7 +101,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 954277450596161486, guid: 23bf6ec2ea670874eaf412bd4e6d0f0f, type: 3}
   m_PrefabInstance: {fileID: 5314646975777882225}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3134475964884083932
+--- !u!114 &2538708180378776460
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,11 +110,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4971742048071407551}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e52e4d00037524daaa90ecd8ac2f71, type: 3}
+  m_Script: {fileID: 11500000, guid: 410488fceb58ef843b9ade4f96aef572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gunData: {fileID: 11400000, guid: 0df04f272c47a344a810ab75d5ced982, type: 2}
-  bullet: {fileID: 0}
+  bullet: {fileID: 1900473193602902936, guid: f6f303f359936c0469ea3787b11aa2af, type: 3}
   firePos: {fileID: 7442887204783369766}
   OnShoot:
     m_PersistentCalls:

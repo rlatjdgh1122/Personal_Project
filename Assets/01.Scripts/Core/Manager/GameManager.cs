@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
 
     private PlayerController _playerController;
 
+    private List<GameObject> weaponObjs = new();
+
     [HideInInspector]
     public List<WeaponDataList> UI_weaponDatas = new();
 
@@ -105,10 +107,10 @@ public class GameManager : MonoBehaviour
     }
     private void Select(int idx)
     {
-        weapons[idx].gameObject.SetActive(true);
-        weapons.Select(idx, p => p?.gameObject.SetActive(false));
+        weaponObjs[idx].SetActive(true);
+        weaponObjs.Select(idx, p => p?.SetActive(false));
     }
-  
+
     public void CreateWeapon(string weaponName)
     {
         for (int i = 0; i < 4; i++)
@@ -117,7 +119,10 @@ public class GameManager : MonoBehaviour
             {
                 weapons[i] = WeaponManager.Instance.GetWeapon(weaponName);
                 GameObject weapon = Instantiate(weapons[i].gameObject, WeaponPos);
-                //weapon.SetActive(false);
+                weapon.gameObject.name = weapon.gameObject.name.Replace("(Clone)", "");
+                weaponObjs.Add(weapon);
+
+                weapon.SetActive(false);
                 break;
             }
         }

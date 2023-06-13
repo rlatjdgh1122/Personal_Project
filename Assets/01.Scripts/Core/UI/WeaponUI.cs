@@ -85,7 +85,7 @@ public class WeaponUI : MonoBehaviour
     private void OnClick_Selet_third(ClickEvent evt)
     {
         Off_Panel();
-        CreateWeapon(_first_name.text);
+        CreateWeapon(_third_name.text);
         GameManager.Instance.WeaponRemove(idx2);
         ui_Controller.interfaceUI.Insert_weaponImage(idx++, _first_image.style.backgroundImage.value.sprite);
 
@@ -105,7 +105,7 @@ public class WeaponUI : MonoBehaviour
     private void OnClick_Selet_first(ClickEvent evt)
     {
         Off_Panel();
-        CreateWeapon(_third_name.text);
+        CreateWeapon(_first_name.text);
         GameManager.Instance.WeaponRemove(idx0); ui_Controller.interfaceUI.Insert_weaponImage(idx++, _third_image.style.backgroundImage.value.sprite);
 
         Check();
