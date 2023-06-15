@@ -8,10 +8,8 @@ public class EnemyMovement : EnemyAnimationController
     private Rigidbody _rigid;
     private NavMeshAgent _agent;
 
-    private bool _isActive = true;
     private bool _isRotate = true;
     private bool _isMove = true;
-    public bool IsActive { get { return _isActive; } set { _isActive = value; } }
     public bool IsRotate { get { return _isRotate; } set { _isRotate = value; } }
     public bool IsMove { get { return _isMove; } set { _isMove = value; } }
     protected override void Awake()
@@ -47,22 +45,18 @@ public class EnemyMovement : EnemyAnimationController
     }
     public void State()
     {
-        if (_isActive)
+        if (IsRotate)
         {
-            if (IsRotate)
-            {
-                transform.LookAt(GameManager.Instance.playerPos.position);
-            }
-            if (IsMove)
-            {
-                _agent.SetDestination(GameManager.Instance.playerPos.position);
-            }
-            else if (IsMove == false)
-            {
-                _agent.velocity = Vector3.zero;
-                _agent.SetDestination(transform.position);
-            }
+            transform.LookAt(GameManager.Instance.playerPos.position);
         }
-       
+        if (IsMove)
+        {
+            _agent.SetDestination(GameManager.Instance.playerPos.position);
+        }
+        else if (IsMove == false)
+        {
+            _agent.velocity = Vector3.zero;
+            _agent.SetDestination(transform.position);
+        }
     }
 }

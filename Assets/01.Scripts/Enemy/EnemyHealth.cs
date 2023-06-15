@@ -21,10 +21,12 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public float CurrentHP => _currentHP;
 
     private EnemyHpBar _enemyHpBar;
+    private EnemyAnimationController _enemyAnimationController;
     private void Awake()
     {
         _aiActionData = transform.Find("AI").GetComponent<AIActionData>();
        _enemyHpBar = transform.root.transform.Find("Canvas").GetComponent<EnemyHpBar>();
+        _enemyAnimationController = GetComponent<EnemyAnimationController>();
     }
 
     public void SetMaxHP(float value)
@@ -49,6 +51,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         {
             IsDead = true;
             OnDeadTriggered?.Invoke();
+            _enemyAnimationController.Die();
         }
 
         OnHitTriggered?.Invoke();

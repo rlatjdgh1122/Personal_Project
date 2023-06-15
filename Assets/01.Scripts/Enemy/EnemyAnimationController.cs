@@ -38,6 +38,10 @@ public class EnemyAnimationController    : AnimatorHash
             anim.ResetTrigger(SHOOTING_HASH);
         }
     }
+    public void Die()
+    {
+        anim.SetTrigger(DIE_HASH);
+    }
     public void SetShooting(bool value)
     {   
         if (value)

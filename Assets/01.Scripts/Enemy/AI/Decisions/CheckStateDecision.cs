@@ -10,6 +10,7 @@ public class CheckStateDecision : AIDecision
 
     public override bool MakeDecision()
     {
+        Debug.Log(_enemyController._currentState == _baseState);
         return _enemyController._currentState == _baseState;
     }
 }
