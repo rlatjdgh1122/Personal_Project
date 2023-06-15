@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour
     public Transform _targetTrm;
 
     private AIActionData _actionData;
+    private EnemyHealth _enemyHealth;
     private void Awake()
     {
         List<CommonAIState> states = new List<CommonAIState>();
@@ -21,11 +22,14 @@ public class EnemyController : MonoBehaviour
         states.ForEach(s => s.SetUp(transform));
 
         _actionData = transform.Find("AI").GetComponent<AIActionData>();
+        _enemyHealth = GetComponent<EnemyHealth>();
     }
     private void Start()
     {
         _targetTrm = GameManager.Instance.playerPos;
         ChangeState(_currentState);
+
+        _enemyHealth.SetMaxHP(EnemySoData.hp);
     }
 
     public void ChangeState(CommonAIState nextState)
@@ -36,7 +40,9 @@ public class EnemyController : MonoBehaviour
     }
     void Update()
     {
-        //if (_enemyHealth.IsDead) return;
+        if (Input.GetKeyDown(KeyCode.H)) _enemyHealth.OnDamage(10,Vector3.zero, Vector3.zero);
+
+        if (_enemyHealth.IsDead) return;
         _currentState?.UpdateState();
     }
 

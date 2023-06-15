@@ -24,6 +24,7 @@ public class AITransition : MonoBehaviour
         foreach (AIDecision d in _decisions)
         {
             result = d.MakeDecision();
+            Debug.Log(d + " : " +  result);
             if (d.IsReverse)
                 result = !result;
             if (result == false)

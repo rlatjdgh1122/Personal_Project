@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be2cd1f9a32f241882dffb54990c38, type: 3}
   m_Name: DogEnemy
   m_EditorClassIdentifier: 
+  hp: 100
   speed: 5
   attackDelay: 3
+  getExperience: 0

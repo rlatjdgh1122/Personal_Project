@@ -21,6 +21,11 @@ public class EnemyMovement : EnemyAnimationController
         _enemyController = GetComponent<EnemyController>();
         _rigid = GetComponent<Rigidbody>();
     }
+    private void Start()
+    {
+        _agent.updateRotation = true;
+        _agent.autoBraking = true;
+    }
     private void Update()
     {
         State();
@@ -46,13 +51,17 @@ public class EnemyMovement : EnemyAnimationController
         {
             if (IsRotate)
             {
-                transform.rotation = Quaternion.LookRotation(GameManager.Instance.playerPos.position);
+                transform.LookAt(GameManager.Instance.playerPos.position);
             }
             if (IsMove)
             {
                 _agent.SetDestination(GameManager.Instance.playerPos.position);
             }
-            else _agent.SetDestination(transform.position);
+            else if (IsMove == false)
+            {
+                _agent.velocity = Vector3.zero;
+                _agent.SetDestination(transform.position);
+            }
         }
        
     }
