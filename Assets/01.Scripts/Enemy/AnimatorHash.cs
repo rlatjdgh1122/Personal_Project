@@ -10,6 +10,7 @@ public abstract class AnimatorHash : MonoBehaviour
     protected int SHOOTING_HASH = Animator.StringToHash("Attack");
     protected int ONHIT_HASH = Animator.StringToHash("OnHit");
     protected int DIE_HASH = Animator.StringToHash("Die");
+    protected int STUN_HASH = Animator.StringToHash("Stun");
 
     protected virtual void Awake()
     {

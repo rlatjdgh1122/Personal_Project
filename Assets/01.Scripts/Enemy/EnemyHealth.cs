@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EnemyHealth : MonoBehaviour, IDamageable
+public class EnemyHealth : MonoBehaviour, IAIDamageable
 {
     public UnityEvent OnHitTriggered = null;
     public UnityEvent OnDeadTriggered = null;
@@ -14,11 +14,11 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     public bool IsDead { get; set; }
 
-    private float _maxHP;
-    private float _currentHP;
+    private int _maxHP;
+    private int _currentHP;
 
-    public float MaxHP => _maxHP;
-    public float CurrentHP => _currentHP;
+    public int MaxHP => _maxHP;
+    public int CurrentHP => _currentHP;
 
     private EnemyHpBar _enemyHpBar;
     private EnemyAnimationController _enemyAnimationController;
@@ -29,7 +29,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         _enemyAnimationController = GetComponent<EnemyAnimationController>();
     }
 
-    public void SetMaxHP(float value)
+    public void SetMaxHP(int value)
     {
         _currentHP = _maxHP = value;
         IsDead = false;
@@ -41,6 +41,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         if (IsDead) return;
 
         _enemyHpBar.OnDamage(damage);
+        OnHitTriggered?.Invoke();
 
         _aiActionData.HitPoint = point;
         _aiActionData.HitNormal = normal;
@@ -53,9 +54,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             OnDeadTriggered?.Invoke();
             _enemyAnimationController.Die();
         }
-
-        OnHitTriggered?.Invoke();
-
         OnHealthChanged?.Invoke(_currentHP, _maxHP); //그리고 전파
     }
 }

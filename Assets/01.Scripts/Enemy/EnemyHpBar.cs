@@ -11,7 +11,7 @@ public class EnemyHpBar : MonoBehaviour
     private void Awake()
     {
         _slider = GetComponentInChildren<Slider>();
-        _enemyController = transform.root.transform.Find("Core").GetComponent<EnemyController>();
+        _enemyController = transform.root.transform.Find("Controller").GetComponent<EnemyController>();
     }
     private void Start()
     {

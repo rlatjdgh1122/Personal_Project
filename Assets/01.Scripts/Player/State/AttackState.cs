@@ -7,7 +7,6 @@ public class AttackState : CommonState
 {
     public override void OnEnterState()
     {
-        Debug.Log(_playerController.currentWeapon);
         _playerController.currentWeapon.Shooting();
 
         _playerInput.OnMovementKeyPress += OnMoveHandle;

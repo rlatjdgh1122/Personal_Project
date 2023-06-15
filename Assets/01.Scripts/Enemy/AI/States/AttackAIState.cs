@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AttackAIState : CommonAIState
 {
@@ -12,6 +13,11 @@ public class AttackAIState : CommonAIState
     protected bool _isActive = false;
 
     private float _lastAtkTime;
+
+    [SerializeField]
+    private UnityEvent OnDamaged = null;
+    [SerializeField]
+    private UnityEvent OnDamagedStop = null;
     private void Start()
     {
         _targetVector = GameManager.Instance.playerPos.position;
@@ -21,19 +27,24 @@ public class AttackAIState : CommonAIState
 
         _enemyAnimationController.OnEndEventTrigger += AttackAnimationEndHandle;
         _enemyAnimationController.OnPreEventTrigger += AttackAnimationPreHandle;
+        _enemyAnimationController.OnPreEndEventTrigger += AttackAnimationPreEndHandle;
         _enemyMovement.IsMove = false;
         _enemyMovement.IsRotate = false;
         _isActive = true;
     }
 
+    private void AttackAnimationPreEndHandle()
+    {
+        OnDamagedStop?.Invoke();
+    }
+
     private void AttackAnimationPreHandle()
     {
-
+        OnDamaged?.Invoke();
     }
 
     private void AttackAnimationEndHandle()
     {
-        Debug.Log("애니메이션 끝");
         _enemyMovement.IsRotate = true;
 
         _enemyAnimationController.SetShooting(false);
@@ -50,6 +61,7 @@ public class AttackAIState : CommonAIState
     {
         _enemyAnimationController.OnEndEventTrigger -= AttackAnimationEndHandle;
         _enemyAnimationController.OnPreEventTrigger -= AttackAnimationPreHandle;
+        _enemyAnimationController.OnPreEndEventTrigger -= AttackAnimationPreEndHandle;
 
         _enemyMovement.IsMove = true;
         _enemyMovement.IsRotate = true;

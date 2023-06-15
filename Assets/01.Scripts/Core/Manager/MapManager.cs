@@ -55,6 +55,7 @@ public class MapManager : MonoBehaviour
     }
     private void StartCreateMap()
     {
+
         Trees.Shuffle();
         Map frontMap = PoolManager.Instance.Pop("Map") as Map;
         frontMap.SetTransform(new Vector3(0, 0, CurrentDistance - mapSize));
@@ -72,10 +73,13 @@ public class MapManager : MonoBehaviour
         BackMap.SetTransform(new Vector3(0, 0, CurrentDistance + mapSize));
         BackMap.SpawnTrees(Trees);
         maps.Add(BackMap);
+
+        GameManager.Instance.ReBulidMesh();
     }
     public void SpawnMaps(float dotValue)
     {
         CheckWeater();
+
 
         if (dotValue > 0) //앞으로 갔을때
         {
@@ -98,6 +102,7 @@ public class MapManager : MonoBehaviour
             backMap.SpawnTrees(Trees);
             maps.Insert(0, backMap);
         }
+        GameManager.Instance.ReBulidMesh();
     }
 
     private int num = 0;

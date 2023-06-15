@@ -9,6 +9,10 @@ public class InterfaceUI : MonoBehaviour
 {
     private List<VisualElement> weapon_Backgrounds = new();
     private List<VisualElement> images = new();
+
+    private Button setting_btn;
+
+    public GameObject settingPanel;
     private void Start()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
@@ -24,8 +28,38 @@ public class InterfaceUI : MonoBehaviour
 
         weapon_Backgrounds.Add(root.Q<VisualElement>("fourth_weapon"));
         images.Add(weapon_Backgrounds[3].Q<VisualElement>("image"));
+
+        setting_btn = root.Q<Button>("setting_btn");
+
+        setting_btn.RegisterCallback<ClickEvent>(p =>
+        {
+            TimeController.Instance.StopTimeScale();
+            settingPanel.SetActive(true);
+        });
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            settingPanel.SetActive(!settingPanel.activeSelf);
+            if (settingPanel.activeSelf == true)
+                TimeController.Instance.StopTimeScale();
+            else
+            {
+                TimeController.Instance.ResetTimeScale();
+            }
+        }
+    }
+    public void OnClickBack()
+    {
+        //인트로 씬으로 돌아가기
     }
 
+    public void OnClickCancel()
+    {
+        settingPanel.SetActive(false);
+        TimeController.Instance.ResetTimeScale();
+    }
     public void Select_Weapon(int idx)
     {
         DeSelect();

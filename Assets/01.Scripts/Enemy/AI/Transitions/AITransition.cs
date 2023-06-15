@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AITransition : MonoBehaviour
 {
+    [SerializeField]
     private List<AIDecision> _decisions;
 
     [SerializeField]

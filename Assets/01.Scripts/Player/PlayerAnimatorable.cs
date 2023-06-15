@@ -12,4 +12,6 @@ public abstract class PlayerAnimatorable : MonoBehaviour
     protected readonly int _isShootingHash = Animator.StringToHash("Shooting");
     protected readonly int _isReloadingHash = Animator.StringToHash("Reloading");
 
+    protected readonly int _hurtTriggerHash = Animator.StringToHash("Hit");
+
 }

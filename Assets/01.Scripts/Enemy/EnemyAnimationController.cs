@@ -9,11 +9,12 @@ public enum MOVE_STATE
     Walk,
     Run,
 }
-public class EnemyAnimationController    : AnimatorHash
+public class EnemyAnimationController : AnimatorHash
 {
     public event Action OnEndEventTrigger = null;
     public event Action OnStartEventTrigger = null;
     public event Action OnPreEventTrigger = null;
+    public event Action OnPreEndEventTrigger = null;
     public void SetMove(MOVE_STATE value)
     {
 
@@ -30,7 +31,7 @@ public class EnemyAnimationController    : AnimatorHash
     public void SetAttack(bool value)
     {
         if (value)
-        {   
+        {
             anim.SetTrigger(SHOOTING_HASH);
         }
         else
@@ -38,15 +39,22 @@ public class EnemyAnimationController    : AnimatorHash
             anim.ResetTrigger(SHOOTING_HASH);
         }
     }
+    public void SetStun(bool value)
+    {
+        if (value == true)
+            anim.SetBool(STUN_HASH, true);
+        else if (value == false)
+            anim.SetBool(STUN_HASH, false);
+    }
     public void Die()
     {
         anim.SetTrigger(DIE_HASH);
     }
     public void SetShooting(bool value)
-    {   
+    {
         if (value)
             anim.SetTrigger(SHOOTING_HASH);
-        else 
+        else
             anim.ResetTrigger(SHOOTING_HASH);
     }
     public void SetHurtTrigger(bool value)
@@ -67,5 +75,9 @@ public class EnemyAnimationController    : AnimatorHash
     private void OnPreEvent()
     {
         OnPreEventTrigger?.Invoke();
+    }
+    private void OnPreEndEvent()
+    {
+        OnPreEndEventTrigger?.Invoke();
     }
 }

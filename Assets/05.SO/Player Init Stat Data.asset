@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e64607907bf9040a1344a77ce9e8ed, type: 3}
   m_Name: Player Init Stat Data
   m_EditorClassIdentifier: 
-  DefaultWeaponName: "\uC0F7\uAC74"
   Speed: 7
-  Hp: 100
+  Hp: 150
   Stamina: 100
   Damage: 31
   CriticalProbability: 10.4

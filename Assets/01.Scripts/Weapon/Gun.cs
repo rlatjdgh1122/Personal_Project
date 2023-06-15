@@ -44,7 +44,6 @@ public class Gun : Weapon
     private void UseWeapon()
     {
         Debug.Log("update : " + _isShooting); //여기찍히는 계속 디버그가 false다.
-        Debug.Log(transform.name);
         //딜레이가 없다면 발사
         if (_isShooting == true && delayCoroutine == false)
         {
@@ -112,7 +111,6 @@ public class Gun : Weapon
     {
         _isShooting = true;
         Debug.Log("Shooting : " + _isShooting);
-        Debug.Log(transform.name);
     }
     public override void StopShooting()
     {

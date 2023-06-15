@@ -14,6 +14,8 @@ public class EnemyController : MonoBehaviour
 
     private AIActionData _actionData;
     private EnemyHealth _enemyHealth;
+    private DamageCaster _damageCaster;
+
     private void Awake()
     {
         List<CommonAIState> states = new List<CommonAIState>();
@@ -23,6 +25,14 @@ public class EnemyController : MonoBehaviour
 
         _actionData = transform.Find("AI").GetComponent<AIActionData>();
         _enemyHealth = GetComponent<EnemyHealth>();
+        _damageCaster = transform.Find("DamageCaster").GetComponent<DamageCaster>();
+
+        Transform anyTranTrm = transform.Find("AI/AnyTransitions");
+        if (anyTranTrm != null)
+        {
+            anyTranTrm.GetComponentsInChildren<AITransition>(_anyTransitions);
+            _anyTransitions.ForEach(t => t.SetUp(transform));   
+        }
     }
     private void Start()
     {
@@ -30,6 +40,7 @@ public class EnemyController : MonoBehaviour
         ChangeState(_currentState);
 
         _enemyHealth.SetMaxHP(EnemySoData.hp);
+        _damageCaster.SetDamage(EnemySoData.damage);
     }
 
     public void ChangeState(CommonAIState nextState)

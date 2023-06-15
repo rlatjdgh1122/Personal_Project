@@ -2,13 +2,14 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using Core;
-public class PlayerController : MonoBehaviour   
+public class PlayerController : MonoBehaviour
 {
     public IWeaponable currentWeapon;
 
     public PlayerDataSO playerData;
     private Dictionary<StateType, IState> _stateDictionary = null;
     private IState _currentState;
+    private PlayerHealth _playerHealth;
     public bool IsDead { get; set; }
     private void Awake()
     {
@@ -28,10 +29,11 @@ public class PlayerController : MonoBehaviour
             stateScript.SetUp(transform);
             _stateDictionary.Add(state, stateScript);
         }
-        //_agentHealth = GetComponent<AgentHealth>();
+        _playerHealth = GetComponent<PlayerHealth>();
     }
     private void Start()
     {
+        _playerHealth.SetHp(playerData.Hp);
         ChangeState(StateType.Normal);
     }
 

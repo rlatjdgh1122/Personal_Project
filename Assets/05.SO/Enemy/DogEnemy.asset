@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: DogEnemy
   m_EditorClassIdentifier: 
   hp: 100
+  damage: 10
   speed: 5
   attackDelay: 3
   getExperience: 0

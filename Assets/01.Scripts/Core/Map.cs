@@ -9,7 +9,7 @@ using UnityEngine;
 public class Map : PoolableMono
 {
     private List<Transform> Points = new();
-    private Vector3 centerPos;
+    public Vector3 centerPos;
 
     private void Awake()
     {
@@ -20,20 +20,14 @@ public class Map : PoolableMono
             Points.Add(trm);
         }
     }
-
-    private void OnCollisionEnter(Collision collision)
+    private void Start() //°£°ÝÀº 50
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("¸Ê µé¾î¿È");
-            GameManager.Instance.ReBulidMesh();
+        Vector3 topRight = transform.position + new Vector3(transform.localScale.x / 2, transform.localScale.y / 2, 0);
+        Vector3 bottomLeft = transform.position + new Vector3(-transform.localScale.x / 2, -transform.localScale.y / 2, 0);
 
-            Vector3 topRight = transform.position + new Vector3(transform.localScale.x / 2, transform.localScale.y / 2, 0);
-            Vector3 bottomLeft = transform.position + new Vector3(-transform.localScale.x / 2, -transform.localScale.y / 2, 0);
+        centerPos = (topRight + bottomLeft) / 2;
 
-            centerPos = (topRight + bottomLeft) / 2;
-        }
-
+        Debug.Log("¼¾ÅÍ : " + centerPos);
     }
     public void SetTransform(Vector3 setPos)
     {
@@ -49,26 +43,50 @@ public class Map : PoolableMono
 
         }
     }
-    private void OnCollisionExit(Collision collision)
+    private bool isOne = false;
+    private void Update()
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("¸Ê ³ª°¨");
-            GameManager.Instance.ReBulidMesh();
+        Vector3 objectToTarget = GameManager.Instance.playerPos.position - centerPos;
 
-            Vector3 objectToTarget = collision.transform.position - centerPos;
-            float dot = Vector3.Dot(Vector3.forward.normalized, objectToTarget.normalized);
-            if (dot > 0)
+        Debug.Log(objectToTarget);
+        float num = objectToTarget.z;
+        if (Math.Abs(num) >= 50)
+        {
+            if (isOne == false)
             {
-                MapManager.Instance.CurrentDistance += MapManager.Instance.mapSize;
+                float dot = Vector3.Dot(Vector3.forward.normalized, objectToTarget.normalized);
+                if (dot > 0)
+                {
+                    MapManager.Instance.CurrentDistance += MapManager.Instance.mapSize;
+                }
+                else if (dot < 0)
+                {
+                    MapManager.Instance.CurrentDistance -= MapManager.Instance.mapSize;
+                }
+                MapManager.Instance.SpawnMaps(dot);
+
+                isOne = true;
             }
-            else if (dot < 0)
-            {
-                MapManager.Instance.CurrentDistance -= MapManager.Instance.mapSize;
-            }
-            MapManager.Instance.SpawnMaps(dot);
         }
+
     }
+    /*  private void OnCollisionExit(Collision collision)
+      {
+          if (collision.gameObject.CompareTag("Player"))
+          {
+              Vector3 objectToTarget = collision.transform.position - centerPos;
+              float dot = Vector3.Dot(Vector3.forward.normalized, objectToTarget.normalized);
+              if (dot > 0)
+              {
+                  MapManager.Instance.CurrentDistance += MapManager.Instance.mapSize;
+              }
+              else if (dot < 0)
+              {
+                  MapManager.Instance.CurrentDistance -= MapManager.Instance.mapSize;
+              }
+              MapManager.Instance.SpawnMaps(dot);
+          }
+      }*/
     public override void Init()
     {
         trees.ForEach(p => Destroy(p));

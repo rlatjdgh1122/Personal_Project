@@ -8,9 +8,9 @@ public class PlayerDataSO : ScriptableObject
     [Range(5,8)]
     public float Speed; //움직임
     [Range(80,150)]
-    public float Hp; //체력
+    public int Hp; //체력
     [Range(100,150)]
-    public float Stamina; //스태미나
+    public int Stamina; //스태미나
     [Range(30,50)]
     public float Damage; //데미지
     [Range(10,25)]

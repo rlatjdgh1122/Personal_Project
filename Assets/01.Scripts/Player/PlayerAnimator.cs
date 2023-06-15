@@ -12,6 +12,13 @@ public class PlayerAnimator : PlayerAnimatorable
     {
         _animator = GetComponent<Animator>();
     }
+    public void SetHurtTrigger(bool value)
+    {
+        if (value)
+            _animator.SetTrigger(_hurtTriggerHash);
+        else
+            _animator.ResetTrigger(_hurtTriggerHash);
+    }
     public void SetMoveState(Vector3 value) //움직임 애니메이션
     {
         _animator.SetFloat(_moveXHash, value.x);
