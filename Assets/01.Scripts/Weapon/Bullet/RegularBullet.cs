@@ -10,6 +10,8 @@ public class RegularBullet : PoolableMono
 
     private Rigidbody rigid;
     private bool isDead = false;
+    private int p_damage = 0;
+    private int e_damage = 0;
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
@@ -25,30 +27,37 @@ public class RegularBullet : PoolableMono
             PoolManager.Instance.Push(this);
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (isDead) return;
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
-        {
-            HitObstacle(collision);
-        }
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-        {
-            HitEnemy(collision);
-        }
+
+        HitCheck(collision);
+
         isDead = true;
         PoolManager.Instance.Push(this);
     }
-    private void HitObstacle(Collider2D collision)
+    private void HitCheck(Collider collision)
     {
-    }
-    private void HitEnemy(Collider2D collision)
-    {
+        if (collision.TryGetComponent<EnemyHealth>(out EnemyHealth enemyHealth))
+        {
+            enemyHealth.OnDamage(p_damage, Vector3.zero, Vector3.zero);
+        }
+        if (collision.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth))
+        {
+            playerHealth.OnDamage(p_damage);
+        }
     }
     public void SetPositionAndRotation(Vector3 pos, Quaternion rot)
     {
         transform.SetPositionAndRotation(pos, rot);
+    }
+    public void Set_P_Damage(int value)
+    {
+        p_damage = value;
+    }
+    public void Set_E_Damage(int value)
+    {
+        e_damage = value;
     }
     public override void Init()
     {

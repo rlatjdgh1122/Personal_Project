@@ -22,7 +22,7 @@ MonoBehaviour:
   reloadSound: {fileID: 0}
   animController: {fileID: 0}
   ammocapacity: 20
-  autoFire: 1
+  autoFire: 0
   bulletCount: 1
   piercingCount: 0
-  spreadAngle: 0.104
+  spreadAngle: 0

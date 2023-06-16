@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class WeaponDataSO : ScriptableObject
 {
     [Range(15f, 70f)]
-    public float damage; //데미지
+    public int damage; //데미지
     [Range(.1f, 1f)]
     public float attackDelay; //공격 딜레이
     [Range(.5f, 3f)]

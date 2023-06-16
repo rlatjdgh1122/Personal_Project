@@ -94,7 +94,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 64.68
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6002746895077808535, guid: 41b1038c4481a854092ac3410e44f57d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 41b1038c4481a854092ac3410e44f57d, type: 3}
 --- !u!4 &4677419801526508787 stripped
 Transform:
@@ -119,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunData: {fileID: 11400000, guid: 65430916defc7614ba712ee2e62f2add, type: 2}
-  bullet: {fileID: 6393594138614127970, guid: b6a7db0d33e4b124cbcb10f17bb3e12a, type: 3}
+  bullet: {fileID: 8591692897397287944, guid: d7919570062d5e64abaa95604b02d409, type: 3}
   firePos: {fileID: 4437391902317439984}
   OnShoot:
     m_PersistentCalls:
@@ -130,4 +131,6 @@ MonoBehaviour:
   OnStopShooting:
     m_PersistentCalls:
       m_Calls: []
+  _isShooting: 0
   delayCoroutine: 0
+  ammo: 0

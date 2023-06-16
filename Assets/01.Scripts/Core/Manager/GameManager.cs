@@ -122,9 +122,10 @@ public class GameManager : MonoBehaviour
         {
             if (weapons[i] == null)
             {
-                weapons[i] = WeaponManager.Instance.GetWeapon(weaponName);
-                GameObject weapon = Instantiate(weapons[i].gameObject, WeaponPos);
+                Weapon w = WeaponManager.Instance.GetWeapon(weaponName);
+                GameObject weapon = Instantiate(w.gameObject, WeaponPos);
                 weapon.gameObject.name = weapon.gameObject.name.Replace("(Clone)", "");
+                weapons[i] = weapon.GetComponent<Weapon>(); 
                 weaponObjs.Add(weapon);
 
                 weapon.SetActive(false);

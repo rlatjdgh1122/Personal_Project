@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d880505d9e8314192408a8adebecff, type: 3}
   m_Name: BulldogData
   m_EditorClassIdentifier: 
-  damage: 15
-  attackDelay: 0.5
+  damage: 17
+  attackDelay: 0.1
   stunDuration: 1.37
   knockBack: 24.1
   weight: 1
@@ -25,4 +25,4 @@ MonoBehaviour:
   autoFire: 1
   bulletCount: 2
   piercingCount: 0
-  spreadAngle: 0.104
+  spreadAngle: 0.113

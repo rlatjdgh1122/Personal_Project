@@ -94,7 +94,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7727607288425220577, guid: ad4af7a378c328b479efaa42f7756c12, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ad4af7a378c328b479efaa42f7756c12, type: 3}
 --- !u!1 &4624437476814683744 stripped
 GameObject:
@@ -114,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunData: {fileID: 11400000, guid: 13586e55a0287944daf6b2b201a8fa88, type: 2}
-  bullet: {fileID: 5310735519251359380, guid: b75f7f34a87f72b4da47a0dbf1cadb60, type: 3}
+  bullet: {fileID: 8591692897397287944, guid: d7919570062d5e64abaa95604b02d409, type: 3}
   firePos: {fileID: 8958204393816550120}
   OnShoot:
     m_PersistentCalls:
@@ -125,7 +126,9 @@ MonoBehaviour:
   OnStopShooting:
     m_PersistentCalls:
       m_Calls: []
+  _isShooting: 0
   delayCoroutine: 0
+  ammo: 5
 --- !u!4 &5433203512202405082 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1484752262350124014, guid: ad4af7a378c328b479efaa42f7756c12, type: 3}

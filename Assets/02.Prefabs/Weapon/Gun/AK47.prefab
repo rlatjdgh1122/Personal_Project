@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunData: {fileID: 11400000, guid: 3ab82fad8336fb44a9ed1e34bd5112a6, type: 2}
-  bullet: {fileID: 6393594138614127970, guid: b6a7db0d33e4b124cbcb10f17bb3e12a, type: 3}
+  bullet: {fileID: 3145021694998500657, guid: f6f303f359936c0469ea3787b11aa2af, type: 3}
   firePos: {fileID: 6895509858095666386}
   OnShoot:
     m_PersistentCalls:
@@ -127,4 +127,6 @@ MonoBehaviour:
   OnStopShooting:
     m_PersistentCalls:
       m_Calls: []
+  _isShooting: 0
   delayCoroutine: 0
+  ammo: 20

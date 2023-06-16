@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: StingerData
   m_EditorClassIdentifier: 
   damage: 15
-  attackDelay: 0.5
+  attackDelay: 0.2
   stunDuration: 0
-  knockBack: 0
+  knockBack: 10
   weight: 1
   UseStamina: 7
   shootSound: {fileID: 0}
@@ -23,6 +23,6 @@ MonoBehaviour:
   animController: {fileID: 0}
   ammocapacity: 20
   autoFire: 1
-  bulletCount: 1
+  bulletCount: 2
   piercingCount: 0
   spreadAngle: 0.104

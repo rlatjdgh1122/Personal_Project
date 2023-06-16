@@ -28,7 +28,6 @@ public class AttackState : CommonState
     private void OnMoveHandle(Vector3 dir)
     {
         _playerMovement?.SetMovementDirection(dir);
-
     }
 
     private void ChangeState()
