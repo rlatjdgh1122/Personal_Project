@@ -12,19 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d880505d9e8314192408a8adebecff, type: 3}
   m_Name: GrenadelauncherData
   m_EditorClassIdentifier: 
-  WeaponName: "\uC0F7\uAC74"
-  image: {fileID: 0}
   damage: 15
   attackDelay: 0.5
-  stunDuration: 0
-  knockBack: 0
+  stunDuration: 1.59
+  knockBack: 25.1
   weight: 1
-  UseStamina: 7
+  UseStamina: 15
   shootSound: {fileID: 0}
   reloadSound: {fileID: 0}
   animController: {fileID: 0}
   ammocapacity: 20
   autoFire: 1
-  bulletCount: 5
+  bulletCount: 1
   piercingCount: 0
   spreadAngle: 0.104

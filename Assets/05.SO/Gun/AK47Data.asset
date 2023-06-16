@@ -12,18 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d880505d9e8314192408a8adebecff, type: 3}
   m_Name: AK47Data
   m_EditorClassIdentifier: 
-  WeaponName: 
-  damage: 0
-  attackDelay: 0
-  stunDuration: 0
-  knockBack: 0
-  weight: 0
-  UseStamina: 0
+  damage: 29.6
+  attackDelay: 0.302
+  stunDuration: 1.27
+  knockBack: 18.5
+  weight: 0.81
+  UseStamina: 11
   shootSound: {fileID: 0}
   reloadSound: {fileID: 0}
   animController: {fileID: 0}
-  ammocapacity: 0
+  ammocapacity: 6
   autoFire: 0
-  bulletCount: 0
+  bulletCount: 1
   piercingCount: 0
-  spreadAngle: 0
+  spreadAngle: 0.189

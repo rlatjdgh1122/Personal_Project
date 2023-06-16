@@ -17,7 +17,6 @@ public class Gun : Weapon
     public UnityEvent OnStopShooting; //feedback추가
 
     private bool _isShooting = false;
-
     public bool delayCoroutine = false;
 
     #region AMMO 관련 코드들
@@ -40,11 +39,11 @@ public class Gun : Weapon
     private void Update()
     {
         UseWeapon();
-    }
+    }   
     private void UseWeapon()
     {
-        Debug.Log("update : " + _isShooting); //여기찍히는 계속 디버그가 false다.
         //딜레이가 없다면 발사
+        Debug.Log($"update : {_isShooting}, {transform.name}"); //여기찍히는 계속 디버그가 false다.
         if (_isShooting == true && delayCoroutine == false)
         {
             Debug.Log("asdf");
@@ -110,14 +109,14 @@ public class Gun : Weapon
     public override void Shooting()
     {
         _isShooting = true;
-        Debug.Log("Shooting : " + _isShooting);
+        Debug.Log($"Shooting : {_isShooting} {transform.name}");
     }
     public override void StopShooting()
     {
 
         _isShooting = false;
-        OnStopShooting?.Invoke();
         Debug.Log("StopShooting : " + _isShooting);
+        OnStopShooting?.Invoke();
 
     }
     public override void Reloading()

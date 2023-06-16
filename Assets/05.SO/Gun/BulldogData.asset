@@ -12,12 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d880505d9e8314192408a8adebecff, type: 3}
   m_Name: BulldogData
   m_EditorClassIdentifier: 
-  WeaponName: "\uC0F7\uAC74"
-  image: {fileID: 0}
   damage: 15
   attackDelay: 0.5
-  stunDuration: 0
-  knockBack: 0
+  stunDuration: 1.37
+  knockBack: 24.1
   weight: 1
   UseStamina: 7
   shootSound: {fileID: 0}
@@ -25,6 +23,6 @@ MonoBehaviour:
   animController: {fileID: 0}
   ammocapacity: 20
   autoFire: 1
-  bulletCount: 5
+  bulletCount: 2
   piercingCount: 0
   spreadAngle: 0.104

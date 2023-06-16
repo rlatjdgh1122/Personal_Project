@@ -26,8 +26,6 @@ public class Map : PoolableMono
         Vector3 bottomLeft = transform.position + new Vector3(-transform.localScale.x / 2, -transform.localScale.y / 2, 0);
 
         centerPos = (topRight + bottomLeft) / 2;
-
-        Debug.Log("¼¾ÅÍ : " + centerPos);
     }
     public void SetTransform(Vector3 setPos)
     {
@@ -48,7 +46,7 @@ public class Map : PoolableMono
     {
         Vector3 objectToTarget = GameManager.Instance.playerPos.position - centerPos;
 
-        Debug.Log(objectToTarget);
+        //Debug.Log(objectToTarget);
         float num = objectToTarget.z;
         if (Math.Abs(num) >= 50)
         {

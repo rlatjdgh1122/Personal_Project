@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/07.%20UI%20Toolkit/Game/Weapon/WeaponPanel.uss?fileID=7433441132597879392&amp;guid=750bb036cde7b8444b3147668fdef19e&amp;type=3#WeaponPanel" />
-    <ui:VisualElement name="background" style="width: 100%; height: 100%; background-color: rgba(67, 67, 67, 0.78); display: none; opacity: 1;">
+    <ui:VisualElement name="background" style="width: 100%; height: 100%; background-color: rgba(67, 67, 67, 0.78); display: flex; opacity: 1;">
         <ui:VisualElement class="cardContainer" style="align-items: center; top: 25%;">
             <ui:VisualElement style="flex-direction: row; width: 100%; justify-content: space-around; height: 100%;">
                 <ui:Button display-tooltip-when-elided="true" name="select-first" class="card">
