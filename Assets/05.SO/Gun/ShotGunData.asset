@@ -21,8 +21,8 @@ MonoBehaviour:
   shootSound: {fileID: 0}
   reloadSound: {fileID: 0}
   animController: {fileID: 0}
-  ammocapacity: 20
+  ammocapacity: 10
   autoFire: 0
   bulletCount: 7
   piercingCount: 0
-  spreadAngle: 0.3
+  spreadAngle: 0

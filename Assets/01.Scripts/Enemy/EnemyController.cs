@@ -51,7 +51,7 @@ public class EnemyController : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H)) _enemyHealth.OnDamage(10,Vector3.zero, Vector3.zero);
+        if (Input.GetKeyDown(KeyCode.H)) _enemyHealth.OnDamage(10);
 
         if (_enemyHealth.IsDead) return;
         _currentState?.UpdateState();

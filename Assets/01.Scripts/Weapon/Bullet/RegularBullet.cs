@@ -12,9 +12,14 @@ public class RegularBullet : PoolableMono
     private bool isDead = false;
     private int p_damage = 0;
     private int e_damage = 0;
+
+    private bool isEnemy = false;
+    private TrailRenderer _tr;
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
+        _tr = transform.Find("Trail").GetComponent<TrailRenderer>();
+
     }
     private void FixedUpdate()
     {
@@ -24,6 +29,7 @@ public class RegularBullet : PoolableMono
         if (timeToLive >= bulletData.lifeTime)
         {
             isDead = true;
+            _tr.enabled = false;
             PoolManager.Instance.Push(this);
         }
     }
@@ -34,17 +40,17 @@ public class RegularBullet : PoolableMono
         HitCheck(collision);
 
         isDead = true;
+        _tr.enabled = false;
         PoolManager.Instance.Push(this);
     }
     private void HitCheck(Collider collision)
     {
-        if (collision.TryGetComponent<EnemyHealth>(out EnemyHealth enemyHealth))
+        if (collision.TryGetComponent<IDamageable>(out IDamageable health))
         {
-            enemyHealth.OnDamage(p_damage, Vector3.zero, Vector3.zero);
-        }
-        if (collision.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth))
-        {
-            playerHealth.OnDamage(p_damage);
+            if (!isEnemy)
+                health.OnDamage(p_damage);
+            else
+                health.OnDamage(e_damage);
         }
     }
     public void SetPositionAndRotation(Vector3 pos, Quaternion rot)
@@ -62,6 +68,7 @@ public class RegularBullet : PoolableMono
     public override void Init()
     {
         isDead = false;
+        _tr.enabled = true;
         timeToLive = 0;
 
     }

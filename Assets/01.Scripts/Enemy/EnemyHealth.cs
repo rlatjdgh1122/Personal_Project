@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EnemyHealth : MonoBehaviour, IAIDamageable
+public class EnemyHealth : MonoBehaviour, IDamageable
 {
     public UnityEvent OnHitTriggered = null;
     public UnityEvent OnDeadTriggered = null;
@@ -36,15 +36,12 @@ public class EnemyHealth : MonoBehaviour, IAIDamageable
     }
 
 
-    public void OnDamage(int damage, Vector3 point, Vector3 normal)
+    public void OnDamage(int damage)
     {
         if (IsDead) return;
 
         _enemyHpBar.OnDamage(damage);
         OnHitTriggered?.Invoke();
-
-        _aiActionData.HitPoint = point;
-        _aiActionData.HitNormal = normal;
 
         _currentHP -= damage;
         _currentHP = Mathf.Clamp(_currentHP, 0, _maxHP);

@@ -35,5 +35,5 @@ MonoBehaviour:
     Weapon: {fileID: 1051301273801242254, guid: f2f94624939c9b94d9f2f2b0600d6b84, type: 3}
   - WeaponName: "\uC2A4\uD305\uC5B4"
     WeaponImage: {fileID: 21300000, guid: 3336399d0e16a904d84186c2803b45ed, type: 3}
-    Explain: "\uC0AC\uC2E4 \uBCC4\uB85C \uC548\uC88B\uC74C\u314B\u314B"
+    Explain: 
     Weapon: {fileID: 2538708180378776460, guid: 4cc884e74ef787c469072d7c481baf32, type: 3}

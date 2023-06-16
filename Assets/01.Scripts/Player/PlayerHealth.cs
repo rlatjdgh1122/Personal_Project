@@ -30,7 +30,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public void OnDamage(int damage)
     {
         if (IsDead) return;
-        //_enemyHpBar.OnDamage(damage);
+        
         OnHitTriggered?.Invoke();
 
         _currentHP -= damage;
@@ -43,7 +43,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             OnDeadTriggered?.Invoke();
             IsDead = true;
         }
-
 
         OnHealthChanged?.Invoke(_currentHP, _maxHP); //그리고 전파
     }

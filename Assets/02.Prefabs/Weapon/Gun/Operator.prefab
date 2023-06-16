@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6045167690904451541}
   - component: {fileID: 7100161857458408501}
   - component: {fileID: 2880969660494454303}
-  - component: {fileID: 4819776467262309092}
   m_Layer: 0
   m_Name: FirePos
   m_TagString: Untagged
@@ -84,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &4819776467262309092
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1742968606393213593}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &548530220138919000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -193,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunData: {fileID: 11400000, guid: cc369af9c636ca248b065bebd0c24a9e, type: 2}
-  bullet: {fileID: 8591692897397287944, guid: d7919570062d5e64abaa95604b02d409, type: 3}
+  bullet: {fileID: 5485331899369800639, guid: b268e21e72d8f434e96dfba767d0f9ae, type: 3}
   firePos: {fileID: 6045167690904451541}
   OnShoot:
     m_PersistentCalls:

@@ -76,10 +76,8 @@ public class Gun : Weapon
     private IEnumerator DelayNextShootCoroutine()
     {
         delayCoroutine = true;
-        Debug.Log(gunData.attackDelay);
         yield return new WaitForSecondsRealtime(gunData.attackDelay);
         delayCoroutine = false;
-        Debug.Log(delayCoroutine);
     }
 
     private void ShootBullet()
