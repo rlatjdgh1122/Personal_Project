@@ -15,5 +15,6 @@ MonoBehaviour:
   hp: 200
   damage: 15
   speed: 3
+  rotationSpeed: 3
   attackDelay: 3.5
   getExperience: 0

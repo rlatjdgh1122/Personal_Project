@@ -7,11 +7,14 @@ public class EnemyMovement : EnemyAnimationController
     private EnemyController _enemyController;
     private Rigidbody _rigid;
     private NavMeshAgent _agent;
+    private Transform target;
 
     private bool _isRotate = true;
     private bool _isMove = true;
+    private bool _isLookTarget = true;
     public bool IsRotate { get { return _isRotate; } set { _isRotate = value; } }
     public bool IsMove { get { return _isMove; } set { _isMove = value; } }
+    public bool IsLookTarget { get { return _isLookTarget; } set { _isLookTarget = value; } }
     protected override void Awake()
     {
         base.Awake();
@@ -21,6 +24,7 @@ public class EnemyMovement : EnemyAnimationController
     }
     private void Start()
     {
+        target = GameManager.Instance.playerPos;
         _agent.updateRotation = true;
         _agent.autoBraking = true;
     }
@@ -45,9 +49,22 @@ public class EnemyMovement : EnemyAnimationController
     }
     public void State()
     {
+        Vector3 direction = target.position - transform.position;
+        direction.y = 0;
+
+        Vector3 frontVector = transform.forward;
+        float angle = Vector3.Angle(frontVector, direction);
+
+        if (angle >= 5)
+        {
+            IsLookTarget = false;
+        }
+        else IsLookTarget = true;
+
         if (IsRotate)
         {
-            transform.LookAt(GameManager.Instance.playerPos.position);
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _enemyController.EnemySoData.rotationSpeed * Time.deltaTime);
         }
         if (IsMove)
         {

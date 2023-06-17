@@ -9,7 +9,6 @@ using UnityEngine.Events;
 public class AttackAIState : CommonAIState
 {
     public float motionDelay = 1;
-    protected Vector3 _targetVector;
     protected bool _isActive = false;
 
     private float _lastAtkTime;
@@ -18,13 +17,8 @@ public class AttackAIState : CommonAIState
     private UnityEvent OnDamaged = null;
     [SerializeField]
     private UnityEvent OnDamagedStop = null;
-    private void Start()
-    {
-        _targetVector = GameManager.Instance.playerPos.position;
-    }
     public override void OnEnterState()
     {
-
         _enemyAnimationController.OnEndEventTrigger += AttackAnimationEndHandle;
         _enemyAnimationController.OnPreEventTrigger += AttackAnimationPreHandle;
         _enemyAnimationController.OnPreEndEventTrigger += AttackAnimationPreEndHandle;
@@ -45,10 +39,9 @@ public class AttackAIState : CommonAIState
 
     private void AttackAnimationEndHandle()
     {
-        _enemyMovement.IsRotate = true;
 
         _enemyAnimationController.SetShooting(false);
-        _lastAtkTime = Time.time; //이제부터 1초 기다렸다가 다시 레이저 발사
+        _lastAtkTime = Time.time;
         StartCoroutine(DelayCoroutine(() => _aiActionData.IsAttacking = false, _enemyController.EnemySoData.attackDelay));
     }
 
@@ -78,14 +71,15 @@ public class AttackAIState : CommonAIState
         }
         if (_aiActionData.IsAttacking == false && _isActive)  //액티브
         {
-                _enemyMovement.IsRotate = false;
-            if (_lastAtkTime + _enemyController.EnemySoData.attackDelay < Time.time) //쿨타임도 찼고 각도도 10도로 들어왔다면
+            _enemyMovement.IsRotate = true;
+            if (_enemyMovement.IsLookTarget == true && _lastAtkTime + _enemyController.EnemySoData.attackDelay < Time.time)
             {
                 _aiActionData.IsAttacking = true;
                 _enemyAnimationController.SetShooting(true);
             }
         }
-
+        else
+            _enemyMovement.IsRotate = false;
         return false;
     }
 }

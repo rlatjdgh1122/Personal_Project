@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1be2cd1f9a32f241882dffb54990c38, type: 3}
-  m_Name: DogEnemy
+  m_Name: GolemEnemy
   m_EditorClassIdentifier: 
-  hp: 100
-  damage: 10
-  speed: 5
-  rotationSpeed: 5
-  attackDelay: 2
+  hp: 200
+  damage: 15
+  speed: 3
+  rotationSpeed: 1
+  attackDelay: 3.5
   getExperience: 0
