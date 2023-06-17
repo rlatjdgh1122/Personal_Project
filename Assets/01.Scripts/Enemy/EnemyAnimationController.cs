@@ -32,11 +32,11 @@ public class EnemyAnimationController : AnimatorHash
     {
         if (value)
         {
-            anim.SetTrigger(SHOOTING_HASH);
+            anim.SetTrigger(RANGEATTACK_HASH);
         }
         else
         {
-            anim.ResetTrigger(SHOOTING_HASH);
+            anim.ResetTrigger(RANGEATTACK_HASH);
         }
     }
     public void SetStun(bool value)
@@ -53,9 +53,9 @@ public class EnemyAnimationController : AnimatorHash
     public void SetShooting(bool value)
     {
         if (value)
-            anim.SetTrigger(SHOOTING_HASH);
+            anim.SetTrigger(RANGEATTACK_HASH);
         else
-            anim.ResetTrigger(SHOOTING_HASH);
+            anim.ResetTrigger(RANGEATTACK_HASH);
     }
     public void SetHurtTrigger(bool value)
     {

@@ -7,7 +7,7 @@ public class WalkAIState : CommonAIState
     public override void OnEnterState()
     {
         _enemyAnimationController.SetMove(MOVE_STATE.Walk);
-        _enemyMovement.SetSpeed(Mathf.Clamp(_enemyController.EnemySoData.speed - 5, 2, _enemyController.EnemySoData.speed - 5));
+        _enemyMovement.SetSpeed(Mathf.Clamp(_enemyController.EnemySoData.speed - 3, 2, _enemyController.EnemySoData.speed - 3));
     }
 
     public override void OnExitState()

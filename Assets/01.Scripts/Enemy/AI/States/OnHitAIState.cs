@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class OnHitAIState : CommonAIState
 {
     public float stunDelay = 1f;
     public float _lastAtkTime = 0;
+    public UnityEvent onHitAction = null;
+
     public void SetStunDelay(float value)
     {
         stunDelay = value;
@@ -18,14 +21,11 @@ public class OnHitAIState : CommonAIState
         _enemyMovement.IsMove = false;
 
         _enemyAnimationController.SetHurtTrigger(true);
-        
-
-        Debug.Log("맞은상태 들어옴");
+        onHitAction?.Invoke();
     }
 
     public override void OnExitState()
     {
-        Debug.Log("맞은상태 나감");
         _enemyAnimationController.OnEndEventTrigger -= AnimationEndHandle;
 
         _enemyMovement.IsRotate = true;
@@ -37,7 +37,6 @@ public class OnHitAIState : CommonAIState
 
     private void AnimationEndHandle()
     {
-        Debug.Log("애니메이션");
         _enemyAnimationController.SetStun(true);
         _lastAtkTime = Time.time;
     }
@@ -50,7 +49,6 @@ public class OnHitAIState : CommonAIState
         {
             if (_lastAtkTime + stunDelay < Time.time)
             {
-                Debug.Log("상태변환");
                 _aiActionData.IsHit = false;
             }
         }

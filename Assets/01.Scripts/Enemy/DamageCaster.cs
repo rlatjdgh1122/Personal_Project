@@ -17,9 +17,12 @@ public class DamageCaster : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<IDamageable>(out IDamageable component))
+        if (other.gameObject.CompareTag("Player"))
         {
-            component.OnDamage(damage);
+            if (other.TryGetComponent<IDamageable>(out IDamageable component))
+            {
+                component.OnDamage(damage);
+            }
         }
     }
 }
