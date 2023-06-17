@@ -1,0 +1,42 @@
+.button {
+    transition-duration: 0.3s;
+    transition-delay: 0s;
+    width: 300px;
+    height: 150px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    transition-timing-function: ease;
+}
+
+.button:hover {
+    scale: 1.2 1.2;
+    transition-duration: 0.3s;
+    background-color: rgba(154, 154, 154, 255);
+}
+
+.button-hiden {
+    width: 300px;
+    height: 150px;
+    justify-content: flex-start;
+    -unity-font-definition: url('project://database/Assets/09.%20Ponts/MaplestoryFont_TTF%20(1)/Maplestory%20Bold%20SDF%201.asset?fileID=11400000&guid=fc4056be0db5c7e4a9f5d7b0ae4a16a4&type=2#Maplestory Bold SDF 1');
+    font-size: 50px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    translate: 150% 0;
+    transition-duration: 0s;
+    transition-timing-function: ease;
+    border-left-color: rgba(255, 255, 255, 255);
+    border-right-color: rgba(255, 255, 255, 255);
+    border-top-color: rgba(255, 255, 255, 255);
+    border-bottom-color: rgba(255, 255, 255, 255);
+}
+
+.button-show {
+    translate: 0 0;
+    transition-duration: 0s;
+    transition-timing-function: ease;
+}

@@ -42,9 +42,8 @@ public class MapManager : MonoBehaviour
     public List<Map> maps = new();
     private void Start()
     {
-        currentSeason = Season.winter;
-
         StartCreateMap();
+        currentSeason = Season.winter;
     }
     private void KeySetting()
     {
@@ -55,7 +54,6 @@ public class MapManager : MonoBehaviour
     }
     private void StartCreateMap()
     {
-
         Trees.Shuffle();
         Map frontMap = PoolManager.Instance.Pop("Map") as Map;
         frontMap.SetTransform(new Vector3(0, 0, CurrentDistance - mapSize));

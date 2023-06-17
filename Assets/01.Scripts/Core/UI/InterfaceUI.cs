@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class InterfaceUI : MonoBehaviour
@@ -52,7 +53,7 @@ public class InterfaceUI : MonoBehaviour
     }
     public void OnClickBack()
     {
-        //인트로 씬으로 돌아가기
+        SceneManager.LoadScene(0);
     }
 
     public void OnClickCancel()
