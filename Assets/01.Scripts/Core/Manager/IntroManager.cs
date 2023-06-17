@@ -9,11 +9,12 @@ using UnityEngine.UIElements;
 public class IntroManager : MonoBehaviour
 {
     public GameObject _light;
+    public GameObject settingPanel;
     private Button explain;
     private Button setting;
     private Button gameStart;
     private Button exit;
-
+    private AudioSource audioSource;
     private void Awake()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
@@ -28,16 +29,31 @@ public class IntroManager : MonoBehaviour
         gameStart.RegisterCallback<ClickEvent>(GameStart);
         exit.RegisterCallback<ClickEvent>(Exit);
 
+        Off_Panel();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
     {
         Show();
     }
+    public void BG_Sound(float value)
+    {
+        audioSource.volume = value;
+    }
+    public void Off_Panel()
+    {
+        settingPanel.SetActive(false);
+    }
+    public void Exit()
+    {
+        Application.Quit();
+    }
     private void Exit(ClickEvent evt)
     {
         Application.Quit();
     }
+
     private void Hiden()
     {
         explain.RemoveFromClassList("button-show");
@@ -59,7 +75,7 @@ public class IntroManager : MonoBehaviour
 
     private void Setting(ClickEvent evt)
     {
-
+        settingPanel.SetActive(true);
     }
 
     private void Explain(ClickEvent evt)

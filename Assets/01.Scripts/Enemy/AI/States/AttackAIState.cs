@@ -14,17 +14,26 @@ public class AttackAIState : CommonAIState
     private float _lastAtkTime;
 
     [SerializeField]
+    private UnityEvent OnStart = null;
+    [SerializeField]
     private UnityEvent OnDamaged = null;
     [SerializeField]
     private UnityEvent OnDamagedStop = null;
     public override void OnEnterState()
     {
-        _enemyAnimationController.OnEndEventTrigger += AttackAnimationEndHandle;
+        _enemyAnimationController.OnStartEventTrigger += AttackAnimationStartHandle;
         _enemyAnimationController.OnPreEventTrigger += AttackAnimationPreHandle;
+        _enemyAnimationController.OnEndEventTrigger += AttackAnimationEndHandle;
         _enemyAnimationController.OnPreEndEventTrigger += AttackAnimationPreEndHandle;
         _enemyMovement.IsMove = false;
         _enemyMovement.IsRotate = false;
         _isActive = true;
+    }
+
+    private void AttackAnimationStartHandle()
+    {
+        OnStart?.Invoke();
+        Debug.Log("애니메이션 Staret");
     }
 
     private void AttackAnimationPreEndHandle()
@@ -52,6 +61,7 @@ public class AttackAIState : CommonAIState
     }
     public override void OnExitState()
     {
+        _enemyAnimationController.OnStartEventTrigger -= AttackAnimationStartHandle;
         _enemyAnimationController.OnEndEventTrigger -= AttackAnimationEndHandle;
         _enemyAnimationController.OnPreEventTrigger -= AttackAnimationPreHandle;
         _enemyAnimationController.OnPreEndEventTrigger -= AttackAnimationPreEndHandle;
