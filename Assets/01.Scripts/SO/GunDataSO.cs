@@ -10,7 +10,7 @@ public class GunDataSO : WeaponDataSO
     public bool autoFire;
     public int bulletCount;
     public int piercingCount; //관통 개 수
-    [Range(0, 1f)]
+    [Range(0, .3f)]
     public float spreadAngle;
 
 

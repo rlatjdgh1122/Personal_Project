@@ -18,8 +18,12 @@ public class RegularBullet : PoolableMono
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
-        _tr = transform.Find("Trail").GetComponent<TrailRenderer>();
+        _tr = transform?.Find("Trail").GetComponent<TrailRenderer>();
 
+    }
+    private void OnEnable()
+    {
+        _tr.Clear();
     }
     private void FixedUpdate()
     {
@@ -29,18 +33,15 @@ public class RegularBullet : PoolableMono
         if (timeToLive >= bulletData.lifeTime)
         {
             isDead = true;
-            _tr.enabled = false;
             PoolManager.Instance.Push(this);
         }
     }
     private void OnTriggerEnter(Collider collision)
     {
         if (isDead) return;
-
         HitCheck(collision);
 
         isDead = true;
-        _tr.enabled = false;
         PoolManager.Instance.Push(this);
     }
     private void HitCheck(Collider collision)
@@ -68,7 +69,7 @@ public class RegularBullet : PoolableMono
     public override void Init()
     {
         isDead = false;
-        _tr.enabled = true;
+        _tr.Clear();
         timeToLive = 0;
 
     }
