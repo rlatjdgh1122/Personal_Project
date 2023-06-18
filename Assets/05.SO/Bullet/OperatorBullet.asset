@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: OperatorBullet
   m_EditorClassIdentifier: 
   lifeTime: 1
-  speed: 50
+  speed: 100
   hitParticle: {fileID: 0}

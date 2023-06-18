@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunData: {fileID: 11400000, guid: 3131292916173b54aa43210edfbb1ea3, type: 2}
-  bullet: {fileID: 8591692897397287944, guid: d7919570062d5e64abaa95604b02d409, type: 3}
+  bullet: {fileID: 1720928226685475915, guid: d7919570062d5e64abaa95604b02d409, type: 3}
   firePos: {fileID: 1696878687394777193}
   OnShoot:
     m_PersistentCalls:

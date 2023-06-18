@@ -53,6 +53,7 @@ public class Gun : Weapon
                 for (int i = 0; i < gunData.bulletCount; i++)
                 {
                     ShootBullet();
+                    Debug.Log("공격");
                 }
                 Ammo--;
             }
@@ -88,7 +89,7 @@ public class Gun : Weapon
     private Quaternion CalculateAngle()
     {
         Vector3 randomPosition = Random.insideUnitSphere; //이부분 수정필요
-        Vector3 resultPos = randomPosition * gunData.spreadAngle + transform.forward;
+        Vector3 resultPos = (randomPosition * gunData.spreadAngle) + transform.forward;
 
         Quaternion rot = Quaternion.LookRotation(resultPos);
         return rot;

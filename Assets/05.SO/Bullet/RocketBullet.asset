@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: RocketBullet
   m_EditorClassIdentifier: 
   lifeTime: 3
-  speed: 5
+  speed: 10
+  hitParticle: {fileID: 0}

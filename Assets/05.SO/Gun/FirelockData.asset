@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33d880505d9e8314192408a8adebecff, type: 3}
-  m_Name: AK47Data
+  m_Name: FirelockData
   m_EditorClassIdentifier: 
-  damage: 25
-  attackDelay: 0.3
-  stunDuration: 0.5
-  knockBack: 20
-  weight: 2
-  UseStamina: 10
+  damage: 15
+  attackDelay: 0.5
+  stunDuration: 1.27
+  knockBack: 22.3
+  weight: 1
+  UseStamina: 7
   shootSound: {fileID: 0}
   reloadSound: {fileID: 0}
   animController: {fileID: 0}
-  ammocapacity: 20
-  autoFire: 1
+  ammocapacity: 10
+  autoFire: 0
   bulletCount: 1
   piercingCount: 0
-  spreadAngle: 0.055
+  spreadAngle: 0.058
