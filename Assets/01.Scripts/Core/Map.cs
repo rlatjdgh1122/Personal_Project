@@ -20,12 +20,9 @@ public class Map : PoolableMono
             Points.Add(trm);
         }
     }
-    private void Start() //°£°ÝÀº 50
+    private void Start()
     {
-        Vector3 topRight = transform.position + new Vector3(transform.localScale.x / 2, transform.localScale.y / 2, 0);
-        Vector3 bottomLeft = transform.position + new Vector3(-transform.localScale.x / 2, -transform.localScale.y / 2, 0);
 
-        centerPos = (topRight + bottomLeft) / 2;
     }
     public void SetTransform(Vector3 setPos)
     {
@@ -45,9 +42,8 @@ public class Map : PoolableMono
     private void Update()
     {
         Vector3 objectToTarget = GameManager.Instance.playerPos.position - centerPos;
-
-        //Debug.Log(objectToTarget);
         float num = objectToTarget.z;
+        Debug.Log(num);
         if (Math.Abs(num) >= 50)
         {
             if (isOne == false)
@@ -62,8 +58,9 @@ public class Map : PoolableMono
                     MapManager.Instance.CurrentDistance -= MapManager.Instance.mapSize;
                 }
                 MapManager.Instance.SpawnMaps(dot);
-
                 isOne = true;
+
+                PoolManager.Instance.Push(this);
             }
         }
 
@@ -89,5 +86,6 @@ public class Map : PoolableMono
     {
         trees.ForEach(p => Destroy(p));
         trees.Clear();
+        isOne = false;
     }
 }

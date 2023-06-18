@@ -10,5 +10,5 @@ public class EnemySoData : ScriptableObject
     public float speed;
     public float rotationSpeed;
     public float attackDelay;
-    public float getExperience; //경험치 량
+    public int getExperience; //경험치 량
 }

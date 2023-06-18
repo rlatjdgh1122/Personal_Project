@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d880505d9e8314192408a8adebecff, type: 3}
   m_Name: RPGData
   m_EditorClassIdentifier: 
-  damage: 15
-  attackDelay: 0.5
+  damage: 40
+  attackDelay: 1
   stunDuration: 1.27
   knockBack: 22.3
   weight: 1
@@ -21,8 +21,8 @@ MonoBehaviour:
   shootSound: {fileID: 0}
   reloadSound: {fileID: 0}
   animController: {fileID: 0}
-  ammocapacity: 10
+  ammocapacity: 3
   autoFire: 0
-  bulletCount: 7
+  bulletCount: 1
   piercingCount: 0
-  spreadAngle: 0.027
+  spreadAngle: 0

@@ -35,11 +35,6 @@ public class IntroManager : MonoBehaviour
         Off_Panel();
         audioSource = GetComponent<AudioSource>();
     }
-
-    private void Start()
-    {
-        Show();
-    }
     public void Cancel_Expian()
     {
         explainPanel.SetActive(false);
@@ -59,21 +54,6 @@ public class IntroManager : MonoBehaviour
     private void Exit(ClickEvent evt)
     {
         Application.Quit();
-    }
-
-    private void Hiden()
-    {
-        explain.RemoveFromClassList("button-show");
-        setting.RemoveFromClassList("button-show");
-        gameStart.RemoveFromClassList("button-show");
-        exit.RemoveFromClassList("button-show");
-    }
-    private void Show()
-    {
-        explain.AddToClassList("button-show");
-        setting.AddToClassList("button-show");
-        gameStart.AddToClassList("button-show");
-        exit.AddToClassList("button-show");
     }
     private void GameStart(ClickEvent evt)
     {

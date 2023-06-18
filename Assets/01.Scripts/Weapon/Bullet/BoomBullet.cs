@@ -19,14 +19,6 @@ public class BoomBullet : PoolableMono
     {
         _rigid = GetComponent<Rigidbody>();
     }
-    private void Start()
-    {
-        _rigid.AddForce(dir * bulletData.speed + Vector3.up, ForceMode.Impulse);
-    }
-    void OnEnable()
-    {
-        _rigid.AddForce(dir * bulletData.speed + Vector3.up, ForceMode.Impulse);
-    }
     void Update()
     {
         time += Time.deltaTime;
@@ -37,10 +29,11 @@ public class BoomBullet : PoolableMono
             PoolManager.Instance.Push(this);
         }
     }
-    public void SetPosition(Vector3 position , Vector3 value)
+    public void SetPositionAndShoot(Vector3 position, Vector3 value)
     {
         transform.position = position;
         dir = value;
+        _rigid.AddForce(dir * bulletData.speed + Vector3.up, ForceMode.Impulse);
     }
     public override void Init()
     {

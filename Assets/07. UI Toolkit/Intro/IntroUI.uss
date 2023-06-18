@@ -1,22 +1,4 @@
 .button {
-    transition-duration: 0.3s;
-    transition-delay: 0s;
-    width: 300px;
-    height: 150px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    transition-timing-function: ease;
-}
-
-.button:hover {
-    scale: 1.2 1.2;
-    transition-duration: 0.3s;
-    background-color: rgba(154, 154, 154, 255);
-}
-
-.button-hiden {
     width: 300px;
     height: 150px;
     justify-content: flex-start;
@@ -27,16 +9,16 @@
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
     translate: 150% 0;
-    transition-duration: 0s;
+    transition-duration: 0.5s;
     transition-timing-function: ease;
-    border-left-color: rgba(255, 255, 255, 255);
-    border-right-color: rgba(255, 255, 255, 255);
-    border-top-color: rgba(255, 255, 255, 255);
-    border-bottom-color: rgba(255, 255, 255, 255);
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
 }
 
-.button-show {
-    translate: 0 0;
-    transition-duration: 0s;
-    transition-timing-function: ease;
+.button:hover {
+    scale: 1.2 1.2;
+    transition-duration: 0.3s;
+    background-color: rgb(154, 154, 154);
 }

@@ -20,7 +20,7 @@ MonoBehaviour:
   UseStamina: 7
   shootSound: {fileID: 0}
   reloadSound: {fileID: 0}
-  animController: {fileID: 0}
+  animController: {fileID: 22100000, guid: e783a7932cc9fe24696278c34c9cee0a, type: 2}
   ammocapacity: 10
   autoFire: 0
   bulletCount: 7

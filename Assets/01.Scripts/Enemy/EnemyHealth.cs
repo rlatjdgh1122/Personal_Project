@@ -22,11 +22,13 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     private EnemyHpBar _enemyHpBar;
     private EnemyAnimationController _enemyAnimationController;
+    private EnemyController enemyController;
     private void Awake()
     {
         _aiActionData = transform.Find("AI").GetComponent<AIActionData>();
-       _enemyHpBar = transform.root.transform.Find("Canvas").GetComponent<EnemyHpBar>();
+        _enemyHpBar = transform.root.transform.Find("Canvas").GetComponent<EnemyHpBar>();
         _enemyAnimationController = GetComponent<EnemyAnimationController>();
+        enemyController = GetComponent<EnemyController>();
     }
 
     public void SetMaxHP(int value)
@@ -34,8 +36,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         _currentHP = _maxHP = value;
         IsDead = false;
     }
-
-
     public void OnDamage(int damage)
     {
         if (IsDead) return;
@@ -50,6 +50,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             IsDead = true;
             OnDeadTriggered?.Invoke();
             _enemyAnimationController.Die();
+
+            WaveManager.instance.currentEnemyCount--;
+            LevelController.Instance.SetLevelValue(enemyController.EnemySoData.getExperience);
+            Destroy(this.gameObject, 3f);
         }
         OnHealthChanged?.Invoke(_currentHP, _maxHP); //그리고 전파
     }

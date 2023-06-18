@@ -81,7 +81,7 @@ public class MapManager : MonoBehaviour
 
         if (dotValue > 0) //앞으로 갔을때
         {
-            PoolManager.Instance.Push(maps[0]);
+            //PoolManager.Instance.Push(maps[0]);
             maps.Remove(maps[0]);
 
             Map frontMap = PoolManager.Instance.Pop("Map") as Map;
@@ -92,7 +92,7 @@ public class MapManager : MonoBehaviour
         }
         else if (dotValue < 0) //뒤로 갔을때
         {
-            PoolManager.Instance.Push(maps[maps.Count - 1]);
+            //PoolManager.Instance.Push(maps[maps.Count - 1]);
             maps.Remove(maps[maps.Count - 1]);
 
             Map backMap = PoolManager.Instance.Pop("Map") as Map;

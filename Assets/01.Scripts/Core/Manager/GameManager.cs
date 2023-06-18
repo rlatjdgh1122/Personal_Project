@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.AI.Navigation;
 using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.Animations;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Events;
@@ -30,6 +31,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public List<WeaponDataList> UI_weaponDatas = new();
 
+    [SerializeField] AnimatorController _animController;
+    public AnimatorController defalutAnim => _animController;
     private void Awake()
     {
         if (Instance == null)
@@ -99,8 +102,6 @@ public class GameManager : MonoBehaviour
 
             _playerController.currentWeapon = weapons[3];
         }
-
-        if (Input.GetKeyDown(KeyCode.P)) ui_Controller.weaponUI.Open_Panel();
     }
     #region ÃÑ°ü·Ã
     public void Start_WeaponSetting()
