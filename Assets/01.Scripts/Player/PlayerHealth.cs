@@ -30,10 +30,10 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public void OnDamage(int damage)
     {
         if (IsDead) return;
-        
+        int randomDamage = Mathf.Clamp(Random.Range(damage - 5, damage + 5), damage, damage + 5);
         OnHitTriggered?.Invoke();
 
-        _currentHP -= damage;
+        _currentHP -= randomDamage;
         _currentHP = Mathf.Clamp(_currentHP, 0, _maxHP);
 
         _playerController.ChangeState(Core.StateType.OnHit);

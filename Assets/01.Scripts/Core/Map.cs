@@ -20,9 +20,9 @@ public class Map : PoolableMono
             Points.Add(trm);
         }
     }
-    private void Start()
+    public void SetCenterPos(Vector3 value)
     {
-
+        centerPos = value;
     }
     public void SetTransform(Vector3 setPos)
     {
@@ -38,54 +38,28 @@ public class Map : PoolableMono
 
         }
     }
-    private bool isOne = false;
     private void Update()
     {
         Vector3 objectToTarget = GameManager.Instance.playerPos.position - centerPos;
         float num = objectToTarget.z;
-        Debug.Log(num);
         if (Math.Abs(num) >= 50)
         {
-            if (isOne == false)
+            float dot = Vector3.Dot(Vector3.forward.normalized, objectToTarget.normalized);
+            if (dot > 0)
             {
-                float dot = Vector3.Dot(Vector3.forward.normalized, objectToTarget.normalized);
-                if (dot > 0)
-                {
-                    MapManager.Instance.CurrentDistance += MapManager.Instance.mapSize;
-                }
-                else if (dot < 0)
-                {
-                    MapManager.Instance.CurrentDistance -= MapManager.Instance.mapSize;
-                }
-                MapManager.Instance.SpawnMaps(dot);
-                isOne = true;
-
-                PoolManager.Instance.Push(this);
+                MapManager.Instance.CurrentDistance += MapManager.Instance.mapSize;
             }
+            else if (dot < 0)
+            {
+                MapManager.Instance.CurrentDistance -= MapManager.Instance.mapSize;
+            }
+            MapManager.Instance.SpawnMaps(dot);
         }
-
     }
-    /*  private void OnCollisionExit(Collision collision)
-      {
-          if (collision.gameObject.CompareTag("Player"))
-          {
-              Vector3 objectToTarget = collision.transform.position - centerPos;
-              float dot = Vector3.Dot(Vector3.forward.normalized, objectToTarget.normalized);
-              if (dot > 0)
-              {
-                  MapManager.Instance.CurrentDistance += MapManager.Instance.mapSize;
-              }
-              else if (dot < 0)
-              {
-                  MapManager.Instance.CurrentDistance -= MapManager.Instance.mapSize;
-              }
-              MapManager.Instance.SpawnMaps(dot);
-          }
-      }*/
+
     public override void Init()
     {
         trees.ForEach(p => Destroy(p));
         trees.Clear();
-        isOne = false;
     }
 }

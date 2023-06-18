@@ -57,18 +57,22 @@ public class MapManager : MonoBehaviour
         Trees.Shuffle();
         Map frontMap = PoolManager.Instance.Pop("Map") as Map;
         frontMap.SetTransform(new Vector3(0, 0, CurrentDistance - mapSize));
+        frontMap.SetCenterPos(frontMap.transform.position);
         frontMap.SpawnTrees(Trees);
         maps.Add(frontMap);
 
         Trees.Shuffle();
         Map map = PoolManager.Instance.Pop("Map") as Map;
         map.SetTransform(new Vector3(0, 0, CurrentDistance));
+        map.SetCenterPos(map.transform.position);
         map.SpawnTrees(Trees);
         maps.Add(map);
 
         Trees.Shuffle();
         Map BackMap = PoolManager.Instance.Pop("Map") as Map;
         BackMap.SetTransform(new Vector3(0, 0, CurrentDistance + mapSize));
+        BackMap.SetCenterPos(BackMap.transform.position);
+
         BackMap.SpawnTrees(Trees);
         maps.Add(BackMap);
 
@@ -78,25 +82,26 @@ public class MapManager : MonoBehaviour
     {
         CheckWeater();
 
-
         if (dotValue > 0) //앞으로 갔을때
         {
-            //PoolManager.Instance.Push(maps[0]);
+            PoolManager.Instance.Push(maps[0]);
             maps.Remove(maps[0]);
 
             Map frontMap = PoolManager.Instance.Pop("Map") as Map;
             frontMap.SetTransform(new Vector3(0, 0, CurrentDistance + mapSize));
+            frontMap.SetCenterPos(frontMap.transform.position);
             frontMap.SpawnTrees(Trees);
             maps.Add(frontMap);
 
         }
         else if (dotValue < 0) //뒤로 갔을때
         {
-            //PoolManager.Instance.Push(maps[maps.Count - 1]);
+            PoolManager.Instance.Push(maps[maps.Count - 1]);
             maps.Remove(maps[maps.Count - 1]);
 
             Map backMap = PoolManager.Instance.Pop("Map") as Map;
             backMap.SetTransform(new Vector3(0, 0, CurrentDistance - mapSize));
+            backMap.SetCenterPos(backMap.transform.position);
             backMap.SpawnTrees(Trees);
             maps.Insert(0, backMap);
         }
@@ -119,5 +124,14 @@ public class MapManager : MonoBehaviour
     public void ChangedSeason(Season nextSeaon)
     {
         currentSeason = nextSeaon;
+    }
+    private Vector3 SetCenterPos(Transform trm)
+    {
+        Vector3 boundsSize = trm.localScale; // 크기를 경계 크기로 사용합니다.
+        Vector3 max = trm.position + boundsSize / 2f; // 우측 상단 꼭지점 계산
+        Vector3 min = trm.position - boundsSize / 2f; // 좌측 하단 꼭지점 계산
+
+        Vector3 centerPos = (max + min) / 2f; // 중심 좌표 계산
+        return centerPos;
     }
 }

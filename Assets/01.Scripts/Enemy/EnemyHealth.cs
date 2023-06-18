@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
@@ -39,11 +40,12 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public void OnDamage(int damage)
     {
         if (IsDead) return;
+        int randomDamage = Mathf.Clamp(Random.Range(damage - 5, damage + 5), damage, damage + 5);
 
         _enemyHpBar.OnDamage(damage);
         OnHitTriggered?.Invoke();
 
-        _currentHP -= damage;
+        _currentHP -= randomDamage;
         _currentHP = Mathf.Clamp(_currentHP, 0, _maxHP);
         if (_currentHP <= 0)
         {
