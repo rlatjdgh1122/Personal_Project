@@ -9,14 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d4f1a3e3a9a36f44a08f7850614ef7e, type: 3}
-  m_Name: Sword Data
+  m_Script: {fileID: 11500000, guid: 8e3f30a0b2a73a5448f94202faa13141, type: 3}
+  m_Name: GrenadelauncherBullet
   m_EditorClassIdentifier: 
-  damage: 10
-  attackDelay: 1
-  stunDuration: 0.3
-  knockBack: 0.5
-  weight: 1
-  shootSound: {fileID: 0}
-  reloadSound: {fileID: 0}
-  animController: {fileID: 0}
+  lifeTime: 1
+  speed: 8
+  hitParticle: {fileID: 3554607029755013988, guid: 548b30f102ca59e40b02810b24c6a001, type: 3}

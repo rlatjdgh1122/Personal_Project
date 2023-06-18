@@ -33,7 +33,6 @@ public class AttackAIState : CommonAIState
     private void AttackAnimationStartHandle()
     {
         OnStart?.Invoke();
-        Debug.Log("애니메이션 Staret");
     }
 
     private void AttackAnimationPreEndHandle()

@@ -2569,7 +2569,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3107721689713340946}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DogEnemy(attack2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

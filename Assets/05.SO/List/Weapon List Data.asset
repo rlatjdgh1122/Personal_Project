@@ -20,7 +20,7 @@ MonoBehaviour:
   - WeaponName: "\uC720\uD0C4\uBC1C\uC0AC\uAE30"
     WeaponImage: {fileID: 21300000, guid: 3336399d0e16a904d84186c2803b45ed, type: 3}
     Explain: "\uBC94\uC704\uB85C \uACF5\uACA9"
-    Weapon: {fileID: 4937175228878242195, guid: 6e3791f0f297b9d4891550003fd6089b, type: 3}
+    Weapon: {fileID: -8789133208674944757, guid: 6e3791f0f297b9d4891550003fd6089b, type: 3}
   - WeaponName: AK47
     WeaponImage: {fileID: 21300000, guid: 3336399d0e16a904d84186c2803b45ed, type: 3}
     Explain: "\uBAA8\uB4E0 \uC2A4\uD0EF\uC774 \uBB34\uB09C"
@@ -37,3 +37,7 @@ MonoBehaviour:
     WeaponImage: {fileID: 21300000, guid: 3336399d0e16a904d84186c2803b45ed, type: 3}
     Explain: "\uC548\uC88B\uC74C"
     Weapon: {fileID: 2538708180378776460, guid: 4cc884e74ef787c469072d7c481baf32, type: 3}
+  - WeaponName: "\uC5B4\uCA4C\uAD6C\uC800\uCA4C\uAD6C"
+    WeaponImage: {fileID: 21300000, guid: 3336399d0e16a904d84186c2803b45ed, type: 3}
+    Explain: "\uC548\uC88B\uC74C"
+    Weapon: {fileID: 2080019802310939672, guid: e3b063abbc5d4e6448ddc7196dce51a9, type: 3}
