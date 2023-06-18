@@ -10,6 +10,9 @@ public class IntroManager : MonoBehaviour
 {
     public GameObject _light;
     public GameObject settingPanel;
+
+    public GameObject explainPanel;
+
     private Button explain;
     private Button setting;
     private Button gameStart;
@@ -36,6 +39,10 @@ public class IntroManager : MonoBehaviour
     private void Start()
     {
         Show();
+    }
+    public void Cancel_Expian()
+    {
+        explainPanel.SetActive(false);
     }
     public void BG_Sound(float value)
     {
@@ -80,7 +87,7 @@ public class IntroManager : MonoBehaviour
 
     private void Explain(ClickEvent evt)
     {
-
+        explainPanel.SetActive(true);
     }
 
     private void Update()
