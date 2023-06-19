@@ -75,6 +75,7 @@ public class InterfaceUI : MonoBehaviour
     }
     public void Insert_weaponImage(int inx, Sprite image)
     {
+        Debug.Log(inx);
         images[inx].style.backgroundImage = new StyleBackground(image);
     }
 }

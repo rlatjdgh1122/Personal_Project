@@ -87,7 +87,7 @@ public class WeaponUI : MonoBehaviour
         Off_Panel();
         CreateWeapon(_third_name.text);
         GameManager.Instance.WeaponRemove(idx2);
-        ui_Controller.interfaceUI.Insert_weaponImage(idx++, _first_image.style.backgroundImage.value.sprite);
+        ui_Controller.interfaceUI.Insert_weaponImage(idx++, _third_image.style.backgroundImage.value.sprite);
 
         Check();
     }
@@ -106,7 +106,7 @@ public class WeaponUI : MonoBehaviour
     {
         Off_Panel();
         CreateWeapon(_first_name.text);
-        GameManager.Instance.WeaponRemove(idx0); ui_Controller.interfaceUI.Insert_weaponImage(idx++, _third_image.style.backgroundImage.value.sprite);
+        GameManager.Instance.WeaponRemove(idx0); ui_Controller.interfaceUI.Insert_weaponImage(idx++, _first_image.style.backgroundImage.value.sprite);
 
         Check();
     }

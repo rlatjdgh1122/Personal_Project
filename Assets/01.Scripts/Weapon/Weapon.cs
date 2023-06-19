@@ -4,12 +4,15 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour, IWeaponable
 {
+    public string playerSoundName;
     protected Animator animatorController;
     public abstract void Shooting();
 
     public abstract void StopShooting();
 
-    public virtual void Reloading() { }
+    public virtual void Reloading()
+    {
+    }
 
     protected virtual void Awake()
     {

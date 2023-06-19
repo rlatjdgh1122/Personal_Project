@@ -76,11 +76,11 @@ public class WaveManager : MonoBehaviour
     {
         isWaving = true;
         nextBtn.SetActive(false);
-        Spawn(++currentWave);
-        waveTxt.text = $"WAVE {currentWave}";
         if (currentWave == waves.Count)
         {
             SceneManager.LoadScene(2);
         }
+        Spawn(++currentWave);
+        waveTxt.text = $"WAVE {currentWave}";
     }
 }

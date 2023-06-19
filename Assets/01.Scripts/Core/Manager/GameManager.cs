@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
 
     private List<GameObject> weaponObjs = new();
 
-    [HideInInspector]
     public List<WeaponDataList> UI_weaponDatas = new();
 
     [SerializeField] private UnityEditor.Animations.AnimatorController _animController;

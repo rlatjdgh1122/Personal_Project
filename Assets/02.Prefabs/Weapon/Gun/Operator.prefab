@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e52e4d00037524daaa90ecd8ac2f71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSoundName: "\uC2A4\uB098\uACF5\uACA9"
   gunData: {fileID: 11400000, guid: cc369af9c636ca248b065bebd0c24a9e, type: 2}
   bullet: {fileID: 3252965642796829435, guid: b268e21e72d8f434e96dfba767d0f9ae, type: 3}
   firePos: {fileID: 3415143113316125136}

@@ -21,6 +21,7 @@ public class ReloadingState : CommonState
     }
     private void OnReloadingEndHandle()
     {
+        SoundManager.Instance.PlayerSoundName("ÀåÀü");
         if (_timer < _animationThreshold) return;
         _playerController.currentWeapon.Reloading();
         _playerController.ChangeState(StateType.Normal);

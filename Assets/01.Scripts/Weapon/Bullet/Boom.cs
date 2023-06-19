@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Boom : MonoBehaviour
 {
+    public string SoundName;
     public float Radius = 1.5f;
     private int damage = 0;
     public void SetDamage(int value) { damage = value; }
     private void Start()
     {
+        SoundManager.Instance.PlayerSoundName(SoundName);
         Collider[] cols = Physics.OverlapSphere(transform.position, Radius);
         foreach(var col in cols)
         {

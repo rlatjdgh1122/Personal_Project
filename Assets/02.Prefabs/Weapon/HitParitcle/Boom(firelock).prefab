@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c239a93440ad1d64285a8f93bf7aa758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SoundName: "\uD391"
   Radius: 1.5
 --- !u!1001 &5317410731529434218
 PrefabInstance:

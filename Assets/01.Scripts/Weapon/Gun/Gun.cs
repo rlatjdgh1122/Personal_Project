@@ -100,7 +100,7 @@ public class Gun : Weapon
     private void ShootBullet()
     {
         SpawnBullet();
-
+        SoundManager.Instance.PlayerSoundName(playerSoundName);
         pt.SetActive(true);
         Invoke("Hiden_Particle", .1f);
     }
@@ -112,8 +112,6 @@ public class Gun : Weapon
     private void SpawnBullet()
     {
         Vector3 randomPosition = Random.insideUnitSphere; //이부분 수정필요
-        //Vector3 randomPosition = Random.onUnitSphere; //이부분 수정필요
-        Debug.Log("randomPosition" + randomPosition);
         Vector3 resultPos = randomPosition * gunData.spreadAngle + transform.forward;
 
         RegularBullet b = PoolManager.Instance.Pop(bullet.name) as RegularBullet;

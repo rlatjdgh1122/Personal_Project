@@ -9,7 +9,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 {
     public UnityEvent OnHitTriggered = null;
     public UnityEvent OnDeadTriggered = null;
-    public HUDText txt;
     private AIActionData _aiActionData;
     public Action<float, float> OnHealthChanged = null;
 
