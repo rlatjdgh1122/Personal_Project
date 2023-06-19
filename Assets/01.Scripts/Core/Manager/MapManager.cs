@@ -39,7 +39,6 @@ public class MapManager : MonoBehaviour
 
         KeySetting();
     }
-    public List<Map> maps = new();
     private void Start()
     {
         StartCreateMap();
@@ -57,53 +56,52 @@ public class MapManager : MonoBehaviour
         Trees.Shuffle();
         Map frontMap = PoolManager.Instance.Pop("Map") as Map;
         frontMap.SetTransform(new Vector3(0, 0, CurrentDistance - mapSize));
-        frontMap.SetCenterPos(frontMap.transform.position);
+        frontMap.SetCenterPos(SetCenterPos(frontMap.transform));
+        frontMap.SetMap(frontMap);
+
         frontMap.SpawnTrees(Trees);
-        maps.Add(frontMap);
 
         Trees.Shuffle();
         Map map = PoolManager.Instance.Pop("Map") as Map;
         map.SetTransform(new Vector3(0, 0, CurrentDistance));
-        map.SetCenterPos(map.transform.position);
+        map.SetCenterPos(SetCenterPos(map.transform));
+        map.SetMap(map);
         map.SpawnTrees(Trees);
-        maps.Add(map);
 
         Trees.Shuffle();
         Map BackMap = PoolManager.Instance.Pop("Map") as Map;
         BackMap.SetTransform(new Vector3(0, 0, CurrentDistance + mapSize));
-        BackMap.SetCenterPos(BackMap.transform.position);
+        BackMap.SetCenterPos(SetCenterPos(BackMap.transform));
+        BackMap.SetMap(BackMap);
+
 
         BackMap.SpawnTrees(Trees);
-        maps.Add(BackMap);
 
         GameManager.Instance.ReBulidMesh();
     }
     public void SpawnMaps(float dotValue)
     {
+        Debug.Log("SpawnMaps " + dotValue);
         CheckWeater();
 
-        if (dotValue > 0) //앞으로 갔을때
+        if (dotValue > 0)
         {
-            PoolManager.Instance.Push(maps[0]);
-            maps.Remove(maps[0]);
-
             Map frontMap = PoolManager.Instance.Pop("Map") as Map;
             frontMap.SetTransform(new Vector3(0, 0, CurrentDistance + mapSize));
-            frontMap.SetCenterPos(frontMap.transform.position);
+            frontMap.SetCenterPos(SetCenterPos(frontMap.transform));
+            frontMap.SetMap(frontMap);
+
             frontMap.SpawnTrees(Trees);
-            maps.Add(frontMap);
 
         }
         else if (dotValue < 0) //뒤로 갔을때
         {
-            PoolManager.Instance.Push(maps[maps.Count - 1]);
-            maps.Remove(maps[maps.Count - 1]);
-
             Map backMap = PoolManager.Instance.Pop("Map") as Map;
             backMap.SetTransform(new Vector3(0, 0, CurrentDistance - mapSize));
-            backMap.SetCenterPos(backMap.transform.position);
+            backMap.SetCenterPos(SetCenterPos(backMap.transform));
+            backMap.SetMap(backMap);
+
             backMap.SpawnTrees(Trees);
-            maps.Insert(0, backMap);
         }
         GameManager.Instance.ReBulidMesh();
     }
