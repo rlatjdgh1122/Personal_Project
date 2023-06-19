@@ -9,7 +9,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 {
     public UnityEvent OnHitTriggered = null;
     public UnityEvent OnDeadTriggered = null;
-
+    public HUDText txt;
     private AIActionData _aiActionData;
     public Action<float, float> OnHealthChanged = null;
 
@@ -42,7 +42,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         if (IsDead) return;
         int randomDamage = Mathf.Clamp(Random.Range(damage - 5, damage + 5), damage, damage + 5);
 
-        _enemyHpBar.OnDamage(damage);
+        HUDText hUD = PoolManager.Instance.Pop("HUDText") as HUDText;
+        hUD.ShowText(Random.Range(damage - 5, damage + 5), transform.position + Vector3.up * .5f);
+        _enemyHpBar.OnDamage(randomDamage);
         OnHitTriggered?.Invoke();
 
         _currentHP -= randomDamage;
@@ -57,6 +59,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             LevelController.Instance.SetLevelValue(enemyController.EnemySoData.getExperience);
             Destroy(transform.root.gameObject, 3f);
         }
+
         OnHealthChanged?.Invoke(_currentHP, _maxHP); //그리고 전파
     }
 }

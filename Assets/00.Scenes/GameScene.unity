@@ -996,6 +996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21f720396d3619840aad8553a6615a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  die_animator: {fileID: 9100000, guid: 266eda5d9ba07624288e82b6ec4c30e7, type: 2}
 --- !u!1 &392485516
 GameObject:
   m_ObjectHideFlags: 3
@@ -3672,7 +3673,11 @@ MonoBehaviour:
   - Enemys:
     - {fileID: 6825766698980778962, guid: 0a94de1871471264fbdff2fe3119e24e, type: 3}
     - {fileID: 3107721689713340947, guid: c9e5dca378acd3c4e8eb7ea4b1323fe9, type: 3}
-    - {fileID: 6727090785705768717, guid: 1d9250a0296c4e047ae015bdaefe085b, type: 3}
+    EnemyCount: 8
+    Spawn_delay: 0.3
+  - Enemys:
+    - {fileID: 6825766698980778962, guid: 0a94de1871471264fbdff2fe3119e24e, type: 3}
+    - {fileID: 3107721689713340947, guid: c9e5dca378acd3c4e8eb7ea4b1323fe9, type: 3}
     - {fileID: 5005070569391115939, guid: deae264d9410bef4ba79b86c3b3a956b, type: 3}
     - {fileID: 4355142702077479515, guid: 6294fcb709507eb4ba3abbb24209d7d5, type: 3}
     EnemyCount: 10
@@ -3683,7 +3688,7 @@ MonoBehaviour:
     - {fileID: 6727090785705768717, guid: 1d9250a0296c4e047ae015bdaefe085b, type: 3}
     - {fileID: 5005070569391115939, guid: deae264d9410bef4ba79b86c3b3a956b, type: 3}
     - {fileID: 4355142702077479515, guid: 6294fcb709507eb4ba3abbb24209d7d5, type: 3}
-    EnemyCount: 10
+    EnemyCount: 15
     Spawn_delay: 0.5
   - Enemys:
     - {fileID: 6825766698980778962, guid: 0a94de1871471264fbdff2fe3119e24e, type: 3}
@@ -3691,11 +3696,20 @@ MonoBehaviour:
     - {fileID: 6727090785705768717, guid: 1d9250a0296c4e047ae015bdaefe085b, type: 3}
     - {fileID: 5005070569391115939, guid: deae264d9410bef4ba79b86c3b3a956b, type: 3}
     - {fileID: 4355142702077479515, guid: 6294fcb709507eb4ba3abbb24209d7d5, type: 3}
-    EnemyCount: 10
+    EnemyCount: 20
     Spawn_delay: 0.5
+  - Enemys:
+    - {fileID: 6825766698980778962, guid: 0a94de1871471264fbdff2fe3119e24e, type: 3}
+    - {fileID: 3107721689713340947, guid: c9e5dca378acd3c4e8eb7ea4b1323fe9, type: 3}
+    - {fileID: 6727090785705768717, guid: 1d9250a0296c4e047ae015bdaefe085b, type: 3}
+    - {fileID: 5005070569391115939, guid: deae264d9410bef4ba79b86c3b3a956b, type: 3}
+    - {fileID: 4355142702077479515, guid: 6294fcb709507eb4ba3abbb24209d7d5, type: 3}
+    EnemyCount: 30
+    Spawn_delay: 0.7
   waveTxt: {fileID: 31572167}
   nextBtn: {fileID: 2079190947}
   currentEnemyCount: 0
+  currentWave: 1
 --- !u!1 &1451364103
 GameObject:
   m_ObjectHideFlags: 0
@@ -8979,7 +8993,55 @@ MonoBehaviour:
       m_Calls: []
   OnDeadTriggered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 95507706191340404}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 95507706191340398}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 95507706191340407}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 382872523}
+        m_TargetAssemblyTypeName: PlayerAnimator, Assembly-CSharp
+        m_MethodName: SetDead
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnHealthChanged:
     m_PersistentCalls:
       m_Calls:

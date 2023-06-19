@@ -99,36 +99,32 @@ public class Gun : Weapon
 
     private void ShootBullet()
     {
-        SpawnBullet(firePos.position, CalculateAngle());
+        SpawnBullet();
 
         pt.SetActive(true);
-        Invoke("Hiden_Particle",.1f);
+        Invoke("Hiden_Particle", .1f);
     }
     private void Hiden_Particle()
     {
         pt.SetActive(false);
     }
 
-    private Quaternion CalculateAngle()
+    private void SpawnBullet()
     {
         Vector3 randomPosition = Random.insideUnitSphere; //이부분 수정필요
-        Vector3 resultPos = (randomPosition * gunData.spreadAngle) + transform.forward;
+        //Vector3 randomPosition = Random.onUnitSphere; //이부분 수정필요
+        Debug.Log("randomPosition" + randomPosition);
+        Vector3 resultPos = randomPosition * gunData.spreadAngle + transform.forward;
 
-        Quaternion rot = Quaternion.LookRotation(resultPos);
-        return rot;
-    }
-
-    private void SpawnBullet(Vector3 position, Quaternion rot)
-    {
         RegularBullet b = PoolManager.Instance.Pop(bullet.name) as RegularBullet;
         b.Set_P_Damage(gunData.damage);
-        b.SetPositionAndRotation(position, rot);
+        b.SetPositionAndRotation(firePos.position, Quaternion.LookRotation(resultPos));
     }
 
     public override void Shooting()
     {
         _isShooting = true;
-        
+
     }
     public override void StopShooting()
     {

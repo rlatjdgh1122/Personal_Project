@@ -1,10 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerAnimator : PlayerAnimatorable
 {
+    public AnimatorController die_animator;
     private Animator _animator;
     public Animator Animator => _animator;
 
@@ -36,7 +39,7 @@ public class PlayerAnimator : PlayerAnimatorable
     {
         if (value == true)
             _animator.SetTrigger(_isReloadingHash);
-        else 
+        else
             _animator.ResetTrigger(_isReloadingHash);
     }
     public event Action OnAnimationEndTrigger = null; //애니메이션이 종료될때마다 트리거 되는 이벤트임.
@@ -56,5 +59,14 @@ public class PlayerAnimator : PlayerAnimatorable
     public void OnPreAnimationEvent()
     {
         OnPreAnimationEventTrigger?.Invoke();
+    }
+
+    public void SetDead()
+    {
+        _animator.runtimeAnimatorController = die_animator;
+    }
+    private void EndDeadAnim()
+    {
+        SceneManager.LoadScene(3);
     }
 }

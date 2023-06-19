@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3145021694998500669}
   - component: {fileID: -4939859212158939627}
   - component: {fileID: 2837226916612948543}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RocketBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3145021694998500657}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7199999, y: 0.13, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

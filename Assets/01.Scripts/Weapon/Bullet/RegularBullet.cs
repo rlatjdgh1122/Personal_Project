@@ -21,26 +21,27 @@ public class RegularBullet : PoolableMono
         _tr = transform?.Find("Trail").GetComponent<TrailRenderer>();
 
     }
-    private void OnEnable()
-    {
-        _tr.Clear();
-    }
     private void FixedUpdate()
     {
         timeToLive += Time.fixedDeltaTime;
-        rigid.MovePosition(transform.position + transform.right * bulletData.speed * Time.fixedDeltaTime);
+        rigid.MovePosition(transform.position + transform.right *
+            Random.Range(bulletData.speed - 10, bulletData.speed + 10) * Time.fixedDeltaTime);
 
         if (timeToLive >= bulletData.lifeTime)
         {
             isDead = true;
+            _tr.Clear();
             PoolManager.Instance.Push(this);
         }
     }
     private void OnTriggerEnter(Collider collision)
     {
+        _tr.Clear();
         if (isDead) return;
-        HitCheck(collision);
 
+        // Instantiate(bulletData.hitParticle, transform.position, Quaternion.identity); //파티클 생성
+
+        HitCheck(collision);
         isDead = true;
         PoolManager.Instance.Push(this);
     }
@@ -56,7 +57,8 @@ public class RegularBullet : PoolableMono
     }
     public void SetPositionAndRotation(Vector3 pos, Quaternion rot)
     {
-        transform.SetPositionAndRotation(pos, rot);
+        transform.position = pos;
+        transform.rotation = rot;
     }
     public void Set_P_Damage(int value)
     {
@@ -69,7 +71,6 @@ public class RegularBullet : PoolableMono
     public override void Init()
     {
         isDead = false;
-        _tr.Clear();
         timeToLive = 0;
 
     }

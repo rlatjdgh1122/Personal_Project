@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
+        Debug.Log(currentWeapon);
         if (IsDead) return;
 
         _currentState.UpdateState();

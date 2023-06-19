@@ -25,4 +25,4 @@ MonoBehaviour:
   autoFire: 1
   bulletCount: 1
   piercingCount: 0
-  spreadAngle: 0.055
+  spreadAngle: 0.023

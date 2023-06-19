@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2187597505271797127}
   - component: {fileID: 2187597505271797128}
   - component: {fileID: 2187597505271797131}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PistolBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2187597505271797126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.778, y: -0.03272283, z: -4.5881}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 1
   m_Children:

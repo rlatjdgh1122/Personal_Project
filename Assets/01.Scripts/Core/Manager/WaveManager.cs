@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 [Serializable]
@@ -19,10 +20,10 @@ public class WaveManager : MonoBehaviour
     public List<Wave> waves = new();
     public TextMeshProUGUI waveTxt;
     public GameObject nextBtn;
-
     public int currentEnemyCount = 0;
+    public int currentWave = 1;
 
-    private int currentWave = 1;
+
     private bool isWaving = true;
     private void Awake()
     {
@@ -62,7 +63,7 @@ public class WaveManager : MonoBehaviour
         while (enemyCount != 0)
         {
             yield return new WaitForSeconds(delay);
-            Vector3 randomPos = GameManager.Instance.playerPos.position + Vector3.forward * 30;
+            Vector3 randomPos = GameManager.Instance.playerPos.forward + Vector3.forward * 30;
             randomPos += new Vector3(Random.Range(-7.5f, 7.5f), 2, Random.Range(-7.5f, 7.5f));
 
             GameObject g = enemys[Random.Range(0, enemys.Length)];
@@ -76,5 +77,10 @@ public class WaveManager : MonoBehaviour
         isWaving = true;
         nextBtn.SetActive(false);
         Spawn(++currentWave);
+        waveTxt.text = $"WAVE {currentWave}";
+        if (currentWave == waves.Count)
+        {
+            SceneManager.LoadScene(2);
+        }
     }
 }

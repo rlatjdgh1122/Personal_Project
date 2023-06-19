@@ -668,6 +668,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  txt: {fileID: 3349033464499555597, guid: 6d5510e033fa60c46bce492b283b9f0c, type: 3}
 --- !u!114 &6825766697330180050
 MonoBehaviour:
   m_ObjectHideFlags: 0

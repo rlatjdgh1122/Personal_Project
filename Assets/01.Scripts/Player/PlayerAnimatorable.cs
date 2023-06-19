@@ -13,5 +13,6 @@ public abstract class PlayerAnimatorable : MonoBehaviour
     protected readonly int _isReloadingHash = Animator.StringToHash("Reloading");
 
     protected readonly int _hurtTriggerHash = Animator.StringToHash("Hit");
+    protected readonly int _DeadHash = Animator.StringToHash("Die");
 
 }

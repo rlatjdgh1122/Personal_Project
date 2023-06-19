@@ -23,6 +23,6 @@ MonoBehaviour:
   animController: {fileID: 0}
   ammocapacity: 10
   autoFire: 0
-  bulletCount: 7
+  bulletCount: 15
   piercingCount: 0
-  spreadAngle: 0.2
+  spreadAngle: 0.446

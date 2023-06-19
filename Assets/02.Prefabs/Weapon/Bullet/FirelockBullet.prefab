@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1452115259454537738}
   - component: {fileID: 1452115259454537737}
   - component: {fileID: 1452115259454537736}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FirelockBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
