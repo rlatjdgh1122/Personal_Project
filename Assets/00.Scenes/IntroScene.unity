@@ -8189,8 +8189,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "WASD : \uC774\uB3D9\nSPACEBAR : \uAD6C\uB974\uAE30\nR : \uC7A5\uC804\n\uC67C\uCABD
-    \uD074\uB9AD :\uACF5\uACA9"
+  m_text: "WASD : \uC774\uB3D9\nR : \uC7A5\uC804\n\uC67C\uCABD \uD074\uB9AD :\uACF5\uACA9"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2faf4f6135a34dd4ca305c063a447aee, type: 2}
   m_sharedMaterial: {fileID: 5646753294652101053, guid: 2faf4f6135a34dd4ca305c063a447aee, type: 2}

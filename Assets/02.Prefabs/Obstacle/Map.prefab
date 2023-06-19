@@ -267,8 +267,8 @@ GameObject:
   - component: {fileID: 339718753125729075}
   - component: {fileID: 339718753125729086}
   - component: {fileID: 339718753125729073}
-  - component: {fileID: 339718753125729087}
   - component: {fileID: 6625625408593888029}
+  - component: {fileID: -7205193992214488810}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -345,19 +345,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &339718753125729087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339718753125729074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7527feb0e5458fa4b98f2c11944ceaae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trees: []
 --- !u!65 &6625625408593888029
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -371,6 +358,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.0000002, z: 6.123235e-17}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-7205193992214488810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339718753125729074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7527feb0e5458fa4b98f2c11944ceaae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  centerPos: {x: 0, y: 0, z: 0}
+  trees: []
 --- !u!1 &393665673000824841
 GameObject:
   m_ObjectHideFlags: 0
