@@ -31,8 +31,6 @@ public class OnHitState : CommonState
     public override bool UpdateState()
     {
         _timer += Time.deltaTime;
-        //만약 넉백을 구현할꺼면 여기서 AgentMovement에 active모드를 꺼주고
-        // 넉백시키다가 끝나면 꺼주면 된다.
         if (_timer >= _recoverTime)
         {
             _playerController.ChangeState(Core.StateType.Normal);

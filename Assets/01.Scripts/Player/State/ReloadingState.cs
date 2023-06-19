@@ -10,7 +10,6 @@ public class ReloadingState : CommonState
     private float _timer = 0;
     public override void OnEnterState()
     {
-        Debug.Log("¤¡¤§");
         _playerAnimator.SetReloadingState(true);
 
         _playerInput.OnMovementKeyPress += OnMoveHandle;

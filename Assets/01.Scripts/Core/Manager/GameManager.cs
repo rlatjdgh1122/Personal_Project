@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public List<Weapon> weapons = new();
-
     [SerializeField]
     private Transform _playerPos;
     public Transform playerPos => _playerPos;
@@ -33,6 +32,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] AnimatorController _animController;
     public AnimatorController defalutAnim => _animController;
+
+
     private void Awake()
     {
         if (Instance == null)
@@ -126,7 +127,7 @@ public class GameManager : MonoBehaviour
                 Weapon w = WeaponManager.Instance.GetWeapon(weaponName);
                 GameObject weapon = Instantiate(w.gameObject, WeaponPos);
                 weapon.gameObject.name = weapon.gameObject.name.Replace("(Clone)", "");
-                weapons[i] = weapon.GetComponent<Weapon>(); 
+                weapons[i] = weapon.GetComponent<Weapon>();
                 weaponObjs.Add(weapon);
 
                 weapon.SetActive(false);
@@ -143,7 +144,7 @@ public class GameManager : MonoBehaviour
     {
         UI_weaponDatas.RemoveAt(idx);
     }
-#endregion
+    #endregion
     public void ReBulidMesh()
     {
         _navMeshSurface.BuildNavMesh();

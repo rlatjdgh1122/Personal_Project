@@ -82,6 +82,7 @@ public class MapManager : MonoBehaviour
     public void SpawnMaps(float dotValue)
     {
         Debug.Log("SpawnMaps " + dotValue);
+        Debug.Log("SpawnMaps " + dotValue);
         CheckWeater();
 
         if (dotValue > 0)

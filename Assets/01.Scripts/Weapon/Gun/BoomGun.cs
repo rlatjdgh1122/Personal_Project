@@ -11,6 +11,7 @@ public class BoomGun : Weapon
     public GameObject bullet;
     [SerializeField]
     protected Transform firePos;
+    private GameObject pt => transform.Find("Paticle").gameObject;
 
     public UnityEvent OnShoot;
     public UnityEvent OnShootNoAmmo;
@@ -39,6 +40,18 @@ public class BoomGun : Weapon
     {
         base.Awake();
         Ammo = gunData.ammocapacity;
+    }
+    private void OnEnable()
+    {
+        Hiden_Particle();
+        if (gunData.animController != null)
+        {
+            animatorController.runtimeAnimatorController = gunData.animController;
+        }
+        else if (gunData.animController == null)
+        {
+            animatorController.runtimeAnimatorController = GameManager.Instance.defalutAnim;
+        }
     }
     private void Update()
     {
@@ -83,8 +96,13 @@ public class BoomGun : Weapon
 
     private void ShootBullet()
     {
-
+        pt.SetActive(true);
+        Invoke("Hiden_Particle", .1f);
         SpawnBullet(firePos.position, transform.right);
+    }
+    private void Hiden_Particle()
+    {
+        pt.SetActive(false);
     }
 
     private void SpawnBullet(Vector3 position, Vector3 dir)

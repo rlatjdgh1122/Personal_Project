@@ -55,7 +55,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
             WaveManager.instance.currentEnemyCount--;
             LevelController.Instance.SetLevelValue(enemyController.EnemySoData.getExperience);
-            Destroy(this.gameObject, 3f);
+            Destroy(transform.root.gameObject, 3f);
         }
         OnHealthChanged?.Invoke(_currentHP, _maxHP); //그리고 전파
     }

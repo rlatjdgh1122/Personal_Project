@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d880505d9e8314192408a8adebecff, type: 3}
   m_Name: OperatorDara
   m_EditorClassIdentifier: 
-  damage: 15
+  damage: 70
   attackDelay: 0.5
   stunDuration: 1.5
   knockBack: 20.9

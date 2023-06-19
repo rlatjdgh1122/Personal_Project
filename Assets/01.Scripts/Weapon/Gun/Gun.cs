@@ -11,6 +11,7 @@ public class Gun : Weapon
     [SerializeField]
     protected Transform firePos;
 
+    private GameObject pt => transform.Find("Paticle").gameObject;
 
     public UnityEvent OnShoot;
     public UnityEvent OnShootNoAmmo;
@@ -39,9 +40,12 @@ public class Gun : Weapon
     {
         base.Awake();
         Ammo = gunData.ammocapacity;
+        pt.SetActive(false);
     }
     private void OnEnable()
     {
+        Hiden_Particle();
+
         if (gunData.animController != null)
         {
             animatorController.runtimeAnimatorController = gunData.animController;
@@ -66,7 +70,6 @@ public class Gun : Weapon
                 for (int i = 0; i < gunData.bulletCount; i++)
                 {
                     ShootBullet();
-                    Debug.Log("АјАн");
                 }
                 Ammo--;
             }
@@ -97,6 +100,13 @@ public class Gun : Weapon
     private void ShootBullet()
     {
         SpawnBullet(firePos.position, CalculateAngle());
+
+        pt.SetActive(true);
+        Invoke("Hiden_Particle",.1f);
+    }
+    private void Hiden_Particle()
+    {
+        pt.SetActive(false);
     }
 
     private Quaternion CalculateAngle()
@@ -118,6 +128,7 @@ public class Gun : Weapon
     public override void Shooting()
     {
         _isShooting = true;
+        
     }
     public override void StopShooting()
     {

@@ -25,6 +25,7 @@ public class NormalState : CommonState
     {
         _playerInput.OnMovementKeyPress -= OnMoveHandle;
         _playerInput.OnFireButtonPress -= OnFireButtonPressHandle;
+        _playerInput.OnReloadButtonPress -= OnReloadingHandle;
         _playerInput.OnRollingKeyPress -= OnRollingHandle;
     }
     private void OnFireButtonPressHandle()

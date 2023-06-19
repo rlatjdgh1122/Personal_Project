@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d880505d9e8314192408a8adebecff, type: 3}
   m_Name: GrenadelauncherData
   m_EditorClassIdentifier: 
-  damage: 70
+  damage: 55
   attackDelay: 1
   stunDuration: 1.5
   knockBack: 30

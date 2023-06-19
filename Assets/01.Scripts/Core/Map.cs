@@ -10,7 +10,7 @@ public class Map : PoolableMono
 {
     private List<Transform> Points = new();
     public Vector3 centerPos;
-    private Map thisMap;
+    public Map thisMap;
     private void Awake()
     {
         Transform SpawnPoints = transform.Find("Pedestals")?.transform;
@@ -33,6 +33,8 @@ public class Map : PoolableMono
         thisMap = map;
     }
     public List<GameObject> trees = new();
+    public float num;
+
     public void SpawnTrees(List<GameObject> seasonTrees)
     {
         for (int i = 0; i < seasonTrees.Count; i++)
@@ -42,11 +44,12 @@ public class Map : PoolableMono
 
         }
     }
+
     private void Update()
     {
         Vector3 objectToTarget = GameManager.Instance.playerPos.position - centerPos;
-        float num = objectToTarget.z;
-        if (Math.Abs(num) >= 50)
+        num = objectToTarget.z;
+        if (Math.Abs(num) >= 150)
         {
             float dot = Vector3.Dot(Vector3.forward.normalized, objectToTarget.normalized);
             if (dot > 0)
@@ -58,7 +61,7 @@ public class Map : PoolableMono
                 MapManager.Instance.CurrentDistance -= MapManager.Instance.mapSize;
             }
             MapManager.Instance.SpawnMaps(dot);
-            PoolManager.Instance.Push(thisMap);
+            PoolManager.Instance.Push(this);
         }
     }
 

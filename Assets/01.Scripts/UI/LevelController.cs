@@ -38,7 +38,8 @@ public class LevelController : MonoBehaviour
         {
             sum -= Exp;
             currentLevel += 1;
-            GameManager.Instance.ui_Controller.weaponUI.Open_Panel();
+            if (currentLevel <= 4)
+                GameManager.Instance.ui_Controller.weaponUI.Open_Panel();
         }
         _silder.value = sum;
         txt.text = "LEVEL : " + currentLevel.ToString();
