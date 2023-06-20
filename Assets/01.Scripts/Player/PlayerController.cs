@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private Dictionary<StateType, IState> _stateDictionary = null;
     private IState _currentState;
     private PlayerHealth _playerHealth;
+    private PlayerMovement _playerMovement;
     public bool IsDead { get; set; }
     private void Awake()
     {
@@ -30,10 +31,12 @@ public class PlayerController : MonoBehaviour
             _stateDictionary.Add(state, stateScript);
         }
         _playerHealth = GetComponent<PlayerHealth>();
+        _playerMovement = GetComponent<PlayerMovement>();
     }
     private void Start()
     {
         _playerHealth.SetHp(playerData.Hp);
+        _playerMovement.SetSpeed(playerData.Speed);
         ChangeState(StateType.Normal);
     }
 

@@ -1,13 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
+using UnityEngine.Animations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerAnimator : PlayerAnimatorable
 {
-    public AnimatorController die_animator;
+    public RuntimeAnimatorController die_animator;
     private Animator _animator;
     public Animator Animator => _animator;
 
@@ -61,10 +61,12 @@ public class PlayerAnimator : PlayerAnimatorable
         OnPreAnimationEventTrigger?.Invoke();
     }
 
+#if UNITY_EDITOR
     public void SetDead()
     {
         _animator.runtimeAnimatorController = die_animator;
     }
+#endif
     private void EndDeadAnim()
     {
         SceneManager.LoadScene(3);

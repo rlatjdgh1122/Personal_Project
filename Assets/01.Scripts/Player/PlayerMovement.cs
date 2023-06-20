@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector3 MovementDir => _movementDir;
     public bool IsActiveMove { get; set; }
+    public float Speed;
+
     private void Awake()
     {
         _playerAnimator = GetComponentInChildren<PlayerAnimator>();
@@ -28,6 +30,10 @@ public class PlayerMovement : MonoBehaviour
         _rigid = GetComponent<Rigidbody>();
 
         modelTransform = transform.Find("Model").transform;
+    }
+    public void SetSpeed(float speed)
+    {
+        Speed = speed;
     }
     public void SetMovementDirection(Vector3 dir)
     {
@@ -66,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
     private void CalculatePlayerMovement()
     {
         _playerAnimator?.SetMoveState(_movementDir); //이동속도 반영
-        transform.Translate(_movementDir.normalized * _playerController.playerData.Speed * Time.deltaTime);
+        transform.Translate(_movementDir.normalized *Speed * Time.deltaTime);
     }
     private void SetRotation(Vector3 target)
     {

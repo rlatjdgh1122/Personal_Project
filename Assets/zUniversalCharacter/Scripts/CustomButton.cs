@@ -10,6 +10,7 @@
 using UnityEngine;
 using UnityEditor;
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(ModulesShaker))]
 public class customButton : Editor
 {
@@ -40,5 +41,5 @@ public class customButton : Editor
         DrawDefaultInspector();
 
     }
-
 }
+#endif

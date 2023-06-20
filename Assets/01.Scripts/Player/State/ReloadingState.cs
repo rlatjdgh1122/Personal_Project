@@ -13,15 +13,21 @@ public class ReloadingState : CommonState
         _playerAnimator.SetReloadingState(true);
 
         _playerInput.OnMovementKeyPress += OnMoveHandle;
+        _playerAnimator.OnPreAnimationEventTrigger += ReloadSound;
         _playerAnimator.OnAnimationEndTrigger += OnReloadingEndHandle;
     }
+
+    private void ReloadSound()
+    {
+        SoundManager.Instance.PlayerSoundName("장전");
+    }
+
     public void OnMoveHandle(Vector3 dir)
     {
         _playerMovement?.SetMovementDirection(dir);
     }
     private void OnReloadingEndHandle()
     {
-        SoundManager.Instance.PlayerSoundName("장전");
         if (_timer < _animationThreshold) return;
         _playerController.currentWeapon.Reloading();
         _playerController.ChangeState(StateType.Normal);
@@ -31,6 +37,8 @@ public class ReloadingState : CommonState
     {
         _playerAnimator.SetReloadingState(false);
         _playerInput.OnMovementKeyPress -= OnMoveHandle;
+        _playerAnimator.OnPreAnimationEventTrigger -= ReloadSound;
+        _playerAnimator.OnAnimationEndTrigger -= OnReloadingEndHandle;
     }
 
     public override bool UpdateState()

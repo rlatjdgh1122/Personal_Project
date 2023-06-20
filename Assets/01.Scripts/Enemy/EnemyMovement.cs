@@ -28,6 +28,10 @@ public class EnemyMovement : EnemyAnimationController
         _agent.updateRotation = true;
         _agent.autoBraking = true;
     }
+    public void SetSpeed(float speed)
+    {
+        _agent.speed = speed;
+    }
     private void Update()
     {
         State();
@@ -43,10 +47,6 @@ public class EnemyMovement : EnemyAnimationController
         _rigid.angularVelocity = Vector3.zero;
     }
 
-    public void SetSpeed(float speed)
-    {
-        _agent.speed = speed;
-    }
     public void State()
     {
         Vector3 direction = target.position - transform.position;

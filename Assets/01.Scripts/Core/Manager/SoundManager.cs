@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [Serializable]
 public class Sound
@@ -31,8 +32,8 @@ public class SoundManager : MonoBehaviour
     public void PlayerSoundName(string soundName)
     {
         var clip = play_sounds[soundName];
-        SFX_Player.clip = clip;
-        SFX_Player.Play();
+        //SFX_Player.clip = clip;
+        SFX_Player.PlayOneShot(clip);
     }
     public void Set_BG(float value)
     {
@@ -43,8 +44,8 @@ public class SoundManager : MonoBehaviour
         SFX_Player.volume = value;
     }
 
-    internal void PlayerSoundName(object playerSoundName)
+    public void Back()
     {
-        throw new NotImplementedException();
+        SceneManager.LoadScene(0);
     }
 }

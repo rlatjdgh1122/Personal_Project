@@ -12,6 +12,7 @@ public abstract class Weapon : MonoBehaviour, IWeaponable
 
     public virtual void Reloading()
     {
+
     }
 
     protected virtual void Awake()

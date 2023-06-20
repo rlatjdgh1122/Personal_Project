@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be2cd1f9a32f241882dffb54990c38, type: 3}
   m_Name: GolemEnemy
   m_EditorClassIdentifier: 
-  hp: 200
+  hp: 300
   damage: 15
   speed: 3
   rotationSpeed: 1
   attackDelay: 3.5
-  getExperience: 20
+  getExperience: 35

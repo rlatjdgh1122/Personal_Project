@@ -33,6 +33,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if (IsDead) return;
         int randomDamage = Mathf.Clamp(Random.Range(damage - 5, damage + 5), damage, damage + 5);
 
+        SoundManager.Instance.PlayerSoundName("플레이어피격");
+
         HUDText hUD = PoolManager.Instance.Pop("HUDText") as HUDText;
         hUD.ShowText(randomDamage, transform.position + Vector3.up * .5f);
 

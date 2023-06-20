@@ -42,6 +42,7 @@ public class AttackAIState : CommonAIState
 
     private void AttackAnimationPreHandle()
     {
+        SoundManager.Instance.PlayerSoundName("»÷µŒ∏£±‚");
         OnDamaged?.Invoke();
     }
 

@@ -97,6 +97,7 @@ public class BoomGun : Weapon
     private void ShootBullet()
     {
         pt.SetActive(true);
+        SoundManager.Instance.PlayerSoundName(playerSoundName);
         Invoke("Hiden_Particle", .1f);
         SpawnBullet(firePos.position, transform.right);
     }

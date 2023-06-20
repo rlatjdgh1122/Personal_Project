@@ -40,7 +40,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         if (IsDead) return;
         int randomDamage = Mathf.Clamp(Random.Range(damage - 5, damage + 5), damage, damage + 5);
-
+        SoundManager.Instance.PlayerSoundName("ÀûÇÇ°Ý");
         HUDText hUD = PoolManager.Instance.Pop("HUDText") as HUDText;
         hUD.ShowText(Random.Range(damage - 5, damage + 5), transform.position + Vector3.up * .5f);
         _enemyHpBar.OnDamage(randomDamage);

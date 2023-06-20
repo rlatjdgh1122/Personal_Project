@@ -1,7 +1,6 @@
+using UnityEngine;
 using System.Collections.Generic;
 using Unity.AI.Navigation;
-using UnityEngine;
-using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
     public UIController ui_Controller;
@@ -23,10 +22,8 @@ public class GameManager : MonoBehaviour
 
     public List<WeaponDataList> UI_weaponDatas = new();
 
-    [SerializeField] private UnityEditor.Animations.AnimatorController _animController;
-    public UnityEditor.Animations.AnimatorController defalutAnim => _animController;
-
-
+    [SerializeField] private RuntimeAnimatorController _animController;
+    public RuntimeAnimatorController defalutAnim => _animController;
     private void Awake()
     {
         if (Instance == null)

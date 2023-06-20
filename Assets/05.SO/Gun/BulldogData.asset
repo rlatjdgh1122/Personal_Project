@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BulldogData
   m_EditorClassIdentifier: 
   damage: 17
-  attackDelay: 0.1
+  attackDelay: 0.15
   stunDuration: 1.37
   knockBack: 24.1
   weight: 1
@@ -23,6 +23,6 @@ MonoBehaviour:
   animController: {fileID: 0}
   ammocapacity: 20
   autoFire: 1
-  bulletCount: 3
+  bulletCount: 2
   piercingCount: 0
   spreadAngle: 0.105
