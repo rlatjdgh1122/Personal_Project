@@ -22,8 +22,8 @@ public class GameManager : MonoBehaviour
 
     public List<WeaponDataList> UI_weaponDatas = new();
 
-    [SerializeField] private RuntimeAnimatorController _animController;
-    public RuntimeAnimatorController defalutAnim => _animController;
+    [SerializeField] private AnimatorOverrideController _animController;
+    public AnimatorOverrideController defalutAnim => _animController;
     private void Awake()
     {
         if (Instance == null)
