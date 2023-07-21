@@ -61463,7 +61463,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1121204423}
-  m_LocalRotation: {x: 0.03814829, y: -0.45139676, z: 0.019320149, w: 0.8912982}
+  m_LocalRotation: {x: 0.038148288, y: -0.45139673, z: 0.019320147, w: 0.8912982}
   m_LocalPosition: {x: 3.76, y: 1.4, z: -2.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -87169,7 +87169,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571711270}
-  m_LocalRotation: {x: 0.03814829, y: -0.45139676, z: 0.019320149, w: 0.8912982}
+  m_LocalRotation: {x: 0.038148288, y: -0.45139673, z: 0.019320147, w: 0.8912982}
   m_LocalPosition: {x: 3.76, y: 1.4, z: -2.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -107868,7 +107868,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uCD1D 5wave\uB85C \uAD6C\uC131\n\uC804\uBD80 \uB2E4 \uAE68\uBA74 \uC2B9\uB9AC"
+  m_text: "\uCD1D 10wave\uB85C \uAD6C\uC131\n\uC804\uBD80 \uB2E4 \uAE68\uBA74 \uC2B9\uB9AC"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2faf4f6135a34dd4ca305c063a447aee, type: 2}
   m_sharedMaterial: {fileID: 5646753294652101053, guid: 2faf4f6135a34dd4ca305c063a447aee, type: 2}

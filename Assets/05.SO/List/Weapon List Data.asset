@@ -35,17 +35,17 @@ MonoBehaviour:
     Weapon: {fileID: 2056164193538036423, guid: f2f94624939c9b94d9f2f2b0600d6b84, type: 3}
   - WeaponName: "\uC2A4\uD305\uC5B4"
     WeaponImage: {fileID: 21300000, guid: 00f5345a3d10c4d49bc5584c5acca23d, type: 3}
-    Explain: "\uB450\uB450\uB450\uB450\uB450~"
+    Explain: "\uC801 \uD55C\uBA85\uC5D0\uAC8C \uAC15\uD568"
     Weapon: {fileID: 3524408344854897226, guid: 4cc884e74ef787c469072d7c481baf32, type: 3}
   - WeaponName: "\uD654\uC2B9\uCD1D"
     WeaponImage: {fileID: 21300000, guid: 76234091339e49e4884eccd0447533b7, type: 3}
-    Explain: "\uD391~"
+    Explain: "\uBC94\uC704\uB85C \uACF5\uACA9"
     Weapon: {fileID: 2125668666610477323, guid: e3b063abbc5d4e6448ddc7196dce51a9, type: 3}
   - WeaponName: "\uAD8C\uCD1D"
     WeaponImage: {fileID: 21300000, guid: 0abca9a618a85fb4e8bb6cb2c243ba97, type: 3}
-    Explain: "\uB545~\uB545~"
+    Explain: "\uC791\uC740 \uC801\uB4E4 \uC7A1\uAE30\uC5D0 \uC801\uD569"
     Weapon: {fileID: 5924562355186106589, guid: c3b9a886de717ea4dbecc71aedfba978, type: 3}
   - WeaponName: UZI
     WeaponImage: {fileID: 21300000, guid: 4f308554351dcf241ad0415cae782fda, type: 3}
-    Explain: "\uC6B0zl"
+    Explain: "\uC5EC\uB7EC\uBC1C\uB85C \uB098\uAC10"
     Weapon: {fileID: 6665924282733866075, guid: 10a713df019d6144f991984801697e0e, type: 3}

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 [CreateAssetMenu(menuName = "SO/weaponData")]
 public class WeaponDataSO : ScriptableObject
 {
-    [Range(15f, 70f)]
+    [Range(15f, 200f)]
     public int damage; //데미지
     [Range(.1f, 1f)]
     public float attackDelay; //공격 딜레이

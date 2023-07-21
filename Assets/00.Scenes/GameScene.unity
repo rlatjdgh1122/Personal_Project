@@ -3959,11 +3959,27 @@ MonoBehaviour:
   - Enemys:
     - {fileID: 6825766698980778962, guid: 0a94de1871471264fbdff2fe3119e24e, type: 3}
     - {fileID: 3107721689713340947, guid: c9e5dca378acd3c4e8eb7ea4b1323fe9, type: 3}
-    EnemyCount: 8
+    EnemyCount: 3
     Spawn_delay: 0.3
   - Enemys:
     - {fileID: 6825766698980778962, guid: 0a94de1871471264fbdff2fe3119e24e, type: 3}
     - {fileID: 3107721689713340947, guid: c9e5dca378acd3c4e8eb7ea4b1323fe9, type: 3}
+    - {fileID: 5005070569391115939, guid: deae264d9410bef4ba79b86c3b3a956b, type: 3}
+    - {fileID: 4355142702077479515, guid: 6294fcb709507eb4ba3abbb24209d7d5, type: 3}
+    EnemyCount: 5
+    Spawn_delay: 0.5
+  - Enemys:
+    - {fileID: 6825766698980778962, guid: 0a94de1871471264fbdff2fe3119e24e, type: 3}
+    - {fileID: 3107721689713340947, guid: c9e5dca378acd3c4e8eb7ea4b1323fe9, type: 3}
+    - {fileID: 6727090785705768717, guid: 1d9250a0296c4e047ae015bdaefe085b, type: 3}
+    - {fileID: 5005070569391115939, guid: deae264d9410bef4ba79b86c3b3a956b, type: 3}
+    - {fileID: 4355142702077479515, guid: 6294fcb709507eb4ba3abbb24209d7d5, type: 3}
+    EnemyCount: 8
+    Spawn_delay: 0.5
+  - Enemys:
+    - {fileID: 6825766698980778962, guid: 0a94de1871471264fbdff2fe3119e24e, type: 3}
+    - {fileID: 3107721689713340947, guid: c9e5dca378acd3c4e8eb7ea4b1323fe9, type: 3}
+    - {fileID: 6727090785705768717, guid: 1d9250a0296c4e047ae015bdaefe085b, type: 3}
     - {fileID: 5005070569391115939, guid: deae264d9410bef4ba79b86c3b3a956b, type: 3}
     - {fileID: 4355142702077479515, guid: 6294fcb709507eb4ba3abbb24209d7d5, type: 3}
     EnemyCount: 10
@@ -3974,16 +3990,8 @@ MonoBehaviour:
     - {fileID: 6727090785705768717, guid: 1d9250a0296c4e047ae015bdaefe085b, type: 3}
     - {fileID: 5005070569391115939, guid: deae264d9410bef4ba79b86c3b3a956b, type: 3}
     - {fileID: 4355142702077479515, guid: 6294fcb709507eb4ba3abbb24209d7d5, type: 3}
-    EnemyCount: 15
-    Spawn_delay: 0.5
-  - Enemys:
-    - {fileID: 6825766698980778962, guid: 0a94de1871471264fbdff2fe3119e24e, type: 3}
-    - {fileID: 3107721689713340947, guid: c9e5dca378acd3c4e8eb7ea4b1323fe9, type: 3}
-    - {fileID: 6727090785705768717, guid: 1d9250a0296c4e047ae015bdaefe085b, type: 3}
-    - {fileID: 5005070569391115939, guid: deae264d9410bef4ba79b86c3b3a956b, type: 3}
-    - {fileID: 4355142702077479515, guid: 6294fcb709507eb4ba3abbb24209d7d5, type: 3}
-    EnemyCount: 20
-    Spawn_delay: 0.5
+    EnemyCount: 13
+    Spawn_delay: 0.7
   - Enemys:
     - {fileID: 6825766698980778962, guid: 0a94de1871471264fbdff2fe3119e24e, type: 3}
     - {fileID: 3107721689713340947, guid: c9e5dca378acd3c4e8eb7ea4b1323fe9, type: 3}
@@ -3992,6 +4000,38 @@ MonoBehaviour:
     - {fileID: 4355142702077479515, guid: 6294fcb709507eb4ba3abbb24209d7d5, type: 3}
     EnemyCount: 30
     Spawn_delay: 0.7
+  - Enemys:
+    - {fileID: 6825766698980778962, guid: 0a94de1871471264fbdff2fe3119e24e, type: 3}
+    - {fileID: 3107721689713340947, guid: c9e5dca378acd3c4e8eb7ea4b1323fe9, type: 3}
+    - {fileID: 6727090785705768717, guid: 1d9250a0296c4e047ae015bdaefe085b, type: 3}
+    - {fileID: 5005070569391115939, guid: deae264d9410bef4ba79b86c3b3a956b, type: 3}
+    - {fileID: 4355142702077479515, guid: 6294fcb709507eb4ba3abbb24209d7d5, type: 3}
+    EnemyCount: 15
+    Spawn_delay: 0.6
+  - Enemys:
+    - {fileID: 6825766698980778962, guid: 0a94de1871471264fbdff2fe3119e24e, type: 3}
+    - {fileID: 3107721689713340947, guid: c9e5dca378acd3c4e8eb7ea4b1323fe9, type: 3}
+    - {fileID: 6727090785705768717, guid: 1d9250a0296c4e047ae015bdaefe085b, type: 3}
+    - {fileID: 5005070569391115939, guid: deae264d9410bef4ba79b86c3b3a956b, type: 3}
+    - {fileID: 4355142702077479515, guid: 6294fcb709507eb4ba3abbb24209d7d5, type: 3}
+    EnemyCount: 20
+    Spawn_delay: 0.6
+  - Enemys:
+    - {fileID: 6825766698980778962, guid: 0a94de1871471264fbdff2fe3119e24e, type: 3}
+    - {fileID: 3107721689713340947, guid: c9e5dca378acd3c4e8eb7ea4b1323fe9, type: 3}
+    - {fileID: 6727090785705768717, guid: 1d9250a0296c4e047ae015bdaefe085b, type: 3}
+    - {fileID: 5005070569391115939, guid: deae264d9410bef4ba79b86c3b3a956b, type: 3}
+    - {fileID: 4355142702077479515, guid: 6294fcb709507eb4ba3abbb24209d7d5, type: 3}
+    EnemyCount: 25
+    Spawn_delay: 0.5
+  - Enemys:
+    - {fileID: 6825766698980778962, guid: 0a94de1871471264fbdff2fe3119e24e, type: 3}
+    - {fileID: 3107721689713340947, guid: c9e5dca378acd3c4e8eb7ea4b1323fe9, type: 3}
+    - {fileID: 6727090785705768717, guid: 1d9250a0296c4e047ae015bdaefe085b, type: 3}
+    - {fileID: 5005070569391115939, guid: deae264d9410bef4ba79b86c3b3a956b, type: 3}
+    - {fileID: 4355142702077479515, guid: 6294fcb709507eb4ba3abbb24209d7d5, type: 3}
+    EnemyCount: 30
+    Spawn_delay: 0.3
   waveTxt: {fileID: 31572167}
   nextBtn: {fileID: 2079190947}
   currentEnemyCount: 0
@@ -4235,7 +4275,7 @@ MonoBehaviour:
   _playerPos: {fileID: 4565319670806500}
   WeaponPos: {fileID: 4197184422833252}
   UI_weaponDatas: []
-  _animController: {fileID: 9100000, guid: fa12857c9eae2fd46970292b7724870d, type: 2}
+  _animController: {fileID: 22100000, guid: e783a7932cc9fe24696278c34c9cee0a, type: 2}
 --- !u!114 &1686536541
 MonoBehaviour:
   m_ObjectHideFlags: 0
