@@ -6,6 +6,6 @@ public class RangeAttackEndDecision : AIDecision
 {
     public override bool MakeDecision()
     {
-        return _aIActionData.IsRangeAttacking == false;
+        return !_aIActionData.IsRangeAttacking;
     }
 }
