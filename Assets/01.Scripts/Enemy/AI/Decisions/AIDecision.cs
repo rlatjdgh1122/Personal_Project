@@ -7,7 +7,6 @@ public abstract class AIDecision : MonoBehaviour
     protected AIActionData _aIActionData;
     protected EnemyController _enemyController;
     protected EnemyMovement _enemyMovement;
-
     public bool IsReverse = false;
 
     public virtual void SetUp(Transform parentRoot)
