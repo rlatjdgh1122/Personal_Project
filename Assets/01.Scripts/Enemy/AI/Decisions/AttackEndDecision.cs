@@ -6,6 +6,6 @@ public class AttackEndDecision : AIDecision
 {
     public override bool MakeDecision()
     {
-        return _aIActionData.IsAttacking == false;
+        return !_aIActionData.IsAttacking;
     }
 }
