@@ -6,7 +6,6 @@ public abstract class Weapon : MonoBehaviour, IWeaponable
 {
     public string playerSoundName;
     protected Animator animatorController;
-    protected string id;
     public abstract void Shooting();
 
     public abstract void StopShooting();
