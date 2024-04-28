@@ -30,6 +30,7 @@ public class ReloadingState : CommonState
     {
         if (_timer < _animationThreshold) return;
         _playerController.currentWeapon.Reloading();
+        Debug.Log(_playerController.currentWeapon);
         _playerController.ChangeState(StateType.Normal);
     }
 

@@ -2,7 +2,7 @@
     width: 300px;
     height: 150px;
     justify-content: flex-start;
-    -unity-font-definition: url('project://database/Assets/09.%20Ponts/MaplestoryFont_TTF%20(1)/Maplestory%20Bold%20SDF%201.asset?fileID=11400000&guid=fc4056be0db5c7e4a9f5d7b0ae4a16a4&type=2#Maplestory Bold SDF 1');
+    -unity-font-definition: url('project://database/Assets/09.%20Ponts/MaplestoryFont_TTF%20(1)/%EB%9F%B0%EB%93%9C%EB%A6%AC%EA%B3%A0%EB%94%95%20Bold%20SDF.asset?fileID=11400000&guid=127137129a977504aa8f89a7bdadd8c3&type=2#런드리고딕 Bold SDF');
     font-size: 50px;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
@@ -21,4 +21,5 @@
     scale: 1.2 1.2;
     transition-duration: 0.3s;
     background-color: rgb(154, 154, 154);
+    -unity-font-definition: url('project://database/Assets/09.%20Ponts/MaplestoryFont_TTF%20(1)/%EB%9F%B0%EB%93%9C%EB%A6%AC%EA%B3%A0%EB%94%95%20Bold%20SDF.asset?fileID=11400000&guid=127137129a977504aa8f89a7bdadd8c3&type=2#런드리고딕 Bold SDF');
 }

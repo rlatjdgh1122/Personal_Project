@@ -60,10 +60,10 @@ public class PlayerInput : MonoBehaviour, IPlayerHandle
     }
     private void Rolling()
     {
-       /* if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             OnRollingKeyPress?.Invoke();
-        }*/
+        }
     }
     private void Reloading()
     {

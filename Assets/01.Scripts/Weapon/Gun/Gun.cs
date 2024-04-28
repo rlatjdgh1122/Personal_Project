@@ -22,6 +22,7 @@ public class Gun : Weapon
 
     public bool delayCoroutine = false;
 
+    private Coroutine delayCorou = null;
     #region AMMO 관련 코드들
     [SerializeField]
     protected int ammo;
@@ -84,6 +85,11 @@ public class Gun : Weapon
     }
     private void FinishOneShooting()
     {
+        if (delayCorou != null)
+        {
+            StopCoroutine(delayCorou);
+        }
+
         StartCoroutine(DelayNextShootCoroutine());
         if (gunData.autoFire == false)
         {
@@ -133,6 +139,8 @@ public class Gun : Weapon
     }
     public override void Reloading()
     {
+        Debug.Log("S :" + Ammo);
         Ammo = gunData.ammocapacity;
+        Debug.Log("E :" + Ammo);
     }
 }

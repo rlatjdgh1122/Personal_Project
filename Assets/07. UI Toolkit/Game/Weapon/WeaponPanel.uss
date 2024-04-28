@@ -4,6 +4,7 @@
     -unity-background-image-tint-color: rgb(255, 255, 255);
     background-color: rgb(56, 56, 56);
     transition-duration: 0.3s;
+    -unity-font-definition: url('project://database/Assets/09.%20Ponts/MaplestoryFont_TTF%20(1)/%EB%9F%B0%EB%93%9C%EB%A6%AC%EA%B3%A0%EB%94%95%20Bold%20SDF.asset?fileID=11400000&guid=127137129a977504aa8f89a7bdadd8c3&type=2#런드리고딕 Bold SDF');
 }
 
 .cardContainer {
@@ -15,6 +16,7 @@
     flex-direction: column;
     justify-content: space-around;
     color: rgb(135, 135, 135);
+    -unity-font-definition: url('project://database/Assets/09.%20Ponts/MaplestoryFont_TTF%20(1)/%EB%9F%B0%EB%93%9C%EB%A6%AC%EA%B3%A0%EB%94%95%20Bold%20SDF.asset?fileID=11400000&guid=127137129a977504aa8f89a7bdadd8c3&type=2#런드리고딕 Bold SDF');
 }
 
 .card:hover {
@@ -27,7 +29,7 @@
     background-color: rgb(255, 0, 0);
     transition-duration: 0.1s;
     font-size: 35px;
-    -unity-font-definition: url('project://database/Assets/09.%20Ponts/MaplestoryFont_TTF%20(1)/Maplestory%20Bold%20SDF%201.asset?fileID=11400000&guid=fc4056be0db5c7e4a9f5d7b0ae4a16a4&type=2#Maplestory Bold SDF 1');
+    -unity-font-definition: url('project://database/Assets/09.%20Ponts/MaplestoryFont_TTF%20(1)/%EB%9F%B0%EB%93%9C%EB%A6%AC%EA%B3%A0%EB%94%95%20Bold%20SDF.asset?fileID=11400000&guid=127137129a977504aa8f89a7bdadd8c3&type=2#런드리고딕 Bold SDF');
     color: rgb(226, 226, 226);
     width: 200px;
     height: 70px;
@@ -41,9 +43,11 @@
     color: rgb(255, 255, 255);
     background-color: rgb(255, 133, 133);
     scale: 1.1 1.2;
+    -unity-font-definition: url('project://database/Assets/09.%20Ponts/MaplestoryFont_TTF%20(1)/%EB%9F%B0%EB%93%9C%EB%A6%AC%EA%B3%A0%EB%94%95%20Bold%20SDF.asset?fileID=11400000&guid=127137129a977504aa8f89a7bdadd8c3&type=2#런드리고딕 Bold SDF');
 }
 
 .refresh-disabled {
     background-color: rgba(204, 101, 101, 0.53);
     color: rgb(173, 172, 172);
+    -unity-font-definition: url('project://database/Assets/09.%20Ponts/MaplestoryFont_TTF%20(1)/%EB%9F%B0%EB%93%9C%EB%A6%AC%EA%B3%A0%EB%94%95%20Bold%20SDF.asset?fileID=11400000&guid=127137129a977504aa8f89a7bdadd8c3&type=2#런드리고딕 Bold SDF');
 }
