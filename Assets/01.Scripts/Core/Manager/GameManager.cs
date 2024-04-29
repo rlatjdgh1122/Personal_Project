@@ -66,45 +66,37 @@ public class GameManager : MonoBehaviour
     {
         if (weapons[0] != null && Input.GetKeyDown(KeyCode.Alpha1))
         {
-            ui_Controller.interfaceUI.Select_Weapon(0);
-
             Select(0);
-            _playerController.currentWeapon = weapons[0];
         }
         else if (weapons[1] != null && Input.GetKeyDown(KeyCode.Alpha2))
         {
-            ui_Controller.interfaceUI.Select_Weapon(1);
-
             Select(1);
-            _playerController.currentWeapon = weapons[1];
         }
         else if (weapons[2] != null && Input.GetKeyDown(KeyCode.Alpha3))
         {
-            ui_Controller.interfaceUI.Select_Weapon(2);
-
             Select(2);
-            _playerController.currentWeapon = weapons[2];
         }
         else if (weapons[3] != null && Input.GetKeyDown(KeyCode.Alpha4))
         {
-            ui_Controller.interfaceUI.Select_Weapon(3);
             Select(3);
-
-            _playerController.currentWeapon = weapons[3];
         }
     }
     #region ÃÑ°ü·Ã
     public void Start_WeaponSetting()
     {
-        ui_Controller.interfaceUI.Select_Weapon(0);
-
         Select(0);
-        _playerController.currentWeapon = weapons[0];
     }
     private void Select(int idx)
     {
+        ui_Controller.interfaceUI.Select_Weapon(idx);
         weaponObjs[idx].SetActive(true);
         weaponObjs.Select(idx, p => p?.SetActive(false));
+
+        Gun swapedGun = weapons[idx] as Gun;
+        _playerController.currentWeapon = swapedGun;
+
+        SignalHub.OnChagnedGun?.Invoke(swapedGun);
+        SignalHub.OnModifyBulletCount?.Invoke(swapedGun.Ammo, swapedGun.gunData.ammocapacity);
     }
 
     public void CreateWeapon(string weaponName)

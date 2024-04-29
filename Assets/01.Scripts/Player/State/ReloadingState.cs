@@ -29,8 +29,8 @@ public class ReloadingState : CommonState
     private void OnReloadingEndHandle()
     {
         if (_timer < _animationThreshold) return;
-        _playerController.currentWeapon.Reloading();
-        Debug.Log(_playerController.currentWeapon);
+        Gun curGun = _playerController.currentWeapon;
+        curGun.Reloading();
         _playerController.ChangeState(StateType.Normal);
     }
 

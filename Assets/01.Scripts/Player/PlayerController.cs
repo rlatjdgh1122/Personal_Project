@@ -4,7 +4,7 @@ using UnityEngine;
 using Core;
 public class PlayerController : MonoBehaviour
 {
-    public IWeaponable currentWeapon;
+    public Gun currentWeapon;
 
     public PlayerDataSO playerData;
     private Dictionary<StateType, IState> _stateDictionary = null;

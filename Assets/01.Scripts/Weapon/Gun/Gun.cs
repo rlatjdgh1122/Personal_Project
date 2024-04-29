@@ -10,8 +10,7 @@ public class Gun : Weapon
     public GameObject bullet;
     [SerializeField]
     protected Transform firePos;
-
-    private GameObject pt => transform.Find("Paticle").gameObject;
+    protected GameObject pt => transform.Find("Paticle").gameObject;
 
     public UnityEvent OnShoot;
     public UnityEvent OnShootNoAmmo;
@@ -31,7 +30,7 @@ public class Gun : Weapon
         get { return ammo; }
         set
         {
-            ammo = Math.Clamp(value, 0, gunData.ammocapacity);
+            ammo = Math.Clamp(value, -1, gunData.ammocapacity);
         }
     }
     public bool AmmoFull => Ammo == gunData.ammocapacity;
@@ -43,8 +42,9 @@ public class Gun : Weapon
         Ammo = gunData.ammocapacity;
         pt.SetActive(false);
     }
-    private void OnEnable()
+    protected void OnEnable()
     {
+        delayCoroutine = false;
         Hiden_Particle();
 
         if (gunData.animController != null)
@@ -65,7 +65,7 @@ public class Gun : Weapon
     {
         if (_isShooting == true && delayCoroutine == false)
         {
-            if (Ammo > 0)
+            if (Ammo >= 0)
             {
                 OnShoot?.Invoke();
                 for (int i = 0; i < gunData.bulletCount; i++)
@@ -107,6 +107,8 @@ public class Gun : Weapon
     {
         SpawnBullet();
         SoundManager.Instance.PlayerSoundName(playerSoundName);
+        SignalHub.OnModifyBulletCount?.Invoke(Ammo, gunData.ammocapacity);
+
         pt.SetActive(true);
         Invoke("Hiden_Particle", .1f);
     }
@@ -115,7 +117,7 @@ public class Gun : Weapon
         pt.SetActive(false);
     }
 
-    private void SpawnBullet()
+    protected virtual void SpawnBullet()
     {
         Vector3 randomPosition = Random.insideUnitSphere; //이부분 수정필요
         Vector3 resultPos = randomPosition * gunData.spreadAngle + transform.forward;
@@ -139,8 +141,7 @@ public class Gun : Weapon
     }
     public override void Reloading()
     {
-        Debug.Log("S :" + Ammo);
         Ammo = gunData.ammocapacity;
-        Debug.Log("E :" + Ammo);
+        SignalHub.OnModifyBulletCount.Invoke(Ammo, gunData.ammocapacity);
     }
 }
