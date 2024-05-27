@@ -668,7 +668,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  txt: {fileID: 3349033464499555597, guid: 6d5510e033fa60c46bce492b283b9f0c, type: 3}
 --- !u!114 &6825766697330180050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3967,7 +3966,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cfac667cfa571349868ec24de4e9f7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _decisions: []
+  _decisions:
+  - {fileID: 6825766698985121458}
   _nextState: {fileID: 6825766699163045033}
 --- !u!114 &6825766698985121458
 MonoBehaviour:
