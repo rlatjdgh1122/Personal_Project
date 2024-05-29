@@ -14,7 +14,7 @@ public class AITransition : MonoBehaviour
     public void SetUp(Transform parentRoot)
     {
         _decisions = new List<AIDecision>();
-        GetComponents<AIDecision>(_decisions); //모든 디시전 가져오고
+        GetComponents(_decisions); //모든 디시전 가져오고
         _decisions.ForEach(d => d.SetUp(parentRoot)); //가지고 있는 모든 디시전들 셋업
     }
 
