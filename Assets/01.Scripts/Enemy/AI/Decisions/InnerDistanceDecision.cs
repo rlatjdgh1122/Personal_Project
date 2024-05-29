@@ -26,7 +26,7 @@ public class InnerDistanceDecision : AIDecision
     }
 
 #if UNITY_EDITOR
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         if (UnityEditor.Selection.activeObject == gameObject)
         {
