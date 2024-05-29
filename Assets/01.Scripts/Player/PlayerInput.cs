@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using static Core.Core;
 
 public class PlayerInput : MonoBehaviour, IPlayerHandle
 {
@@ -10,6 +9,9 @@ public class PlayerInput : MonoBehaviour, IPlayerHandle
     public event Action OnFireButtonRelease = null; //공격키를 땠을때
     public event Action OnReloadButtonPress = null; //공격키를 땠을때
 
+    private bool fireButtonDown = false;
+    private Vector3 movement;
+
     void Update()
     {
         Move();
@@ -17,9 +19,6 @@ public class PlayerInput : MonoBehaviour, IPlayerHandle
         Rolling();
         Reloading();
     }
-
-    private bool fireButtonDown = false;
-    private Vector3 movement;
 
     public void Attack()
     {
