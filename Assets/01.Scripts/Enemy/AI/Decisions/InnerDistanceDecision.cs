@@ -28,13 +28,10 @@ public class InnerDistanceDecision : AIDecision
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
-        if (UnityEditor.Selection.activeObject == gameObject)
-        {
-            Color old = Gizmos.color;
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(transform.position, _distance);
-            Gizmos.color = old;
-        }
+        Color old = Gizmos.color;
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, _distance);
+        Gizmos.color = old;
     }
 #endif
 }
